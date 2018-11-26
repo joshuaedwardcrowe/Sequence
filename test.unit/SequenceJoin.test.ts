@@ -21,7 +21,7 @@ describe("SequenceJoin",  () => {
             });
             it("Adds a conditional to the condition's conditionals collection", () => {
                 const join = new SequenceJoin(Join.Inner, "table");
-                join.condition = new SequenceCondition(Condition.On, CoalescingOperator.And)
+                join.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
                 expect(join.condition.conditionals).to.be.empty;
                 join.on(new SequenceColumn(Predicate.None, "name"), LogicalOperator.Equality, `'name'`);
                 join.on(new SequenceColumn(Predicate.Count, "age"), LogicalOperator.Division, 5);
@@ -52,7 +52,7 @@ describe("SequenceJoin",  () => {
                     expect(join.condition.conditionals[i]).instanceOf(SequenceConditional)
                 }
             })
-        })
+        });
         describe("onIn", () => {
             it("Sets the condition to a condition with a type of On", () => {
                 const join = new SequenceJoin(Join.Inner, "table");

@@ -20,14 +20,14 @@ describe("SequenceConditional",  () => {
              const conditional = SequenceConditional.stringifyConditional(Conditional.Logical);
              expect(conditional).to.equal("")
          });
-           it("Stringifies an In conditional", () => {
+         it("Stringifies an In conditional", () => {
                const conditional = SequenceConditional.stringifyConditional(Conditional.In);
                expect(conditional).to.equal("IN");
-           })
+         });
          it("Stringifies a Not In conditional", () => {
              const conditional = SequenceConditional.stringifyConditional(Conditional.NotIn);
              expect(conditional).to.equal("NOT IN");
-         })
+         });
        });
     });
 });

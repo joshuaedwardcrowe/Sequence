@@ -24,7 +24,7 @@ describe("SequenceColumn",  () => {
             it("Stringifies a None predicate", () => {
                 const predicate = SequenceColumn.stringifyPredicate(Predicate.None);
                 expect(predicate).to.equal("");
-            })
+            });
             it("Stringifies a Distinct predicate", () => {
                 const predicate = SequenceColumn.stringifyPredicate(Predicate.Distinct);
                 expect(predicate).to.equal("DISTINCT");
@@ -32,7 +32,7 @@ describe("SequenceColumn",  () => {
             it("Stringifies a Count predicate", () => {
                 const predicate = SequenceColumn.stringifyPredicate(Predicate.Count);
                 expect(predicate).to.equal("COUNT");
-            })
+            });
         })
     })
 });

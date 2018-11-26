@@ -10,7 +10,7 @@ import {SequenceSorting} from "../src/SequenceSorting";
 import {LimitDefault} from "../src/defaults/LimitDefault";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 
-class TestBuilder extends SequenceBuilder implements ISequenceBuilder {};
+class TestBuilder extends SequenceBuilder implements ISequenceBuilder {}
 
 describe("SequenceBuilder",  () => {
     describe("Instance Methods",  () => {

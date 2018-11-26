@@ -61,18 +61,18 @@ describe("LogicalConditional",  () => {
            it("Stringifies a Less Than or Equality operator", () => {
                const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.LessThanOrEquality);
                expect(operator).to.equal("<=")
-           })
-            it("Stringifies a Less Than operator", () => {
+           });
+           it("Stringifies a Less Than operator", () => {
                 const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.LessThan);
                 expect(operator).to.equal("<");
-            });
-            it("Stringifies a Division operator", () => {
+           });
+           it("Stringifies a Division operator", () => {
                 const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.Division);
                 expect(operator).to.equal("/");
             });
-            it("Stringifies a Modulo operator", () => {
+           it("Stringifies a Modulo operator", () => {
                const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.Modulo);
-               expect(operator).to.equal("%")
+               expect(operator).to.equal("%");
             });
         });
     })
