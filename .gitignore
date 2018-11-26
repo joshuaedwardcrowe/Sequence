@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+.idea/
+gulpfile.js
+gulpfile.js.map
+*.js
+*.js.map
+dist/
