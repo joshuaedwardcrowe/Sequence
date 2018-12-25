@@ -31,5 +31,4 @@ export class SequenceColumn extends SequencePart implements ISequenceColumn {
         }
     }
 
-
 }

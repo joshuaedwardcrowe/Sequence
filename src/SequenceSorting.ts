@@ -27,5 +27,4 @@ export class SequenceSorting extends SequencePart implements ISequencePart, ISeq
         }
     }
 
-
 }

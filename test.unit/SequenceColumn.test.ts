@@ -33,6 +33,6 @@ describe("SequenceColumn",  () => {
                 const predicate = SequenceColumn.stringifyPredicate(Predicate.Count);
                 expect(predicate).to.equal("COUNT");
             });
-        })
-    })
+        });
+    });
 });

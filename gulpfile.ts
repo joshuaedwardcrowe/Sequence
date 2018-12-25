@@ -12,22 +12,21 @@ import { open } from "fs";
 // TODO: Move to a config file.
 const TS_SETTINGS: Settings = {
     declaration: true,
-    module: "commonjs",
     lib: ["es2018"],
+    module: "commonjs",
     target: "es2018"
 };
 const TD_SETTINGS: Options = {
-    module: "commonjs",
-    target: "es2018",
-    out: "docs/",
     mode: "file",
+    module: "commonjs",
     name: "Gallink Sequence",
+    out: "docs/",
+    target: "es2018",
 
 };
 
 // TODO: Move to a config file.
 const DEPLOYMENT_FOLDERS = ["docs", "typings", "dist"];
-
 
 // TODO: Move to a utility file.
 function readFileContents (pathToReadFrom: string, fileSystemEncoding: string): Promise<string> {
@@ -165,5 +164,3 @@ task("build", series([
     "generateDocs",
     "disableJekyll"
 ]));
-
-

@@ -4,7 +4,7 @@ import {ISequencePart} from "./ISequencePart";
 
 export interface ISequenceJoin extends ISequencePart {
 
-    readonly join: Join
+    readonly join: Join;
 
     readonly location: string;
 

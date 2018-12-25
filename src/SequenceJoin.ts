@@ -23,7 +23,7 @@ export class SequenceJoin extends SequencePart implements ISequenceJoin {
         this.location = location;
     }
 
-    on (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: string|number) {
+    public on (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: string|number) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
         this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, comparisonValue));
         return this;
@@ -45,7 +45,7 @@ export class SequenceJoin extends SequencePart implements ISequenceJoin {
 
     public static stringifyJoinType(joinType: Join): string {
         switch (joinType) {
-            default: return `${Join[joinType].toUpperCase()} JOIN`
+            default: return `${Join[joinType].toUpperCase()} JOIN`;
         }
     }
 

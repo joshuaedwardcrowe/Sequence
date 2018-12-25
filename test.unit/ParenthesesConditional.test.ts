@@ -16,7 +16,7 @@ describe("ParenthesesConditional",  () => {
                 const column = new SequenceColumn(Predicate.None, "name");
                 const conditional = new ParenthesesConditional(Conditional.NotIn, column, `'john'`, `'james'`);
                 expect(conditional.stringify()).to.equal("name NOT IN ('john', 'james')");
-            })
+            });
         });
     });
 });

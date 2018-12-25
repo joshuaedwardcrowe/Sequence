@@ -25,5 +25,4 @@ export class SequenceLocation extends SequencePart implements ISequenceLocation 
         }
     }
 
-
 }

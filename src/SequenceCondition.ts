@@ -27,7 +27,7 @@ export class SequenceCondition extends SequencePart implements ISequenceConditio
 
     public static stringifyCondition (condition: Condition): string {
         switch (condition) {
-            default: return Condition[condition].toUpperCase()
+            default: return Condition[condition].toUpperCase();
         }
     }
 

@@ -10,5 +10,5 @@ describe("SequenceOperation",  () => {
                 expect(operation).to.equal("SELECT");
             });
         });
-    })
+    });
 });
