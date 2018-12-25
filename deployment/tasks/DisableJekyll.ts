@@ -1,7 +1,10 @@
 import {task} from "gulp";
 import {open} from "fs";
 
-task("DisableJekyll", done => {
-    const callback = (err: Error) => done(err ? err : undefined);
-    open("./docs/.nojekyll", "w", callback);
+task("DisableJekyll", (done: any) => {
+
+    const fileOpened = (error: Error) => done(error ? error : undefined);
+
+    open("./docs/.nojekyll", "w", fileOpened);
+
 });

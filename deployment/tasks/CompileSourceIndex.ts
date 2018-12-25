@@ -1,11 +1,13 @@
-import {task} from "gulp";
+import {task, dest, src} from "gulp";
 import * as ts from "gulp-typescript";
-import {TS_SETTINGS} from "../gulpfile.settings";
-import {dest, src} from "gulp";
+import {TYPESCRIPT} from "../gulpfile.settings";
 
-task("CompileSourceIndex", () => {
-    const typescript = ts(TS_SETTINGS);
+task("CompileSourceIndex", (): NodeJS.ReadWriteStream => {
+
+    const typescript = ts(TYPESCRIPT);
+
     return src("sequence.ts")
         .pipe(typescript)
         .js.pipe(dest("dist/"));
+
 });

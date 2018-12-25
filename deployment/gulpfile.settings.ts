@@ -1,13 +1,13 @@
 import {Settings} from "gulp-typescript";
 import {Options} from "gulp-typedoc";
 
-export const TS_SETTINGS: Settings = {
+export const TYPESCRIPT: Settings = {
     declaration: true,
     lib: ["es2018"],
     module: "commonjs",
     target: "es2018"
 };
-export const TD_SETTINGS: Options = {
+export const TYPEDOC: Options = {
     mode: "file",
     module: "commonjs",
     name: "Gallink Sequence",
