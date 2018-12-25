@@ -18,5 +18,5 @@ describe("SequenceLocation",  () => {
                 expect(location).to.equal("FROM");
             });
         });
-    })
+    });
 });

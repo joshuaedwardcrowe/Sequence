@@ -18,7 +18,7 @@ describe("SequenceConditional",  () => {
        describe("stringifyConditional", () => {
          it("Stringifies a Logical conditional", () => {
              const conditional = SequenceConditional.stringifyConditional(Conditional.Logical);
-             expect(conditional).to.equal("")
+             expect(conditional).to.equal("");
          });
          it("Stringifies an In conditional", () => {
                const conditional = SequenceConditional.stringifyConditional(Conditional.In);

@@ -1,5 +1,3 @@
-enum Location {
+export enum Location {
     From
 }
-
-export default Location

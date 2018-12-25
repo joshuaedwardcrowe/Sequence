@@ -26,7 +26,7 @@ describe("SequenceSorting",  () => {
             it("Stringifies a Descending arrangement", () => {
                 const arrangement = SequenceSorting.stringifyArrangement(Arrangement.Descending);
                 expect(arrangement).to.equal("DESCENDING");
-            })
-        })
-    })
+            });
+        });
+    });
 });

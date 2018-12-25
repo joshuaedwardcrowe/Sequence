@@ -12,7 +12,7 @@ describe("SequencePart",  () => {
             it("Stringifies an AND coalescing operator", () => {
                 const operator = SequencePart.stringifyCoalescingOperator(CoalescingOperator.And);
                 expect(operator).to.equal("AND");
-            })
+            });
         });
-    })
+    });
 });

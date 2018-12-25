@@ -1,8 +1,8 @@
-import Operation from "../enums/Operation";
 import {ISequenceColumn} from "./ISequenceColumn";
 import {ISequencePart} from "./ISequencePart";
+import {Operation} from "../enums/Operation";
 
-export default interface ISequenceOperation extends ISequencePart {
+export interface ISequenceOperation extends ISequencePart {
 
     readonly operation: Operation;
     readonly columns: ISequenceColumn[];

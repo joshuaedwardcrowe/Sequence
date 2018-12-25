@@ -1,10 +1,10 @@
 import {Join} from "../enums/Join";
-import ISequenceCondition from "./ISequenceCondition";
+import {ISequenceCondition} from "./ISequenceCondition";
 import {ISequencePart} from "./ISequencePart";
 
 export interface ISequenceJoin extends ISequencePart {
 
-    readonly join: Join
+    readonly join: Join;
 
     readonly location: string;
 

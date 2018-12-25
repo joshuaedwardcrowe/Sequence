@@ -1,6 +1,6 @@
-import ISequenceCondition from "./interfaces/ISequenceCondition";
+import {ISequenceCondition} from "./interfaces/ISequenceCondition";
 import {SequencePart} from "./SequencePart";
-import Condition from "./enums/Condition";
+import {Condition} from "./enums/Condition";
 import {ISequenceConditional} from "./interfaces/ISequenceConditional";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
 
@@ -27,7 +27,7 @@ export class SequenceCondition extends SequencePart implements ISequenceConditio
 
     public static stringifyCondition (condition: Condition): string {
         switch (condition) {
-            default: return Condition[condition].toUpperCase()
+            default: return Condition[condition].toUpperCase();
         }
     }
 

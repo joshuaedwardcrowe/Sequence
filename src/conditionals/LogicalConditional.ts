@@ -4,7 +4,6 @@ import {ISequenceColumn} from "../interfaces/ISequenceColumn";
 import {ISequenceConditional} from "../interfaces/ISequenceConditional";
 import {SequenceConditional} from "../SequenceConditional";
 
-
 export class LogicalConditional extends SequenceConditional implements ISequenceConditional {
 
     public readonly logicalOperator: LogicalOperator;

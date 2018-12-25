@@ -1,5 +1,5 @@
-import Operation from "../enums/Operation";
-import ISequenceOperation from "../interfaces/ISequenceOperation";
+import {Operation} from "../enums/Operation";
+import {ISequenceOperation} from "../interfaces/ISequenceOperation";
 import {ISequencePart} from "../interfaces/ISequencePart";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
 import {SequenceOperation} from "../SequenceOperation";

@@ -7,7 +7,6 @@ import {LogicalOperator} from "../src/enums/LogicalOperator";
 import {LogicalConditional} from "../src/conditionals/LogicalConditional";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 
-
 describe("SequenceCondition",  () => {
     describe("Instance Methods",  () => {
         describe("stringify", () => {
@@ -31,8 +30,8 @@ describe("SequenceCondition",  () => {
             });
             it("Stringifies an ON condition", () => {
                 const condition = SequenceCondition.stringifyCondition(Condition.On);
-                expect(condition).to.equal("ON")
-            })
-        })
-    })
+                expect(condition).to.equal("ON");
+            });
+        });
+    });
 });

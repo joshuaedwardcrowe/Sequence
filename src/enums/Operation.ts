@@ -1,5 +1,3 @@
-enum Operation {
+export enum Operation {
     Select
 }
-
-export default Operation

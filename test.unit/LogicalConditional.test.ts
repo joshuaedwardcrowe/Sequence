@@ -48,19 +48,19 @@ describe("LogicalConditional",  () => {
         describe("stringifyLogicalOperator", () => {
            it("Stringifies a Greater Than operator", () => {
               const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.GreaterThan);
-              expect(operator).to.equal(">")
+              expect(operator).to.equal(">");
            });
            it("Stringifies a Greater Than Or Equality operator", () => {
                const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.GreaterThanOrEquality);
-               expect(operator).to.equal(">=")
+               expect(operator).to.equal(">=");
            });
            it("Stringifies an Equality operator", () => {
                const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.Equality);
-               expect(operator).to.equal("=")
+               expect(operator).to.equal("=");
            });
            it("Stringifies a Less Than or Equality operator", () => {
                const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.LessThanOrEquality);
-               expect(operator).to.equal("<=")
+               expect(operator).to.equal("<=");
            });
            it("Stringifies a Less Than operator", () => {
                 const operator = LogicalConditional.stringifyLogicalOperator(LogicalOperator.LessThan);
@@ -75,5 +75,5 @@ describe("LogicalConditional",  () => {
                expect(operator).to.equal("%");
             });
         });
-    })
+    });
 });
