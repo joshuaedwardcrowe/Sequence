@@ -1,6 +1,6 @@
-import ISequenceOperation from "./interfaces/ISequenceOperation";
+import {ISequenceOperation} from "./interfaces/ISequenceOperation";
 import {SequencePart} from "./SequencePart";
-import Operation from "./enums/Operation";
+import {Operation} from "./enums/Operation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 
 export abstract class SequenceOperation extends SequencePart implements ISequenceOperation {

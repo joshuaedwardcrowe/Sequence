@@ -2,7 +2,7 @@ import {ISequenceJoin} from "./interfaces/ISequenceJoin";
 import {Join} from "./enums/Join";
 import {SequencePart} from "./SequencePart";
 import {SequenceCondition} from "./SequenceCondition";
-import Condition from "./enums/Condition";
+import {Condition} from "./enums/Condition";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {LogicalOperator} from "./enums/LogicalOperator";
 import {LogicalConditional} from "./conditionals/LogicalConditional";
