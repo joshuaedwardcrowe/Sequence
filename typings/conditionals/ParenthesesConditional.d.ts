@@ -7,4 +7,4 @@ export declare class ParenthesesConditional extends SequenceConditional implemen
     constructor(conditionalType: Conditional, column: ISequenceColumn, ...values: string[]);
     stringify(): string;
 }
-//# sourceMappingURL=ParenthesesConditional.d.ts.map
+//# sourceMappingURL=CriteriaConditional.d.ts.map

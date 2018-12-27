@@ -12,7 +12,7 @@ import {SequenceCondition} from "./SequenceCondition";
 import {SequenceColumn} from "./SequenceColumn";
 import {SequenceLocation} from "./SequenceLocation";
 import {LogicalConditional} from "./conditionals/LogicalConditional";
-import {ParenthesesConditional} from "./conditionals/ParenthesesConditional";
+import {CriteriaConditional} from "./conditionals/CriteriaConditional";
 
 export class Select extends SequenceBuilder implements ISequenceBuilder {
 
@@ -40,12 +40,12 @@ export class Select extends SequenceBuilder implements ISequenceBuilder {
 
     public whereIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        this.condition.conditionals.push(new ParenthesesConditional(Conditional.In, column, ...values));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...values));
     }
 
     public whereNotIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        this.condition.conditionals.push(new ParenthesesConditional(Conditional.NotIn, column, ...values));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...values));
     }
 
     public stringify () {
