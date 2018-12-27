@@ -2,6 +2,7 @@
 export {ISequenceBuilder} from "./src/interfaces/ISequenceBuilder";
 export {SequenceBuilder} from "./src/SequenceBuilder";
 export {Select} from "./src/Select";
+export {Insert} from "./src/Insert";
 
 // Misc
 export {Predicate} from "./src/enums/Predicate";
@@ -33,7 +34,7 @@ export {Conditional} from "./src/enums/Conditional";
 export {ISequenceConditional} from "./src/interfaces/ISequenceConditional";
 export {SequenceConditional} from "./src/SequenceConditional";
 export {LogicalConditional} from "./src/conditionals/LogicalConditional";
-export {ParenthesesConditional} from "./src/conditionals/ParenthesesConditional";
+export {CriteriaConditional} from "./src/conditionals/CriteriaConditional";
 
 // Defaults
 export {Arrangement} from "./src/enums/Arrangement";
