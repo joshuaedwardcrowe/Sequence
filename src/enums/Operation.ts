@@ -1,3 +1,4 @@
 export enum Operation {
-    Select
+    Select,
+    Insert
 }

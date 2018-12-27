@@ -1,5 +1,6 @@
 import {ISequencePart} from "./interfaces/ISequencePart";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
+import {Wrapping} from "./enums/Wrapping";
 
 export abstract class SequencePart implements ISequencePart {
 
@@ -15,6 +16,12 @@ export abstract class SequencePart implements ISequencePart {
         switch (coalescingOperator) {
             case CoalescingOperator.None: return "";
             default: return CoalescingOperator[coalescingOperator].toUpperCase();
+        }
+    }
+
+    public static stringifyWrapping (wrapping: Wrapping, values: any[]) {
+        switch (wrapping) {
+            case Wrapping.Parentheses: return `(${values.join(", ")})`;
         }
     }
 
