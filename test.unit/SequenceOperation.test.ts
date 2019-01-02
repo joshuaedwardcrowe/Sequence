@@ -1,6 +1,6 @@
 import {expect} from "chai";
 import {SequenceOperation} from "../src/SequenceOperation";
-import Operation from "../src/enums/Operation";
+import {Operation} from "../src/enums/Operation";
 
 describe("SequenceOperation",  () => {
     describe("Static Methods", () => {

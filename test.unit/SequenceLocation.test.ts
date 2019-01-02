@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import Location from "../src/enums/Location";
+import {Location} from "../src/enums/Location";
 import {SequenceLocation} from "../src/SequenceLocation";
 
 describe("SequenceLocation",  () => {

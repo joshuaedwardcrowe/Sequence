@@ -6,11 +6,10 @@ import {SequenceOperation} from "../SequenceOperation";
 
 export class SelectionOperation extends SequenceOperation implements ISequencePart, ISequenceOperation {
 
-    public readonly operation: Operation = Operation.Select;
     public readonly columns: ISequenceColumn[];
 
     constructor (...columns: ISequenceColumn[]) {
-        super();
+        super(Operation.Select);
 
         this.columns = columns;
     }

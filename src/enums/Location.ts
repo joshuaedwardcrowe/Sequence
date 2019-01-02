@@ -1,3 +1,4 @@
 export enum Location {
-    From
+    From,
+    Into
 }

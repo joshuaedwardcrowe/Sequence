@@ -6,7 +6,7 @@ import {Condition} from "./enums/Condition";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {LogicalOperator} from "./enums/LogicalOperator";
 import {LogicalConditional} from "./conditionals/LogicalConditional";
-import {ParenthesesConditional} from "./conditionals/ParenthesesConditional";
+import {CriteriaConditional} from "./conditionals/CriteriaConditional";
 import {Conditional} from "./enums/Conditional";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
 
@@ -31,12 +31,12 @@ export class SequenceJoin extends SequencePart implements ISequenceJoin {
 
     public onIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        this.condition.conditionals.push(new ParenthesesConditional(Conditional.In, column, ...values));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...values));
     }
 
     public onNotIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        this.condition.conditionals.push(new ParenthesesConditional(Conditional.NotIn, column, ...values));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...values));
     }
 
     public stringify (): string {

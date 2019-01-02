@@ -5,7 +5,7 @@ import {SequenceColumn} from "../src/SequenceColumn";
 import {Predicate} from "../src/enums/Predicate";
 import {LogicalOperator} from "../src/enums/LogicalOperator";
 import {SequenceCondition} from "../src/SequenceCondition";
-import Condition from "../src/enums/Condition";
+import {Condition} from "../src/enums/Condition";
 import {SequenceConditional} from "../src/SequenceConditional";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 

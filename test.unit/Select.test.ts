@@ -11,7 +11,7 @@ import {LogicalOperator} from "../src/enums/LogicalOperator";
 import {Operation} from "../src/enums/Operation";
 import {SequenceConditional} from "../src/SequenceConditional";
 import {LogicalConditional} from "../src/conditionals/LogicalConditional";
-import {ParenthesesConditional} from "../src/conditionals/ParenthesesConditional";
+import {CriteriaConditional} from "../src/conditionals/CriteriaConditional";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 
 describe("Select",  () => {
@@ -92,7 +92,7 @@ describe("Select",  () => {
                expect(select.condition.conditionals).to.not.be.empty;
                expect(select.condition.conditionals.length).to.equal(2);
                for (const conditional of select.condition.conditionals) {
-                   expect(conditional).instanceOf(ParenthesesConditional);
+                   expect(conditional).instanceOf(CriteriaConditional);
                }
            });
         });
@@ -113,7 +113,7 @@ describe("Select",  () => {
                 expect(select.condition.conditionals).to.not.be.empty;
                 expect(select.condition.conditionals.length).to.equal(2);
                 for (const conditional of select.condition.conditionals) {
-                    expect(conditional).instanceOf(ParenthesesConditional);
+                    expect(conditional).instanceOf(CriteriaConditional);
                 }
             });
         });

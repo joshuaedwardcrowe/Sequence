@@ -2,9 +2,11 @@ import {Conditional} from "../enums/Conditional";
 import {ISequenceConditional} from "../interfaces/ISequenceConditional";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
 import {SequenceConditional} from "../SequenceConditional";
+import {Wrapping} from "../enums/Wrapping";
 
-export class ParenthesesConditional extends SequenceConditional implements ISequenceConditional {
+export class CriteriaConditional extends SequenceConditional implements ISequenceConditional {
 
+    public readonly wrapping: Wrapping = Wrapping.Parentheses;
     public readonly values: any[];
 
     constructor (conditionalType: Conditional, column: ISequenceColumn, ...values: string[]) {
@@ -14,7 +16,8 @@ export class ParenthesesConditional extends SequenceConditional implements ISequ
     }
 
     public stringify (): string {
-        return `${super.stringify()} (${this.values.join(", ")})`;
+        const wrapped = SequenceConditional.stringifyWrapping(this.wrapping, this.values);
+        return `${super.stringify()} ${wrapped}`;
     }
 
 }

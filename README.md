@@ -4,6 +4,7 @@ Sequence is a versatile SQL string builder built with the a fluid API in mind --
 ## Usage
 To use this in your project, follow the simple examples below
 
+### SELECT Statements
 ```typescript
 // Create your column.
 const column: ISequenceColumn = new SequenceColumn(Predicate.None, "userName");
@@ -17,4 +18,19 @@ const select: ISequenceBuilder = new Select()
 // Stringify your statement.
 const sql: string = select.stringify();
 // SELECT * FROM user WHERE userName = 'Crowes'
+```
+### INSERT Statements
+```typescript
+// Create your columns.
+const columnA: ISequenceColumn = new SequenceColumn(Predicate.None, "userName")
+const columnB: ISequenceColumn = new SequenceColumn(Predicate.None, "userPassword")
+
+// Build your statement
+const insert: ISequenceBuilder = new Insert()
+    .into("user", columnA, columnB)
+    .values(`'crowes'`, 1234);
+
+// Stringify your statement.
+const sql: string = insert.stringify();
+// INSERT INTO user (userName, userPassword) VALUES ('crowes', 1234)
 ```
