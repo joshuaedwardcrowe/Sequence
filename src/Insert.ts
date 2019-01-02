@@ -25,9 +25,14 @@ export class Insert extends SequenceBuilder implements ISequenceBuilder {
         return this;
     }
 
-    public values (values: any[]) {
+    public values (...values: any[]) {
         this.supplement.values.push(...values);
         return this;
+    }
+
+    public stringify (): string {
+        const location = !!this.location ? `${this.location} ` : "";
+        return `${this.operation} ${location}${this.supplement}${super.stringify()}`.trim();
     }
 
 

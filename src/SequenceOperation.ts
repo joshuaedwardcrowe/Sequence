@@ -15,6 +15,10 @@ export class SequenceOperation extends SequencePart implements ISequenceOperatio
         this.columns = columns;
     }
 
+    public stringify(): string {
+        return SequenceOperation.stringifyOperation(this.operation);
+    }
+
     public static stringifyOperation(operationType: Operation) {
         return Operation[operationType].toUpperCase();
     }

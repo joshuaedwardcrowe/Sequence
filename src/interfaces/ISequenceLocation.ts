@@ -5,4 +5,6 @@ export interface ISequenceLocation extends ISequencePart {
 
     location: Location;
 
+    name: string;
+
 }
