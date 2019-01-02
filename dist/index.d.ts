@@ -1,3 +1,11 @@
+export declare class Insert extends SequenceBuilder implements ISequenceBuilder {
+    supplement: ISequenceSupplement;
+    constructor();
+    into(tableName: string, ...columns: ISequenceColumn[]): this;
+    values(...values: any[]): this;
+    stringify(): string;
+}
+
 export declare class Select extends SequenceBuilder implements ISequenceBuilder {
     all(): this;
     column(predicate: Predicate, columnName: string): this;
@@ -78,9 +86,11 @@ export declare class SequenceLocation extends SequencePart implements ISequenceL
     static stringifyLocation(location: Location): string;
 }
 
-export declare abstract class SequenceOperation extends SequencePart implements ISequenceOperation {
+export declare class SequenceOperation extends SequencePart implements ISequenceOperation {
     readonly operation: Operation;
     readonly columns: ISequenceColumn[];
+    constructor(operation: Operation, ...columns: ISequenceColumn[]);
+    stringify(): string;
     static stringifyOperation(operationType: Operation): string;
 }
 
@@ -88,6 +98,7 @@ export declare abstract class SequencePart implements ISequencePart {
     stringify(): string;
     toString(): string;
     static stringifyCoalescingOperator(coalescingOperator: CoalescingOperator): string;
+    static stringifyWrapping(wrapping: Wrapping, values: any[]): string;
 }
 
 export declare class SequenceSorting extends SequencePart implements ISequencePart, ISequenceSorting {
@@ -98,18 +109,28 @@ export declare class SequenceSorting extends SequencePart implements ISequencePa
     static stringifyArrangement(arrangement: Arrangement): string;
 }
 
+export declare class SequenceSupplement extends SequencePart implements ISequenceSupplement {
+    readonly supplement: Supplement;
+    readonly wrapping: Wrapping;
+    readonly values: any[];
+    constructor(supplement: Supplement, wrapping: Wrapping, ...values: any[]);
+    stringify(): string;
+    static stringifySupplement(supplement: Supplement): string;
+}
+
+export declare class CriteriaConditional extends SequenceConditional implements ISequenceConditional {
+    readonly wrapping: Wrapping;
+    readonly values: any[];
+    constructor(conditionalType: Conditional, column: ISequenceColumn, ...values: string[]);
+    stringify(): string;
+}
+
 export declare class LogicalConditional extends SequenceConditional implements ISequenceConditional {
     readonly logicalOperator: LogicalOperator;
     readonly value: string | number;
     constructor(column: ISequenceColumn, logicalOperator: LogicalOperator, value: string | number);
     stringify(): string;
     static stringifyLogicalOperator(logicalOperator: LogicalOperator): ">" | ">=" | "=" | "<" | "<=" | "/" | "%";
-}
-
-export declare class ParenthesesConditional extends SequenceConditional implements ISequenceConditional {
-    readonly values: any[];
-    constructor(conditionalType: Conditional, column: ISequenceColumn, ...values: string[]);
-    stringify(): string;
 }
 
 export declare class LimitDefault extends SequenceDefault implements ISequenceDefault {
@@ -150,7 +171,8 @@ export declare enum Join {
 }
 
 export declare enum Location {
-    From = 0
+    From = 0,
+    Into = 1
 }
 
 export declare enum LogicalOperator {
@@ -164,13 +186,22 @@ export declare enum LogicalOperator {
 }
 
 export declare enum Operation {
-    Select = 0
+    Select = 0,
+    Insert = 1
 }
 
 export declare enum Predicate {
     None = 0,
     Distinct = 1,
     Count = 2
+}
+
+export declare enum Supplement {
+    Values = 0
+}
+
+export declare enum Wrapping {
+    Parentheses = 0
 }
 
 export interface ISequenceBuilder {
@@ -216,6 +247,7 @@ export interface ISequenceJoin extends ISequencePart {
 
 export interface ISequenceLocation extends ISequencePart {
     location: Location;
+    name: string;
 }
 
 export interface ISequenceOperation extends ISequencePart {
@@ -232,8 +264,21 @@ export interface ISequenceSorting {
     arrangement: Arrangement;
 }
 
+export interface ISequenceSupplement extends ISequencePart {
+    readonly supplement: Supplement;
+    readonly wrapping: Wrapping;
+    readonly values: any[];
+}
+
+export declare class IntoLocation extends SequenceLocation implements ISequenceLocation {
+    readonly wrapping: Wrapping;
+    readonly columns: ISequenceColumn[];
+    constructor(tableName: string, ...columns: ISequenceColumn[]);
+    stringify(): string;
+    private getColumnsWithoutPredicate;
+}
+
 export declare class SelectionOperation extends SequenceOperation implements ISequencePart, ISequenceOperation {
-    readonly operation: Operation;
     readonly columns: ISequenceColumn[];
     constructor(...columns: ISequenceColumn[]);
     stringify(): string;

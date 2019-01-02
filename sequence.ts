@@ -7,6 +7,7 @@ export {Insert} from "./src/Insert";
 // Misc
 export {Predicate} from "./src/enums/Predicate";
 export {CoalescingOperator} from "./src/enums/CoalescingOperator";
+export {Wrapping} from "./src/enums/Wrapping";
 export {ISequencePart} from "./src/interfaces/ISequencePart";
 export {ISequenceColumn} from "./src/interfaces/ISequenceColumn";
 export {SequencePart} from "./src/SequencePart";
@@ -22,6 +23,7 @@ export {SelectionOperation} from "./src/operations/SelectionOperation";
 export {Location} from "./src/enums/Location";
 export {ISequenceLocation} from "./src/interfaces/ISequenceLocation";
 export {SequenceLocation} from "./src/SequenceLocation";
+export {IntoLocation} from "./src/locations/IntoLocation";
 
 // Conditions
 export {Condition} from "./src/enums/Condition";
@@ -42,6 +44,11 @@ export {Default} from "./src/enums/Default";
 export {ISequenceDefault} from "./src/interfaces/ISequenceDefault";
 export {SequenceDefault} from "./src/SequenceDefault";
 export {LimitDefault} from "./src/defaults/LimitDefault";
+
+// Supplements
+export {Supplement} from "./src/enums/Supplement";
+export {ISequenceSupplement} from "./src/interfaces/ISequenceSupplement";
+export {SequenceSupplement} from "./src/SequenceSupplement";
 
 // Joins
 export {Join} from "./src/enums/Join";
