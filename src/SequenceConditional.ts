@@ -2,8 +2,9 @@ import {SequencePart} from "./SequencePart";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {ISequenceConditional} from "./interfaces/ISequenceConditional";
 import {Conditional} from "./enums/Conditional";
+import {ISequenceCoalescable} from "./interfaces/ICoalescable";
 
-export class SequenceConditional extends SequencePart implements ISequenceConditional {
+export class SequenceConditional extends SequencePart implements ISequenceConditional, ISequenceCoalescable {
 
     public readonly conditional: Conditional;
     public readonly column: ISequenceColumn;

@@ -19,10 +19,8 @@ export class SequenceCondition extends SequencePart implements ISequenceConditio
     }
 
     public stringify (): string {
-        const conditionType = SequenceCondition.stringifyCondition(this.condition);
-        const coalescingOperator = SequencePart.stringifyCoalescingOperator(this.coalescingOperator);
-        const reducer = (a, c, i) => i > 0 ? `${a} ${coalescingOperator} ${c}` : `${a} ${c}`;
-        return this.conditionals.reduce<string>(reducer, conditionType);
+        const condition = SequenceCondition.stringifyCondition(this.condition);
+        return SequenceCondition.coalesce(condition, this.coalescingOperator, this.conditionals)
     }
 
     public static stringifyCondition (condition: Condition): string {
