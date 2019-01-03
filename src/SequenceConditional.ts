@@ -2,7 +2,7 @@ import {SequencePart} from "./SequencePart";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {ISequenceConditional} from "./interfaces/ISequenceConditional";
 import {Conditional} from "./enums/Conditional";
-import {ISequenceCoalescable} from "./interfaces/ICoalescable";
+import {ISequenceCoalescable} from "./interfaces/ISequenceCoalescable";
 
 export class SequenceConditional extends SequencePart implements ISequenceConditional, ISequenceCoalescable {
 

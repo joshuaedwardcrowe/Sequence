@@ -1,18 +1,18 @@
 import {Conditional} from "../enums/Conditional";
-import {ISequenceConditional} from "../interfaces/ISequenceConditional";
-import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {SequenceConditional} from "../SequenceConditional";
 import {Wrapping} from "../enums/Wrapping";
+import {ISequenceColumn} from "../interfaces/ISequenceColumn";
+import {ICriteriaConditional} from "../interfaces/ICriteriaConditional";
+import {SequenceConditional} from "../SequenceConditional";
 
-export class CriteriaConditional extends SequenceConditional implements ISequenceConditional {
+export class CriteriaConditional extends SequenceConditional implements ICriteriaConditional {
 
     public readonly wrapping: Wrapping = Wrapping.Parentheses;
     public readonly values: any[];
 
-    constructor (conditionalType: Conditional, column: ISequenceColumn, ...values: string[]) {
-        super(conditionalType, column);
+    constructor (conditional: Conditional, column: ISequenceColumn, ...values: any[]) {
+        super(conditional, column);
 
-        this.values = values;
+        this.values = values
     }
 
     public stringify (): string {
