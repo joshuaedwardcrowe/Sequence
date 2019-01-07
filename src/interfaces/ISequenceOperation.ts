@@ -5,6 +5,7 @@ import {Operation} from "../enums/Operation";
 export interface ISequenceOperation extends ISequencePart {
 
     readonly operation: Operation;
+
     readonly columns: ISequenceColumn[];
 
 }

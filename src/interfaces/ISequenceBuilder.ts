@@ -3,9 +3,9 @@ import {ISequenceOperation} from "./ISequenceOperation";
 import {ISequenceCondition} from "./ISequenceCondition";
 import {ISequenceLocation} from "./ISequenceLocation";
 import {ISequenceJoin} from "./ISequenceJoin";
-import {ISequenceDefault} from "./ISequenceDefault";
+import {ISequenceFormation} from "./ISequenceFormation";
 import {ISequenceColumn} from "./ISequenceColumn";
-import {LimitDefault} from "../defaults/LimitDefault";
+import {LimitFormation} from "../formations/LimitFormation";
 
 export interface ISequenceBuilder {
 
@@ -17,11 +17,11 @@ export interface ISequenceBuilder {
 
     joins: ISequenceJoin[];
 
-    ordering: ISequenceDefault;
+    ordering: ISequenceFormation;
 
-    grouping: ISequenceDefault;
+    grouping: ISequenceFormation;
 
-    limitation: LimitDefault;
+    limitation: LimitFormation;
 
     orderBy (column: ISequenceColumn, arrangement: Arrangement);
 

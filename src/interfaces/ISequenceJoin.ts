@@ -8,6 +8,6 @@ export interface ISequenceJoin extends ISequencePart {
 
     readonly location: string;
 
-    condition: ISequenceCondition;
+    readonly condition: ISequenceCondition;
 
 }

@@ -1,8 +1,9 @@
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {Predicate} from "./enums/Predicate";
 import {SequencePart} from "./SequencePart";
+import {ISequenceCoalescable} from "./interfaces/ISequenceCoalescable";
 
-export class SequenceColumn extends SequencePart implements ISequenceColumn {
+export class SequenceColumn extends SequencePart implements ISequenceColumn, ISequenceCoalescable {
 
     public predicate: Predicate;
     public name: string;

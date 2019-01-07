@@ -1,24 +1,21 @@
 import {Operation} from "../enums/Operation";
-import {ISequenceOperation} from "../interfaces/ISequenceOperation";
-import {ISequencePart} from "../interfaces/ISequencePart";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
 import {SequenceOperation} from "../SequenceOperation";
+import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
+import {CoalescingOperator} from "../enums/CoalescingOperator";
 
-export class SelectionOperation extends SequenceOperation implements ISequencePart, ISequenceOperation {
+export class SelectionOperation extends SequenceOperation implements ISequenceCoalescent {
 
-    public readonly columns: ISequenceColumn[];
+    public readonly coalescingOperator: CoalescingOperator = CoalescingOperator.Comma;
 
     constructor (...columns: ISequenceColumn[]) {
-        super(Operation.Select);
-
-        this.columns = columns;
+        super(Operation.Select, ...columns);
     }
 
     public stringify (): string {
-        const operation = SequenceOperation.stringifyOperation(this.operation);
+        const operation: string = SequenceOperation.stringifyOperation(this.operation);
         if (!this.columns.length) return `${operation} *`;
-        const reducer = (a, c, i) => i > 0 ? `${a}, ${c}` : `${a} ${c}`;
-        return this.columns.reduce<string>(reducer, operation);
+        return SelectionOperation.coalesce(operation, this.coalescingOperator, this.columns);
     }
 
 }

@@ -40,10 +40,10 @@ export {CriteriaConditional} from "./src/conditionals/CriteriaConditional";
 
 // Defaults
 export {Arrangement} from "./src/enums/Arrangement";
-export {Default} from "./src/enums/Default";
-export {ISequenceDefault} from "./src/interfaces/ISequenceDefault";
-export {SequenceDefault} from "./src/SequenceDefault";
-export {LimitDefault} from "./src/defaults/LimitDefault";
+export {Formation} from "./src/enums/Default";
+export {ISequenceFormation} from "./src/interfaces/ISequenceFormation";
+export {SequenceFormation} from "./src/SequenceFormation";
+export {LimitFormation} from "./src/formations/LimitFormation";
 
 // Supplements
 export {Supplement} from "./src/enums/Supplement";

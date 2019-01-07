@@ -1,148 +1,114 @@
+// Testing imports
 import {expect} from "chai";
-import {Select} from "../src/Select";
-import {Predicate} from "../src/enums/Predicate";
-import {SelectionOperation} from "../src/operations/SelectionOperation";
-import {SequenceColumn} from "../src/SequenceColumn";
-import {Location} from "../src/enums/Location";
-import {SequenceLocation} from "../src/SequenceLocation";
-import {SequenceCondition} from "../src/SequenceCondition";
-import {Condition} from "../src/enums/Condition";
-import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {Operation} from "../src/enums/Operation";
-import {SequenceConditional} from "../src/SequenceConditional";
-import {LogicalConditional} from "../src/conditionals/LogicalConditional";
-import {CriteriaConditional} from "../src/conditionals/CriteriaConditional";
-import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 
-describe("Select",  () => {
-    describe("Instance Methods",  () => {
+// Dependencies
+import {SelectionOperation} from "../src/operations/SelectionOperation";
+import {Predicate} from "../src/enums/Predicate";
+import {Operation} from "../src/enums/Operation";
+import {SequenceColumn} from "../src/SequenceColumn";
+import {SequenceLocation} from "../src/SequenceLocation";
+import {Location} from "../src/enums/Location";
+import {Condition} from "../src/enums/Condition";
+import {CoalescingOperator} from "../src/enums/CoalescingOperator";
+import {LogicalConditional} from "../src/conditionals/LogicalConditional";
+import {LogicalOperator} from "../src/enums/LogicalOperator";
+import {SequenceCondition} from "../src/SequenceCondition";
+
+// Tested import
+import {Select} from "../src/Select";
+
+// Test data
+const tableName: string = "table";
+let columnA: SequenceColumn;
+let columnB: SequenceColumn;
+
+beforeEach(() => {
+    columnA = new SequenceColumn(Predicate.None, "columnA");
+    columnB = new SequenceColumn(Predicate.None, "columnB");
+});
+
+describe("Select", () => {
+    describe("Instance Methods", () => {
         describe("all", () => {
-            it("Sets the operation to a SelectionOperation", () => {
-                const select = new Select();
+            it("Sets the operation to a {SelectionOperation}", () => {
+                const select: Select = new Select();
                 expect(select.operation).to.be.undefined;
                 select.all();
                 expect(select.operation).instanceOf(SelectionOperation);
             });
         });
         describe("column", () => {
-           it("Sets the operation to a SelectionOperation", () => {
-               const select = new Select();
-               expect(select.operation).to.be.undefined;
-               select.column(Predicate.None, "name");
-               expect(select.operation).instanceOf(SelectionOperation);
-               expect(select.operation.operation).to.equal(Operation.Select);
-           });
-           it("Adds a column to the operation column collection", () => {
-              const select = new Select();
-              select.operation = new SelectionOperation();
-              expect(select.operation.columns).to.be.empty;
-              select.column(Predicate.None, "name");
-              select.column(Predicate.None, "age");
-              expect(select.operation.columns).to.not.be.empty;
-              expect(select.operation.columns.length).to.equal(2);
-              for (const column of select.operation.columns) {
-                  expect(column).instanceOf(SequenceColumn);
-              }
-            });
-        });
-        describe("from", () => {
-           it("Sets the location to a location with a location of From", () => {
-              const select = new Select();
-              expect(select.location).to.be.undefined;
-              select.from("user");
-              expect(select.location).instanceOf(SequenceLocation);
-              expect(select.location.location).to.equal(Location.From);
-           });
-        });
-        describe("where", () => {
-            it("Sets the condition to a condition with a condition of Where", () => {
+            it("Sets the operation to a SelectionOperation", () => {
                 const select = new Select();
-                expect(select.condition).to.be.undefined;
-                select.where(new SequenceColumn(Predicate.None, "name"), LogicalOperator.Equality, "name");
-                expect(select.condition).instanceOf(SequenceCondition);
-                expect(select.condition.condition).to.equal(Condition.Where);
+                expect(select.operation).to.be.undefined;
+                select.column(columnA);
+                expect(select.operation).instanceOf(SelectionOperation);
+                expect(select.operation.operation).to.equal(Operation.Select);
             });
-            it("Adds a column to the condition conditionals collection", () => {
+            it("Adds a column to the operation column collection", () => {
                 const select = new Select();
-                select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-                expect(select.condition.conditionals).to.be.empty;
-                select.where(new SequenceColumn(Predicate.None, "name"), LogicalOperator.Equality, `'name'`);
-                select.where(new SequenceColumn(Predicate.Count, "age"), LogicalOperator.Equality, 25);
-                expect(select.condition.conditionals).to.not.be.empty;
-                expect(select.condition.conditionals.length).to.equal(2);
-                for (const conditional of select.condition.conditionals) {
-                    expect(conditional).instanceOf(SequenceConditional);
-                }
-            });
-        });
-        describe("whereIn", () => {
-           it("Sets the condition to a condition with a condition of Where", () => {
-               const select = new Select();
-               expect(select.condition).to.be.undefined;
-               select.whereIn(new SequenceColumn(Predicate.None, "name"), `'james'`, `'john'`);
-               expect(select.condition).instanceOf(SequenceCondition);
-               expect(select.condition.condition).to.equal(Condition.Where);
-           });
-           it("Adds a column to the condition conditionals collection", () => {
-               const select = new Select();
-               select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-               expect(select.condition.conditionals).to.be.empty;
-               select.whereIn(new SequenceColumn(Predicate.None, "name"), `'james'`, `'john'`);
-               select.whereIn(new SequenceColumn(Predicate.None, "age"), 1, 2, 3);
-               expect(select.condition.conditionals).to.not.be.empty;
-               expect(select.condition.conditionals.length).to.equal(2);
-               for (const conditional of select.condition.conditionals) {
-                   expect(conditional).instanceOf(CriteriaConditional);
-               }
-           });
-        });
-        describe("whereNotIn", () => {
-            it("Sets the condition to a condition with a condition of Where", () => {
-                const select = new Select();
-                expect(select.condition).to.be.undefined;
-                select.whereNotIn(new SequenceColumn(Predicate.None, "name"), `'james'`, `'john'`);
-                expect(select.condition).instanceOf(SequenceCondition);
-                expect(select.condition.condition).to.equal(Condition.Where);
-            });
-            it("Adds a column to the condition conditionals collection", () => {
-                const select = new Select();
-                select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-                expect(select.condition.conditionals).to.be.empty;
-                select.whereNotIn(new SequenceColumn(Predicate.None, "name"), `'james'`, `'john'`);
-                select.whereNotIn(new SequenceColumn(Predicate.None, "age"), 1, 2, 3);
-                expect(select.condition.conditionals).to.not.be.empty;
-                expect(select.condition.conditionals.length).to.equal(2);
-                for (const conditional of select.condition.conditionals) {
-                    expect(conditional).instanceOf(CriteriaConditional);
-                }
+                select.operation = new SelectionOperation();
+                expect(select.operation.columns).to.be.empty;
+                select.column(columnA);
+                select.column(columnB);
+                expect(select.operation.columns).to.not.be.empty;
+                expect(select.operation.columns.length).to.equal(2);
+                expect(select.operation.columns).to.include(columnA);
+                expect(select.operation.columns).to.include(columnB);
             });
         });
         describe("stringify", () => {
             it("Stringifies a wildcarded SELECT statement", () => {
-                const select = new Select();
+                const select: Select = new Select();
                 select.operation = new SelectionOperation();
                 expect(select.stringify()).to.equal("SELECT *");
             });
             it("Stringifies a columned SELECT statement", () => {
-               const select = new Select();
-               select.operation = new SelectionOperation();
-               select.operation.columns.push(new SequenceColumn(Predicate.None, "name"));
-               expect(select.stringify()).to.equal("SELECT name");
+                const select = new Select();
+                select.operation = new SelectionOperation();
+                select.operation.columns.push(columnA);
+                expect(select.stringify()).to.equal("SELECT columnA");
             });
             it("Stringifies a columned SELECT FROM statement", () => {
-                const select = new Select();
-                select.operation = new SelectionOperation(new SequenceColumn(Predicate.None, "name"));
-                select.location = new SequenceLocation(Location.From, "user");
-                expect(select.stringify()).to.equal("SELECT name FROM user");
+                const select: Select = new Select();
+                select.operation = new SelectionOperation(columnA);
+                select.location = new SequenceLocation(Location.From, tableName);
+                expect(select.stringify()).to.equal("SELECT columnA FROM table");
             });
             it("Stringifies a columned SELECT FROM WHERE statement", () => {
-                const select = new Select();
-                select.operation = new SelectionOperation(new SequenceColumn(Predicate.None, "name"));
-                select.location = new SequenceLocation(Location.From, "user");
+                const select: Select = new Select();
+                select.operation = new SelectionOperation(columnA);
+                select.location = new SequenceLocation(Location.From, tableName);
                 select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-                const conditionalColumn = new SequenceColumn(Predicate.None, "id");
-                select.condition.conditionals.push(new LogicalConditional(conditionalColumn, LogicalOperator.Equality, 25));
-                expect(select.stringify()).to.equal("SELECT name FROM user WHERE id = 25");
+                select.condition.conditionals.push(new LogicalConditional(columnB, LogicalOperator.Equality, 25));
+                expect(select.stringify()).to.equal("SELECT columnA FROM table WHERE columnB = 25");
+            });
+        });
+        describe("toString", () => {
+            it("Interpolates a wildcarded SELECT statement", () => {
+                const select: Select = new Select();
+                select.operation = new SelectionOperation();
+                expect(`${select}`).to.equal("SELECT *");
+            });
+            it("Stringifies a columned SELECT statement", () => {
+                const select = new Select();
+                select.operation = new SelectionOperation();
+                select.operation.columns.push(columnA);
+                expect(`${select}`).to.equal("SELECT columnA");
+            });
+            it("Stringifies a columned SELECT FROM statement", () => {
+                const select: Select = new Select();
+                select.operation = new SelectionOperation(columnA);
+                select.location = new SequenceLocation(Location.From, tableName);
+                expect(`${select}`).to.equal("SELECT columnA FROM table");
+            });
+            it("Stringifies a columned SELECT FROM WHERE statement", () => {
+                const select: Select = new Select();
+                select.operation = new SelectionOperation(columnA);
+                select.location = new SequenceLocation(Location.From, tableName);
+                select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
+                select.condition.conditionals.push(new LogicalConditional(columnB, LogicalOperator.Equality, 25));
+                expect(`${select}`).to.equal("SELECT columnA FROM table WHERE columnB = 25");
             });
         });
     });

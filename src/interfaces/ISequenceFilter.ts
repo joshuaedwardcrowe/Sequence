@@ -1,7 +1,7 @@
 import {Arrangement} from "../enums/Arrangement";
 import {ISequenceColumn} from "./ISequenceColumn";
 
-export interface ISequenceSorting {
+export interface ISequenceFilter {
 
     column: ISequenceColumn;
 

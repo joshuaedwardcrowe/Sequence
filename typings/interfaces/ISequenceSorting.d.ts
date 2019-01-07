@@ -4,4 +4,4 @@ export interface ISequenceSorting {
     column: ISequenceColumn;
     arrangement: Arrangement;
 }
-//# sourceMappingURL=ISequenceSorting.d.ts.map
+//# sourceMappingURL=ISequenceFilter.d.ts.map

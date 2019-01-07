@@ -1,9 +1,9 @@
 import {ISequenceOperation} from "./interfaces/ISequenceOperation";
-import {SequencePart} from "./SequencePart";
 import {Operation} from "./enums/Operation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
+import {SequenceCoalescent} from "./SequenceCoalescent";
 
-export class SequenceOperation extends SequencePart implements ISequenceOperation {
+export class SequenceOperation extends SequenceCoalescent implements ISequenceOperation {
 
     public readonly operation: Operation;
     public readonly columns: ISequenceColumn[];

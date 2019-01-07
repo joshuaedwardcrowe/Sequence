@@ -1,4 +1,4 @@
-export enum Default {
+export enum Formation {
     OrderBy,
     GroupBy,
     Limit

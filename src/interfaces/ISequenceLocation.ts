@@ -1,10 +1,10 @@
 import {Location} from "../enums/Location";
 import {ISequencePart} from "./ISequencePart";
 
-export interface ISequenceLocation extends ISequencePart {
+export interface ISequenceLocation {
 
-    location: Location;
+    readonly location: Location;
 
-    name: string;
+    readonly name: string;
 
 }

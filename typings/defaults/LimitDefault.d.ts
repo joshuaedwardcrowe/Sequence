@@ -5,4 +5,4 @@ export declare class LimitDefault extends SequenceDefault implements ISequenceDe
     constructor(amount?: number);
     stringify(): string;
 }
-//# sourceMappingURL=LimitDefault.d.ts.map
+//# sourceMappingURL=LimitFormation.d.ts.map

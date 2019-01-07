@@ -5,4 +5,4 @@ export interface ISequenceDefault extends ISequencePart {
     readonly default: Default;
     readonly sortings: ISequenceSorting[];
 }
-//# sourceMappingURL=ISequenceDefault.d.ts.map
+//# sourceMappingURL=ISequenceFormation.d.ts.map

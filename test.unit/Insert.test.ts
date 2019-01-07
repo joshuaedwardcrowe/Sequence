@@ -1,10 +1,28 @@
+// Testing imports
 import {expect} from "chai";
-import {Insert} from "../src/Insert";
+
+// Dependencies
 import {SequenceColumn} from "../src/SequenceColumn";
-import {Predicate} from "../src/enums/Predicate";
 import {IntoLocation} from "../src/locations/IntoLocation";
+
+// Tested imports
+import {Insert} from "../src/Insert";
+import {Predicate} from "../src/enums/Predicate";
 import {Wrapping} from "../src/enums/Wrapping";
 import {SequenceSupplement} from "../src/SequenceSupplement";
+
+const tableName: string = "table";
+let columnA: SequenceColumn;
+let columnB: SequenceColumn;
+let numberValues: number[];
+let stringValues: string[];
+
+beforeEach(() => {
+    columnA = new SequenceColumn(Predicate.None, "columnA");
+    columnB = new SequenceColumn(Predicate.None, "columnB");
+    numberValues = [1, 2, 3];
+    stringValues = ["A", "B"];
+});
 
 describe("Insert", () => {
     describe("Instance Methods", () => {
@@ -12,34 +30,50 @@ describe("Insert", () => {
             it("Sets the location to an IntoLocation", () => {
                 const insert: Insert = new Insert();
                 expect(insert.location).to.be.undefined;
-                const column: SequenceColumn = new SequenceColumn(Predicate.None, "Column");
-                insert.into("Table", column);
+                insert.into(tableName, columnA);
                 expect(insert.location).instanceOf(IntoLocation);
-                expect((insert.location as IntoLocation).name).to.equal("Table");
-                expect((insert.location as IntoLocation).wrapping).to.equal(Wrapping.Parentheses);
-                expect((insert.location as IntoLocation).columns).to.include(column);
+                const casted: IntoLocation = insert.location as IntoLocation;
+                expect(casted.name).to.equal(tableName);
+                expect(casted.wrapping).to.equal(Wrapping.Parentheses);
+                expect(casted.columns).to.include(columnA);
             });
         });
         describe("values", () => {
-            it("Sets the supplement to a SequenceSupplement of Values", () => {
+            it("Sets the supplement with the values given", () => {
                 const insert: Insert = new Insert();
+                expect(insert.supplement).to.be.undefined;
+                insert.values<number>(...numberValues);
                 expect(insert.supplement).instanceOf(SequenceSupplement);
-                expect(insert.supplement.values).to.be.empty;
-                insert.values(1, 2, 3);
                 expect(insert.supplement.values).to.include(1);
                 expect(insert.supplement.values).to.include(2);
                 expect(insert.supplement.values).to.include(3);
             });
+            it("Handles supplements with strings", () => {
+                const insert: Insert = new Insert();
+                expect(insert.supplement).to.be.undefined;
+                insert.values<string>(...stringValues);
+                expect(insert.supplement).instanceOf(SequenceSupplement);
+                expect(insert.supplement.values).to.include("'A'");
+                expect(insert.supplement.values).to.include("'B'");
+            })
         });
         describe("stringify", () => {
             it("Stringifies an INSERT statement", () => {
-                const colA: SequenceColumn = new SequenceColumn(Predicate.None, "colA");
-                const colB: SequenceColumn = new SequenceColumn(Predicate.None, "colB");
                 const insert: Insert = new Insert()
-                    .into("Table", colA, colB)
-                    .values(1, 2);
-                expect(insert.stringify()).to.equal("INSERT INTO Table (colA, colB) VALUES (1, 2)");
-            });
+                    .into(tableName, columnA, columnB)
+                    .values(...stringValues);
+
+                expect(insert.stringify()).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
+            })
         });
+        describe("toString", () => {
+            it("Interpolates as an INSERT statement", () => {
+                const insert: Insert = new Insert()
+                    .into(tableName, columnA, columnB)
+                    .values(...stringValues);
+
+                expect(`${insert}`).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')")
+            })
+        })
     });
 });

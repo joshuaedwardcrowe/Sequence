@@ -1,10 +1,11 @@
 import {Predicate} from "../enums/Predicate";
-import {ISequencePart} from "./ISequencePart";
 
-export interface ISequenceColumn extends ISequencePart {
+export interface ISequenceColumn {
 
     predicate: Predicate;
 
-    name: string;
+    readonly name: string;
+
+    stringify (): string
 
 }

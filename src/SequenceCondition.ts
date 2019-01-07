@@ -3,8 +3,10 @@ import {SequencePart} from "./SequencePart";
 import {Condition} from "./enums/Condition";
 import {ISequenceConditional} from "./interfaces/ISequenceConditional";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
+import {ISequenceCoalescent} from "./interfaces/ISequenceCoalescent";
+import {SequenceCoalescent} from "./SequenceCoalescent";
 
-export class SequenceCondition extends SequencePart implements ISequenceCondition {
+export class SequenceCondition extends SequenceCoalescent implements ISequenceCondition {
 
     public readonly condition: Condition;
     public readonly coalescingOperator: CoalescingOperator;

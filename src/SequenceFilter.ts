@@ -1,10 +1,10 @@
-import {ISequenceSorting} from "./interfaces/ISequenceSorting";
+import {ISequenceFilter} from "./interfaces/ISequenceFilter";
 import {Arrangement} from "./enums/Arrangement";
 import {SequencePart} from "./SequencePart";
 import {ISequencePart} from "./interfaces/ISequencePart";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 
-export class SequenceSorting extends SequencePart implements ISequencePart, ISequenceSorting {
+export class SequenceFilter extends SequencePart implements ISequencePart, ISequenceFilter {
 
     public readonly column: ISequenceColumn;
     public readonly arrangement: Arrangement;
@@ -17,11 +17,11 @@ export class SequenceSorting extends SequencePart implements ISequencePart, ISeq
     }
 
     public stringify (): string {
-        const arrangement = SequenceSorting.stringifyArrangement(this.arrangement);
-        return `${this.column} ${arrangement}`;
+        const arrangement = SequenceFilter.stringifyArrangement(this.arrangement);
+        return `${this.column.stringify()} ${arrangement}`;
     }
 
-    public static stringifyArrangement (arrangement: Arrangement) {
+    protected static stringifyArrangement (arrangement: Arrangement) {
         switch (arrangement) {
             default: return Arrangement[arrangement].toUpperCase();
         }

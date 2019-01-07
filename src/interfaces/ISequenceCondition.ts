@@ -1,12 +1,11 @@
 import {Condition} from "../enums/Condition";
-import {CoalescingOperator} from "../enums/CoalescingOperator";
 import {ISequenceConditional} from "./ISequenceConditional";
-import {ISequencePart} from "./ISequencePart";
+import {ISequenceCoalescent} from "./ISequenceCoalescent";
 
-export interface ISequenceCondition extends ISequencePart {
+export interface ISequenceCondition extends ISequenceCoalescent {
 
-    condition: Condition;
-    coalescingOperator: CoalescingOperator;
+    readonly condition: Condition;
+
     conditionals: ISequenceConditional[];
 
 }

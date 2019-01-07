@@ -12,4 +12,4 @@ export declare class SequenceDefault extends SequencePart implements ISequencePa
     stringify(): string;
     static stringifyDefaultType(defaultType: Default): "GROUP BY" | "ORDER BY" | "LIMIT";
 }
-//# sourceMappingURL=SequenceDefault.d.ts.map
+//# sourceMappingURL=SequenceFormation.d.ts.map
