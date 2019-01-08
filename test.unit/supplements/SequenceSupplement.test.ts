@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {SequenceSupplement} from "../../src/SequenceSupplement";
+import {SequenceSupplement} from "../../src/supplements/SequenceSupplement";
 import {Supplement} from "../../src/enums/Supplement";
 import {Wrapping} from "../../src/enums/Wrapping";
 

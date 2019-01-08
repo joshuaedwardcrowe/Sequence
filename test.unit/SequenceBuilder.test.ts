@@ -1,16 +1,16 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {SequenceColumn} from "../src/SequenceColumn";
+import {SequenceColumn} from "../src/columns/SequenceColumn";
 import {Predicate} from "../src/enums/Predicate";
 import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {SequenceCondition} from "../src/SequenceCondition";
+import {SequenceCondition} from "../src/conditions/SequenceCondition";
 import {Condition} from "../src/enums/Condition";
-import {LogicalConditional} from "../src/conditionals/LogicalConditional";
-import {CriteriaConditional} from "../src/conditionals/CriteriaConditional";
+import {LogicalConditional} from "../src/conditions/conditionals/LogicalConditional";
+import {CriteriaConditional} from "../src/conditions/conditionals/CriteriaConditional";
 import {Conditional} from "../src/enums/Conditional";
 import {Arrangement} from "../src/enums/Arrangement";
-import {SequenceFormation} from "../src/SequenceFormation";
+import {SequenceFormation} from "../src/formations/SequenceFormation";
 import {Formation} from "../src/enums/Formation";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 import {LimitFormation} from "../src/formations/LimitFormation";

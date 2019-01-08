@@ -1,6 +1,6 @@
 import {expect} from "chai";
 import {Location} from "../../src/enums/Location";
-import {SequenceLocation} from "../../src/SequenceLocation";
+import {SequenceLocation} from "../../src/locations/SequenceLocation";
 
 describe("SequenceLocation",  () => {
     describe("Instance Methods",  () => {

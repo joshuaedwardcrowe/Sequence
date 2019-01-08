@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {SequenceOperation} from "../../src/SequenceOperation";
+import {SequenceOperation} from "../../src/operations/SequenceOperation";
 import {Operation} from "../../src/enums/Operation";
 
 describe("SequenceOperation",  () => {

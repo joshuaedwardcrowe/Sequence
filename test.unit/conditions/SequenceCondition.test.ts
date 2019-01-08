@@ -3,14 +3,14 @@ import {expect} from "chai";
 
 // Dependencies
 import {Condition} from "../../src/enums/Condition";
-import {SequenceColumn} from "../../src/SequenceColumn";
+import {SequenceColumn} from "../../src/columns/SequenceColumn";
 import {Predicate} from "../../src/enums/Predicate";
 import {LogicalOperator} from "../../src/enums/LogicalOperator";
-import {LogicalConditional} from "../../src/conditionals/LogicalConditional";
+import {LogicalConditional} from "../../src/conditions/conditionals/LogicalConditional";
 import {CoalescingOperator} from "../../src/enums/CoalescingOperator";
 
 // Tested import
-import {SequenceCondition} from "../../src/SequenceCondition";
+import {SequenceCondition} from "../../src/conditions/SequenceCondition";
 
 // Testing instance
 let condition: SequenceCondition;

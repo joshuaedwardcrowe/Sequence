@@ -11,46 +11,46 @@ export {Wrapping} from "./src/enums/Wrapping";
 export {ISequencePart} from "./src/interfaces/ISequencePart";
 export {ISequenceColumn} from "./src/interfaces/ISequenceColumn";
 export {SequencePart} from "./src/SequencePart";
-export {SequenceColumn} from "./src/SequenceColumn";
+export {SequenceColumn} from "./src/columns/SequenceColumn";
 
 // Operations
 export {Operation} from "./src/enums/Operation";
 export {ISequenceOperation} from "./src/interfaces/ISequenceOperation";
-export {SequenceOperation} from "./src/SequenceOperation";
+export {SequenceOperation} from "./src/operations/SequenceOperation";
 export {SelectionOperation} from "./src/operations/SelectionOperation";
 
 // Locations
 export {Location} from "./src/enums/Location";
 export {ISequenceLocation} from "./src/interfaces/ISequenceLocation";
-export {SequenceLocation} from "./src/SequenceLocation";
+export {SequenceLocation} from "./src/locations/SequenceLocation";
 export {IntoLocation} from "./src/locations/IntoLocation";
 
 // Conditions
 export {Condition} from "./src/enums/Condition";
 export {ISequenceCondition} from "./src/interfaces/ISequenceCondition";
-export {SequenceCondition} from "./src/SequenceCondition";
+export {SequenceCondition} from "./src/conditions/SequenceCondition";
 
 // Conditionals
 export {LogicalOperator} from "./src/enums/LogicalOperator";
 export {Conditional} from "./src/enums/Conditional";
 export {ISequenceConditional} from "./src/interfaces/ISequenceConditional";
-export {SequenceConditional} from "./src/SequenceConditional";
-export {LogicalConditional} from "./src/conditionals/LogicalConditional";
-export {CriteriaConditional} from "./src/conditionals/CriteriaConditional";
+export {SequenceConditional} from "./src/conditions/conditionals/SequenceConditional";
+export {LogicalConditional} from "./src/conditions/conditionals/LogicalConditional";
+export {CriteriaConditional} from "./src/conditions/conditionals/CriteriaConditional";
 
 // Defaults
 export {Arrangement} from "./src/enums/Arrangement";
 export {Formation} from "./src/enums/Default";
 export {ISequenceFormation} from "./src/interfaces/ISequenceFormation";
-export {SequenceFormation} from "./src/SequenceFormation";
+export {SequenceFormation} from "./src/formations/SequenceFormation";
 export {LimitFormation} from "./src/formations/LimitFormation";
 
 // Supplements
 export {Supplement} from "./src/enums/Supplement";
 export {ISequenceSupplement} from "./src/interfaces/ISequenceSupplement";
-export {SequenceSupplement} from "./src/SequenceSupplement";
+export {SequenceSupplement} from "./src/supplements/SequenceSupplement";
 
 // Joins
 export {Join} from "./src/enums/Join";
 export {ISequenceJoin} from "./src/interfaces/ISequenceJoin";
-export {SequenceJoin} from "./src/SequenceJoin";
+export {SequenceJoin} from "./src/join/SequenceJoin";

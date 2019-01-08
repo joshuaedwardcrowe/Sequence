@@ -5,14 +5,14 @@ import {expect} from "chai";
 import {SelectionOperation} from "../src/operations/SelectionOperation";
 import {Predicate} from "../src/enums/Predicate";
 import {Operation} from "../src/enums/Operation";
-import {SequenceColumn} from "../src/SequenceColumn";
-import {SequenceLocation} from "../src/SequenceLocation";
+import {SequenceColumn} from "../src/columns/SequenceColumn";
+import {SequenceLocation} from "../src/locations/SequenceLocation";
 import {Location} from "../src/enums/Location";
 import {Condition} from "../src/enums/Condition";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
-import {LogicalConditional} from "../src/conditionals/LogicalConditional";
+import {LogicalConditional} from "../src/conditions/conditionals/LogicalConditional";
 import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {SequenceCondition} from "../src/SequenceCondition";
+import {SequenceCondition} from "../src/conditions/SequenceCondition";
 
 // Tested import
 import {Select} from "../src/Select";

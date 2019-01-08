@@ -1,6 +1,6 @@
-import {SequencePart} from "./SequencePart";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
-import {ISequenceCoalescable} from "./interfaces/ISequenceCoalescable";
+import {SequencePart} from "../SequencePart";
+import {CoalescingOperator} from "../enums/CoalescingOperator";
+import {ISequenceCoalescable} from "../interfaces/ISequenceCoalescable";
 
 export class SequenceCoalescent extends SequencePart {
 

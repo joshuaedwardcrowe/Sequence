@@ -1,6 +1,6 @@
 import {Operation} from "../enums/Operation";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {SequenceOperation} from "../SequenceOperation";
+import {SequenceOperation} from "./SequenceOperation";
 import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
 

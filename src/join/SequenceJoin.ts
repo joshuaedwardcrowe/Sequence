@@ -1,14 +1,14 @@
-import {ISequenceJoin} from "./interfaces/ISequenceJoin";
-import {Join} from "./enums/Join";
-import {SequencePart} from "./SequencePart";
-import {SequenceCondition} from "./SequenceCondition";
-import {Condition} from "./enums/Condition";
-import {ISequenceColumn} from "./interfaces/ISequenceColumn";
-import {LogicalOperator} from "./enums/LogicalOperator";
-import {LogicalConditional} from "./conditionals/LogicalConditional";
-import {CriteriaConditional} from "./conditionals/CriteriaConditional";
-import {Conditional} from "./enums/Conditional";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
+import {ISequenceJoin} from "../interfaces/ISequenceJoin";
+import {Join} from "../enums/Join";
+import {SequencePart} from "../SequencePart";
+import {SequenceCondition} from "../conditions/SequenceCondition";
+import {Condition} from "../enums/Condition";
+import {ISequenceColumn} from "../interfaces/ISequenceColumn";
+import {LogicalOperator} from "../enums/LogicalOperator";
+import {LogicalConditional} from "../conditions/conditionals/LogicalConditional";
+import {CriteriaConditional} from "../conditions/conditionals/CriteriaConditional";
+import {Conditional} from "../enums/Conditional";
+import {CoalescingOperator} from "../enums/CoalescingOperator";
 
 export class SequenceJoin extends SequencePart implements ISequenceJoin {
 

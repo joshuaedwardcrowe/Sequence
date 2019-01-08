@@ -1,8 +1,8 @@
-import {ISequenceFilter} from "./interfaces/ISequenceFilter";
-import {Arrangement} from "./enums/Arrangement";
-import {SequencePart} from "./SequencePart";
-import {ISequencePart} from "./interfaces/ISequencePart";
-import {ISequenceColumn} from "./interfaces/ISequenceColumn";
+import {ISequenceFilter} from "../../interfaces/ISequenceFilter";
+import {Arrangement} from "../../enums/Arrangement";
+import {SequencePart} from "../../SequencePart";
+import {ISequencePart} from "../../interfaces/ISequencePart";
+import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
 
 export class SequenceFilter extends SequencePart implements ISequencePart, ISequenceFilter {
 

@@ -1,7 +1,7 @@
-import {ISequenceSupplement} from "./interfaces/ISequenceSupplement";
-import {Supplement} from "./enums/Supplement";
-import {Wrapping} from "./enums/Wrapping";
-import {SequencePart} from "./SequencePart";
+import {ISequenceSupplement} from "../interfaces/ISequenceSupplement";
+import {Supplement} from "../enums/Supplement";
+import {Wrapping} from "../enums/Wrapping";
+import {SequencePart} from "../SequencePart";
 
 export class SequenceSupplement extends SequencePart implements ISequenceSupplement {
 

@@ -4,18 +4,18 @@ import {ISequenceLocation} from "./interfaces/ISequenceLocation";
 import {ISequenceCondition} from "./interfaces/ISequenceCondition";
 import {LimitFormation} from "./formations/LimitFormation";
 import {Arrangement} from "./enums/Arrangement";
-import {SequenceFilter} from "./SequenceFilter";
-import {SequenceFormation} from "./SequenceFormation";
+import {SequenceFilter} from "./formations/filters/SequenceFilter";
+import {SequenceFormation} from "./formations/SequenceFormation";
 import {Formation} from "./enums/Formation";
 import {ISequenceJoin} from "./interfaces/ISequenceJoin";
 import {ISequenceFormation} from "./interfaces/ISequenceFormation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {LogicalOperator} from "./enums/LogicalOperator";
-import {SequenceCondition} from "./SequenceCondition";
+import {SequenceCondition} from "./conditions/SequenceCondition";
 import {Condition} from "./enums/Condition";
-import {LogicalConditional} from "./conditionals/LogicalConditional";
-import {CriteriaConditional} from "./conditionals/CriteriaConditional";
+import {LogicalConditional} from "./conditions/conditionals/LogicalConditional";
+import {CriteriaConditional} from "./conditions/conditionals/CriteriaConditional";
 import {Conditional} from "./enums/Conditional";
 
 export abstract class SequenceBuilder implements ISequenceBuilder {

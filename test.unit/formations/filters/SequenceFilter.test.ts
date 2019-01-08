@@ -1,11 +1,11 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {Predicate} from "../../src/enums/Predicate";
-import {Arrangement} from "../../src/enums/Arrangement";
-import {SequenceColumn} from "../../src/SequenceColumn";
+import {Predicate} from "../../../src/enums/Predicate";
+import {Arrangement} from "../../../src/enums/Arrangement";
+import {SequenceColumn} from "../../../src/columns/SequenceColumn";
 // Tested imports
-import {SequenceFilter} from "../../src/SequenceFilter";
+import {SequenceFilter} from "../../../src/formations/filters/SequenceFilter";
 
 // Test data
 const columnAPredicate: Predicate = Predicate.None;

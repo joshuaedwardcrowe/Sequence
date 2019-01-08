@@ -3,15 +3,15 @@ import {expect} from "chai";
 // Dependencies
 import {Join} from "../../src/enums/Join";
 // Tested import
-import {SequenceJoin} from "../../src/SequenceJoin";
+import {SequenceJoin} from "../../src/join/SequenceJoin";
 import {Predicate} from "../../src/enums/Predicate";
-import {SequenceColumn} from "../../src/SequenceColumn";
+import {SequenceColumn} from "../../src/columns/SequenceColumn";
 import {LogicalOperator} from "../../src/enums/LogicalOperator";
-import {SequenceCondition} from "../../src/SequenceCondition";
-import {LogicalConditional} from "../../src/conditionals/LogicalConditional";
+import {SequenceCondition} from "../../src/conditions/SequenceCondition";
+import {LogicalConditional} from "../../src/conditions/conditionals/LogicalConditional";
 import {Condition} from "../../src/enums/Condition";
 import {CoalescingOperator} from "../../src/enums/CoalescingOperator";
-import {CriteriaConditional} from "../../src/conditionals/CriteriaConditional";
+import {CriteriaConditional} from "../../src/conditions/conditionals/CriteriaConditional";
 
 // Testing data
 const join: Join = Join.Inner;

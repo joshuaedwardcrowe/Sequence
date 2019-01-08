@@ -1,10 +1,10 @@
-import {ISequenceCondition} from "./interfaces/ISequenceCondition";
-import {SequencePart} from "./SequencePart";
-import {Condition} from "./enums/Condition";
-import {ISequenceConditional} from "./interfaces/ISequenceConditional";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
-import {ISequenceCoalescent} from "./interfaces/ISequenceCoalescent";
-import {SequenceCoalescent} from "./SequenceCoalescent";
+import {ISequenceCondition} from "../interfaces/ISequenceCondition";
+import {SequencePart} from "../SequencePart";
+import {Condition} from "../enums/Condition";
+import {ISequenceConditional} from "../interfaces/ISequenceConditional";
+import {CoalescingOperator} from "../enums/CoalescingOperator";
+import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
+import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
 
 export class SequenceCondition extends SequenceCoalescent implements ISequenceCondition {
 

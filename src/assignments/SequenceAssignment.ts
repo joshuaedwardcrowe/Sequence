@@ -1,9 +1,9 @@
-import {ISequenceAssigment} from "./interfaces/ISequenceAssignment";
-import {Assignment} from "./enums/Assignment";
-import {ISequenceAssignation} from "./interfaces/ISequenceAssignation";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
-import {SequenceCoalescent} from "./SequenceCoalescent";
-import {ISequenceCoalescent} from "./interfaces/ISequenceCoalescent";
+import {ISequenceAssigment} from "../interfaces/ISequenceAssignment";
+import {Assignment} from "../enums/Assignment";
+import {ISequenceAssignation} from "../interfaces/ISequenceAssignation";
+import {CoalescingOperator} from "../enums/CoalescingOperator";
+import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
+import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
 
 export class SequenceAssignment extends SequenceCoalescent implements ISequenceAssigment {
 

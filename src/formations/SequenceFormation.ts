@@ -1,9 +1,9 @@
-import {CoalescingOperator} from "./enums/CoalescingOperator";
-import {Formation} from "./enums/Formation";
-import {ISequenceFormation} from "./interfaces/ISequenceFormation";
-import {ISequenceCoalescent} from "./interfaces/ISequenceCoalescent";
-import {ISequenceFilter} from "./interfaces/ISequenceFilter";
-import {SequenceCoalescent} from "./SequenceCoalescent";
+import {CoalescingOperator} from "../enums/CoalescingOperator";
+import {Formation} from "../enums/Formation";
+import {ISequenceFormation} from "../interfaces/ISequenceFormation";
+import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
+import {ISequenceFilter} from "../interfaces/ISequenceFilter";
+import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
 
 export class SequenceFormation extends SequenceCoalescent implements ISequenceFormation, ISequenceCoalescent {
 

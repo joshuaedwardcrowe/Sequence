@@ -5,7 +5,7 @@ import {expect} from "chai";
 import {Predicate} from "../../src/enums/Predicate";
 
 // Tested import
-import {SequenceColumn} from "../../src/SequenceColumn";
+import {SequenceColumn} from "../../src/columns/SequenceColumn";
 
 // Testing data
 const columnName: string = "column";

@@ -1,8 +1,8 @@
-import {LogicalOperator} from "../enums/LogicalOperator";
-import {Conditional} from "../enums/Conditional";
-import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {ILogicalConditional} from "../interfaces/ILogicalConditional";
-import {SequenceConditional} from "../SequenceConditional";
+import {LogicalOperator} from "../../enums/LogicalOperator";
+import {Conditional} from "../../enums/Conditional";
+import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
+import {ILogicalConditional} from "../../interfaces/ILogicalConditional";
+import {SequenceConditional} from "./SequenceConditional";
 
 export class LogicalConditional extends SequenceConditional implements ILogicalConditional {
 

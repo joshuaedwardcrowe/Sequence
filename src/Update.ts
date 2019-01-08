@@ -1,13 +1,13 @@
 import {SequenceBuilder} from "./SequenceBuilder";
 import {Operation} from "./enums/Operation";
-import {SequenceOperation} from "./SequenceOperation";
+import {SequenceOperation} from "./operations/SequenceOperation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {Location} from "./enums/Location";
-import {SequenceLocation} from "./SequenceLocation";
+import {SequenceLocation} from "./locations/SequenceLocation";
 import {Assignment} from "./enums/Assignment";
 import {ISequenceAssigment} from "./interfaces/ISequenceAssignment";
-import {SequenceAssignment} from "./SequenceAssignment";
-import {SequenceAssignation} from "./SequenceAssignation";
+import {SequenceAssignment} from "./assignments/SequenceAssignment";
+import {SequenceAssignation} from "./assignations/SequenceAssignation";
 import {IUpdate} from "./interfaces/IUpdate";
 
 export class Update extends SequenceBuilder implements IUpdate {

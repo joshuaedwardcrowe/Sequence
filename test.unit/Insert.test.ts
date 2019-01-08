@@ -2,14 +2,14 @@
 import {expect} from "chai";
 
 // Dependencies
-import {SequenceColumn} from "../src/SequenceColumn";
+import {SequenceColumn} from "../src/columns/SequenceColumn";
 import {IntoLocation} from "../src/locations/IntoLocation";
 
 // Tested imports
 import {Insert} from "../src/Insert";
 import {Predicate} from "../src/enums/Predicate";
 import {Wrapping} from "../src/enums/Wrapping";
-import {SequenceSupplement} from "../src/SequenceSupplement";
+import {SequenceSupplement} from "../src/supplements/SequenceSupplement";
 
 // Testing instance
 let classUnderTest: Insert;

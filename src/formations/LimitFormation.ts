@@ -1,7 +1,7 @@
 import {Formation} from "../enums/Formation";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
 import {ILimitFormation} from "../interfaces/ILimitFormation";
-import {SequenceFormation} from "../SequenceFormation";
+import {SequenceFormation} from "./SequenceFormation";
 
 export class LimitFormation extends SequenceFormation implements ILimitFormation {
 

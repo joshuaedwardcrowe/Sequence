@@ -1,7 +1,7 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {SequenceColumn} from "../../src/SequenceColumn";
+import {SequenceColumn} from "../../src/columns/SequenceColumn";
 import {Predicate} from "../../src/enums/Predicate";
 // Tested import
 import {SelectionOperation} from "../../src/operations/SelectionOperation";

@@ -3,7 +3,7 @@ import {Wrapping} from "../enums/Wrapping";
 import {Predicate} from "../enums/Predicate";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
 import {IIntoLocation} from "../interfaces/IIntoLocation";
-import {SequenceLocation} from "../SequenceLocation";
+import {SequenceLocation} from "./SequenceLocation";
 
 export class IntoLocation extends SequenceLocation implements IIntoLocation {
 

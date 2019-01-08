@@ -1,11 +1,11 @@
 // Testing import
 import {expect} from "chai";
 // Dependencies
-import {Conditional} from "../../src/enums/Conditional";
-import {Predicate} from "../../src/enums/Predicate";
-import {SequenceColumn} from "../../src/SequenceColumn";
+import {Conditional} from "../../../src/enums/Conditional";
+import {Predicate} from "../../../src/enums/Predicate";
+import {SequenceColumn} from "../../../src/columns/SequenceColumn";
 // Testing import
-import {CriteriaConditional} from "../../src/conditionals/CriteriaConditional";
+import {CriteriaConditional} from "../../../src/conditions/conditionals/CriteriaConditional";
 
 // Test data.
 const columnAPredicate: Predicate = Predicate.None;

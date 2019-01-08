@@ -1,8 +1,8 @@
-import {Conditional} from "../enums/Conditional";
-import {Wrapping} from "../enums/Wrapping";
-import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {ICriteriaConditional} from "../interfaces/ICriteriaConditional";
-import {SequenceConditional} from "../SequenceConditional";
+import {Conditional} from "../../enums/Conditional";
+import {Wrapping} from "../../enums/Wrapping";
+import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
+import {ICriteriaConditional} from "../../interfaces/ICriteriaConditional";
+import {SequenceConditional} from "./SequenceConditional";
 
 export class CriteriaConditional extends SequenceConditional implements ICriteriaConditional {
 

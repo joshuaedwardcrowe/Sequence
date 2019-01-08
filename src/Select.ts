@@ -1,7 +1,7 @@
 import {Location} from "./enums/Location";
 import {SequenceBuilder} from "./SequenceBuilder";
 import {SelectionOperation} from "./operations/SelectionOperation";
-import {SequenceLocation} from "./SequenceLocation";
+import {SequenceLocation} from "./locations/SequenceLocation";
 import {ISelect} from "./interfaces/ISelect";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 

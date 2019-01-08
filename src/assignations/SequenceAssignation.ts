@@ -1,8 +1,8 @@
-import {SequencePart} from "./SequencePart";
-import {ISequenceAssignation} from "./interfaces/ISequenceAssignation";
-import {ISequenceColumn} from "./interfaces/ISequenceColumn";
-import {LogicalOperator} from "./enums/LogicalOperator";
-import {ISequenceCoalescable} from "./interfaces/ISequenceCoalescable";
+import {SequencePart} from "../SequencePart";
+import {ISequenceAssignation} from "../interfaces/ISequenceAssignation";
+import {ISequenceColumn} from "../interfaces/ISequenceColumn";
+import {LogicalOperator} from "../enums/LogicalOperator";
+import {ISequenceCoalescable} from "../interfaces/ISequenceCoalescable";
 
 export class SequenceAssignation extends SequencePart implements ISequenceAssignation, ISequenceCoalescable {
 
