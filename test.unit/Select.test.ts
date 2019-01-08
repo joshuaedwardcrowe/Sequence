@@ -5,7 +5,7 @@ import {expect} from "chai";
 import {SelectionOperation} from "../src/operations/SelectionOperation";
 import {Predicate} from "../src/enums/Predicate";
 import {Operation} from "../src/enums/Operation";
-import {SequenceColumn} from "../src/columns/SequenceColumn";
+import {SequenceColumn} from "../src/SequenceColumn";
 import {SequenceLocation} from "../src/locations/SequenceLocation";
 import {Location} from "../src/enums/Location";
 import {Condition} from "../src/enums/Condition";

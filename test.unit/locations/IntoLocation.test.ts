@@ -2,7 +2,7 @@
 import {expect} from "chai";
 
 // Dependencies
-import {SequenceColumn} from "../../src/columns/SequenceColumn";
+import {SequenceColumn} from "../../src/SequenceColumn";
 import {Predicate} from "../../src/enums/Predicate";
 
 // Tested import
@@ -13,7 +13,7 @@ let classUnderTest: IntoLocation;
 
 // Test data
 const tableName = "table";
-let columnA: SequenceColumn
+let columnA: SequenceColumn;
 let columnB: SequenceColumn;
 
 beforeEach(() => {
@@ -27,11 +27,6 @@ describe("IntoLocation", () => {
         describe("stringify", () => {
             it("Stringifies an INTO statement", () => {
                 expect(classUnderTest.stringify()).to.equal("INTO table (columnA, columnB)");
-            });
-        });
-        describe("toString", () => {
-            it("Interpolates as an INTO clause", () => {
-                expect(`${classUnderTest}`).to.equal("INTO table (columnA, columnB)");
             });
         });
     });

@@ -5,7 +5,7 @@ import {Formation} from "../../src/enums/Formation";
 import {SequenceFilter} from "../../src/formations/filters/SequenceFilter";
 import {Predicate} from "../../src/enums/Predicate";
 import {Arrangement} from "../../src/enums/Arrangement";
-import {SequenceColumn} from "../../src/columns/SequenceColumn";
+import {SequenceColumn} from "../../src/SequenceColumn";
 import {CoalescingOperator} from "../../src/enums/CoalescingOperator";
 // Tested imports.
 import {SequenceFormation} from "../../src/formations/SequenceFormation";
@@ -41,12 +41,6 @@ describe("SequenceFormation",  () => {
             it("Stringifies the set of {SequenceFilter} and their {SequenceColumn}", () => {
                 classUnderTest.filters.push(filterA, filterB);
                 expect(classUnderTest.stringify()).to.equal("GROUP BY columnA ASCENDING AND columnB ASCENDING");
-            });
-        });
-        describe("toString", () => {
-            it("Interpolates the set of {SequenceFilter} and their {SequenceColumn}", () => {
-                classUnderTest.filters.push(filterA, filterB);
-                expect(`${classUnderTest}`).to.equal("GROUP BY columnA ASCENDING AND columnB ASCENDING");
             });
         });
     });

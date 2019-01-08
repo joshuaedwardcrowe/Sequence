@@ -21,10 +21,5 @@ describe("LimitFormation",  () => {
                 expect(classUnderTest.stringify()).to.equal("LIMIT 25");
             });
         });
-        describe("toString", () => {
-            it("Interpolates into a LIMIT statement", () => {
-                expect(`${classUnderTest}`).to.equal("LIMIT 25");
-            });
-        });
     });
 });

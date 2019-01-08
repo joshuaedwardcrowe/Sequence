@@ -2,14 +2,14 @@
 import {expect} from "chai";
 
 // Dependencies
-import {SequenceColumn} from "../src/columns/SequenceColumn";
+import {SequenceColumn} from "../src/SequenceColumn";
 import {IntoLocation} from "../src/locations/IntoLocation";
 
 // Tested imports
 import {Insert} from "../src/Insert";
 import {Predicate} from "../src/enums/Predicate";
 import {Wrapping} from "../src/enums/Wrapping";
-import {SequenceSupplement} from "../src/supplements/SequenceSupplement";
+import {SequenceSupplement} from "../src/SequenceSupplement";
 
 // Testing instance
 let classUnderTest: Insert;
@@ -63,12 +63,6 @@ describe("Insert", () => {
             it("Stringifies an INSERT statement", () => {
                 classUnderTest.into(tableName, columnA, columnB).values(...stringValues);
                 expect(classUnderTest.stringify()).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
-            });
-        });
-        describe("toString", () => {
-            it("Interpolates as an INSERT statement", () => {
-                classUnderTest.into(tableName, columnA, columnB).values(...stringValues);
-                expect(`${classUnderTest}`).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
             });
         });
     });

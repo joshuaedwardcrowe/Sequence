@@ -3,7 +3,7 @@ import {expect} from "chai";
 // Dependencies
 import {Conditional} from "../../../src/enums/Conditional";
 import {Predicate} from "../../../src/enums/Predicate";
-import {SequenceColumn} from "../../../src/columns/SequenceColumn";
+import {SequenceColumn} from "../../../src/SequenceColumn";
 // Testing import:
 import {SequenceConditional} from "../../../src/conditions/conditionals/SequenceConditional";
 
@@ -26,16 +26,6 @@ describe("SequenceConditional",  () => {
             it("Stringifies a NOT IN {SequenceConditional} term and its {SequenceColumn}", () => {
                 const conditional: SequenceConditional = new SequenceConditional(Conditional.NotIn, columnA);
                 expect(conditional.stringify()).to.equal("name NOT IN");
-            });
-        });
-        describe("toString", () => {
-            it("Interpolates an IN {SequenceConditional} term and its {SequenceColumn}", () => {
-                const conditional: SequenceConditional = new SequenceConditional(Conditional.In, columnA);
-                expect(`${conditional}`).to.equal("name IN");
-            });
-            it("Interpolates a NOT IN {SequenceConditional} term and its {SequenceColumn}", () => {
-                const conditional: SequenceConditional = new SequenceConditional(Conditional.NotIn, columnA);
-                expect(`${conditional}`).to.equal("name NOT IN");
             });
         });
     });

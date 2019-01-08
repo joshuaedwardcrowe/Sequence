@@ -5,10 +5,10 @@ export interface IInsert {
 
     supplement: ISequenceSupplement;
 
-    into (tableName: string, ...columns: ISequenceColumn[]): this
+    into (tableName: string, ...columns: ISequenceColumn[]): this;
 
-    values (...values: any[]): this
+    values (...values: any[]): this;
 
-    stringify (): string
+    stringify (): string;
 
 }

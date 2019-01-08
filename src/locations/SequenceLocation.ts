@@ -1,6 +1,6 @@
 import {SequencePart} from "../SequencePart";
+import {ISequenceLocation} from "../interfaces/locations/ISequenceLocation";
 import {Location} from "../enums/Location";
-import {ISequenceLocation} from "../interfaces/ISequenceLocation";
 
 export class SequenceLocation extends SequencePart implements ISequenceLocation {
 

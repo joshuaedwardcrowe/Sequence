@@ -1,5 +1,5 @@
+import {ISequenceCondition} from "./conditions/ISequenceCondition";
 import {Join} from "../enums/Join";
-import {ISequenceCondition} from "./ISequenceCondition";
 import {ISequencePart} from "./ISequencePart";
 
 export interface ISequenceJoin extends ISequencePart {

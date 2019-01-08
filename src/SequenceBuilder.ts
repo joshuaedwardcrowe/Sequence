@@ -1,22 +1,22 @@
-import {ISequenceBuilder} from "./interfaces/ISequenceBuilder";
-import {ISequenceOperation} from "./interfaces/ISequenceOperation";
-import {ISequenceLocation} from "./interfaces/ISequenceLocation";
-import {ISequenceCondition} from "./interfaces/ISequenceCondition";
 import {LimitFormation} from "./formations/LimitFormation";
-import {Arrangement} from "./enums/Arrangement";
-import {SequenceFilter} from "./formations/filters/SequenceFilter";
-import {SequenceFormation} from "./formations/SequenceFormation";
-import {Formation} from "./enums/Formation";
-import {ISequenceJoin} from "./interfaces/ISequenceJoin";
-import {ISequenceFormation} from "./interfaces/ISequenceFormation";
-import {ISequenceColumn} from "./interfaces/ISequenceColumn";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {LogicalOperator} from "./enums/LogicalOperator";
+import {ISequenceColumn} from "./interfaces/ISequenceColumn";
+import {ISequenceFormation} from "./interfaces/formations/ISequenceFormation";
+import {ISequenceJoin} from "./interfaces/ISequenceJoin";
+import {ISequenceOperation} from "./interfaces/operations/ISequenceOperation";
+import {ISequenceLocation} from "./interfaces/locations/ISequenceLocation";
+import {ISequenceCondition} from "./interfaces/conditions/ISequenceCondition";
+import {ISequenceBuilder} from "./interfaces/ISequenceBuilder";
 import {SequenceCondition} from "./conditions/SequenceCondition";
 import {Condition} from "./enums/Condition";
+import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {LogicalConditional} from "./conditions/conditionals/LogicalConditional";
 import {CriteriaConditional} from "./conditions/conditionals/CriteriaConditional";
 import {Conditional} from "./enums/Conditional";
+import {Arrangement} from "./enums/Arrangement";
+import {SequenceFormation} from "./formations/SequenceFormation";
+import {Formation} from "./enums/Formation";
+import {SequenceFilter} from "./formations/filters/SequenceFilter";
 
 export abstract class SequenceBuilder implements ISequenceBuilder {
 
@@ -99,7 +99,7 @@ export abstract class SequenceBuilder implements ISequenceBuilder {
     }
 
     private reduceJoins (reduction: string, join: ISequenceJoin): string {
-        return `${reduction} ${join.stringify()}`
+        return `${reduction} ${join.stringify()}`;
     }
 
     protected static cleanseAnonymousValue (value: any) {

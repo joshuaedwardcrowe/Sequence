@@ -1,9 +1,9 @@
-import {Location} from "../enums/Location";
-import {Wrapping} from "../enums/Wrapping";
-import {Predicate} from "../enums/Predicate";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {IIntoLocation} from "../interfaces/IIntoLocation";
+import {Predicate} from "../enums/Predicate";
+import {Wrapping} from "../enums/Wrapping";
+import {IIntoLocation} from "../interfaces/locations/IIntoLocation";
 import {SequenceLocation} from "./SequenceLocation";
+import {Location} from "../enums/Location";
 
 export class IntoLocation extends SequenceLocation implements IIntoLocation {
 
@@ -22,9 +22,9 @@ export class IntoLocation extends SequenceLocation implements IIntoLocation {
     }
 
     // TODO: There needs to be a better solution than this.
-    private getColumnsWithoutPredicate (): ISequenceColumn[] {
-        const removePredicate = (column: ISequenceColumn) => { column.predicate = Predicate.None; return column; };
-        return this.columns.map<ISequenceColumn>(removePredicate);
+    private getColumnsWithoutPredicate (): string[] {
+        const removePredicate = (column: ISequenceColumn) => { column.predicate = Predicate.None; return column.stringify(); };
+        return this.columns.map<string>(removePredicate);
     }
 
 }

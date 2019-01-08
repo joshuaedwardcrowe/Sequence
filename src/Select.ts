@@ -1,9 +1,9 @@
-import {Location} from "./enums/Location";
-import {SequenceBuilder} from "./SequenceBuilder";
-import {SelectionOperation} from "./operations/SelectionOperation";
 import {SequenceLocation} from "./locations/SequenceLocation";
-import {ISelect} from "./interfaces/ISelect";
+import {SelectionOperation} from "./operations/SelectionOperation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
+import {ISelect} from "./interfaces/ISelect";
+import {SequenceBuilder} from "./SequenceBuilder";
+import {Location} from "./enums/Location";
 
 export class Select extends SequenceBuilder implements ISelect {
 
@@ -24,8 +24,8 @@ export class Select extends SequenceBuilder implements ISelect {
     }
 
     public stringify (): string {
-        const operation = !!this.operation ? `${this.operation} ` : "";
-        const location = !!this.location ? `${this.location} ` : "";
+        const operation = !!this.operation ? `${this.operation.stringify()} ` : "";
+        const location = !!this.location ? `${this.location.stringify()} ` : "";
         return `${operation}${location}${super.stringify()}`.trim();
     }
 

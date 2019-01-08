@@ -1,4 +1,3 @@
-import {Predicate} from "../enums/Predicate";
 import {ISequenceColumn} from "./ISequenceColumn";
 
 export interface ISelect {

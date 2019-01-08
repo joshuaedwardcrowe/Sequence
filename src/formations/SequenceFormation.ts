@@ -1,9 +1,9 @@
+import {ISequenceFilter} from "../interfaces/formations/filters/ISequenceFilter";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
 import {Formation} from "../enums/Formation";
-import {ISequenceFormation} from "../interfaces/ISequenceFormation";
 import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
-import {ISequenceFilter} from "../interfaces/ISequenceFilter";
-import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
+import {ISequenceFormation} from "../interfaces/formations/ISequenceFormation";
+import {SequenceCoalescent} from "../SequenceCoalescent";
 
 export class SequenceFormation extends SequenceCoalescent implements ISequenceFormation, ISequenceCoalescent {
 
@@ -31,4 +31,5 @@ export class SequenceFormation extends SequenceCoalescent implements ISequenceFo
             case Formation.Limit: return "LIMIT";
         }
     }
+
 }

@@ -1,16 +1,7 @@
-import {ISequencePart} from "./interfaces/ISequencePart";
 import {Wrapping} from "./enums/Wrapping";
 import {LogicalOperator} from "./enums/LogicalOperator";
 
-export abstract class SequencePart implements ISequencePart {
-
-    public stringify (): string {
-        throw new TypeError("Stringify was not overridden");
-    }
-
-    public toString (): string {
-        return this.stringify();
-    }
+export abstract class SequencePart {
 
     protected static stringifyWrapping (wrapping: Wrapping, values: any[]) {
         switch (wrapping) {

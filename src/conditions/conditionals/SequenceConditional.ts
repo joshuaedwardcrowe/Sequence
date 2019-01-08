@@ -1,8 +1,8 @@
 import {SequencePart} from "../../SequencePart";
-import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
-import {ISequenceConditional} from "../../interfaces/ISequenceConditional";
-import {Conditional} from "../../enums/Conditional";
+import {ISequenceConditional} from "../../interfaces/conditions/conditionals/ISequenceConditional";
 import {ISequenceCoalescable} from "../../interfaces/ISequenceCoalescable";
+import {Conditional} from "../../enums/Conditional";
+import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
 
 export class SequenceConditional extends SequencePart implements ISequenceConditional, ISequenceCoalescable {
 
@@ -18,7 +18,7 @@ export class SequenceConditional extends SequencePart implements ISequenceCondit
 
     public stringify (): string {
         const conditional = SequenceConditional.stringifyConditional(this.conditional);
-        return `${this.column} ${conditional}`;
+        return `${this.column.stringify()} ${conditional}`;
     }
 
     public static stringifyConditional (conditionalType: Conditional) {

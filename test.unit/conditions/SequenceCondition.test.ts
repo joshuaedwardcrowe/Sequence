@@ -3,7 +3,7 @@ import {expect} from "chai";
 
 // Dependencies
 import {Condition} from "../../src/enums/Condition";
-import {SequenceColumn} from "../../src/columns/SequenceColumn";
+import {SequenceColumn} from "../../src/SequenceColumn";
 import {Predicate} from "../../src/enums/Predicate";
 import {LogicalOperator} from "../../src/enums/LogicalOperator";
 import {LogicalConditional} from "../../src/conditions/conditionals/LogicalConditional";
@@ -35,12 +35,6 @@ describe("SequenceCondition",  () => {
             it("Stringifies a set of {SequenceConditional}", () => {
                condition.conditionals.push(logicalConditionalA, logicalConditionalB);
                expect(condition.stringify()).to.equal("WHERE COUNT(age) >= 25 AND name = 'Test'");
-            });
-        });
-        describe("toString", () => {
-            it("Interpolates a set of {SequenceConditional}", () => {
-                condition.conditionals.push(logicalConditionalA, logicalConditionalB);
-                expect(`${condition}`).to.equal("WHERE COUNT(age) >= 25 AND name = 'Test'");
             });
         });
     });

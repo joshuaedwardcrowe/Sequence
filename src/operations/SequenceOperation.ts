@@ -1,7 +1,7 @@
-import {ISequenceOperation} from "../interfaces/ISequenceOperation";
+import {SequenceCoalescent} from "../SequenceCoalescent";
 import {Operation} from "../enums/Operation";
+import {ISequenceOperation} from "../interfaces/operations/ISequenceOperation";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
 
 export class SequenceOperation extends SequenceCoalescent implements ISequenceOperation {
 
@@ -19,7 +19,7 @@ export class SequenceOperation extends SequenceCoalescent implements ISequenceOp
         return SequenceOperation.stringifyOperation(this.operation);
     }
 
-    public static stringifyOperation(operationType: Operation) {
+    protected static stringifyOperation(operationType: Operation) {
         return Operation[operationType].toUpperCase();
     }
 

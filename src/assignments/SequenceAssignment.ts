@@ -1,9 +1,8 @@
-import {ISequenceAssigment} from "../interfaces/ISequenceAssignment";
-import {Assignment} from "../enums/Assignment";
-import {ISequenceAssignation} from "../interfaces/ISequenceAssignation";
+import {SequenceCoalescent} from "../SequenceCoalescent";
+import {ISequenceAssigment} from "../interfaces/assignments/ISequenceAssignment";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
-import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
-import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
+import {Assignment} from "../enums/Assignment";
+import {ISequenceAssignation} from "../interfaces/assignments/assignations/ISequenceAssignation";
 
 export class SequenceAssignment extends SequenceCoalescent implements ISequenceAssigment {
 
@@ -20,7 +19,7 @@ export class SequenceAssignment extends SequenceCoalescent implements ISequenceA
 
     public stringify (): string {
         const assignment: string = SequenceAssignment.stringifyAssignment(this.assignment);
-        return SequenceAssignment.coalesce(assignment, this.coalescingOperator, this.assignations)
+        return SequenceAssignment.coalesce(assignment, this.coalescingOperator, this.assignations);
     }
 
     protected static stringifyAssignment(assignment: Assignment) {
@@ -28,4 +27,5 @@ export class SequenceAssignment extends SequenceCoalescent implements ISequenceA
             default: return Assignment[assignment].toUpperCase();
         }
     }
+
 }

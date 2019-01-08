@@ -1,8 +1,8 @@
-import {Conditional} from "../../enums/Conditional";
-import {Wrapping} from "../../enums/Wrapping";
-import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
-import {ICriteriaConditional} from "../../interfaces/ICriteriaConditional";
 import {SequenceConditional} from "./SequenceConditional";
+import {ICriteriaConditional} from "../../interfaces/conditions/conditionals/ICriteriaConditional";
+import {Wrapping} from "../../enums/Wrapping";
+import {Conditional} from "../../enums/Conditional";
+import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
 
 export class CriteriaConditional extends SequenceConditional implements ICriteriaConditional {
 
@@ -12,11 +12,11 @@ export class CriteriaConditional extends SequenceConditional implements ICriteri
     constructor (conditional: Conditional, column: ISequenceColumn, ...values: any[]) {
         super(conditional, column);
 
-        this.values = values
+        this.values = values;
     }
 
     public stringify (): string {
-        const wrapped = SequenceConditional.stringifyWrapping(this.wrapping, this.values);
+        const wrapped: string = SequenceConditional.stringifyWrapping(this.wrapping, this.values);
         return `${super.stringify()} ${wrapped}`;
     }
 

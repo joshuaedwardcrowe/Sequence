@@ -1,10 +1,8 @@
-import {ISequenceCondition} from "../interfaces/ISequenceCondition";
-import {SequencePart} from "../SequencePart";
+import {ISequenceCondition} from "../interfaces/conditions/ISequenceCondition";
+import {SequenceCoalescent} from "../SequenceCoalescent";
 import {Condition} from "../enums/Condition";
-import {ISequenceConditional} from "../interfaces/ISequenceConditional";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
-import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
-import {SequenceCoalescent} from "../coalescents/SequenceCoalescent";
+import {ISequenceConditional} from "../interfaces/conditions/conditionals/ISequenceConditional";
 
 export class SequenceCondition extends SequenceCoalescent implements ISequenceCondition {
 
@@ -22,10 +20,10 @@ export class SequenceCondition extends SequenceCoalescent implements ISequenceCo
 
     public stringify (): string {
         const condition = SequenceCondition.stringifyCondition(this.condition);
-        return SequenceCondition.coalesce(condition, this.coalescingOperator, this.conditionals)
+        return SequenceCondition.coalesce(condition, this.coalescingOperator, this.conditionals);
     }
 
-    public static stringifyCondition (condition: Condition): string {
+    protected static stringifyCondition (condition: Condition): string {
         switch (condition) {
             default: return Condition[condition].toUpperCase();
         }

@@ -1,7 +1,7 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {SequenceColumn} from "../../src/columns/SequenceColumn";
+import {SequenceColumn} from "../../src/SequenceColumn";
 import {Predicate} from "../../src/enums/Predicate";
 // Tested import
 import {SelectionOperation} from "../../src/operations/SelectionOperation";
@@ -26,17 +26,6 @@ describe("SelectionOperation",  () => {
                 const operation: SelectionOperation = new SelectionOperation();
                 operation.columns.push(columnA, columnB);
                 expect(operation.stringify()).to.equal("SELECT columnA, COUNT(columnB)");
-            });
-        });
-        describe("toString", () => {
-            it("Interpolates a SELECT * statement", () => {
-                const operation: SelectionOperation = new SelectionOperation();
-                expect(`${operation}`).to.equal("SELECT *");
-            });
-            it("Interpolates a SELECT columnA, columnB statement", () => {
-                const operation: SelectionOperation = new SelectionOperation();
-                operation.columns.push(columnA, columnB);
-                expect(`${operation}`).to.equal("SELECT columnA, COUNT(columnB)");
             });
         });
     });

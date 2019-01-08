@@ -5,9 +5,9 @@ import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {Location} from "./enums/Location";
 import {SequenceLocation} from "./locations/SequenceLocation";
 import {Assignment} from "./enums/Assignment";
-import {ISequenceAssigment} from "./interfaces/ISequenceAssignment";
+import {ISequenceAssigment} from "./interfaces/assignments/ISequenceAssignment";
 import {SequenceAssignment} from "./assignments/SequenceAssignment";
-import {SequenceAssignation} from "./assignations/SequenceAssignation";
+import {SequenceAssignation} from "./assignments/assignations/SequenceAssignation";
 import {IUpdate} from "./interfaces/IUpdate";
 
 export class Update extends SequenceBuilder implements IUpdate {
@@ -32,7 +32,4 @@ export class Update extends SequenceBuilder implements IUpdate {
         return this;
     }
 
-
 }
-
-

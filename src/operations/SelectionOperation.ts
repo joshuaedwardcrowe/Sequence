@@ -1,8 +1,8 @@
+import {SequenceOperation} from "./SequenceOperation";
 import {Operation} from "../enums/Operation";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {SequenceOperation} from "./SequenceOperation";
-import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
+import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
 
 export class SelectionOperation extends SequenceOperation implements ISequenceCoalescent {
 

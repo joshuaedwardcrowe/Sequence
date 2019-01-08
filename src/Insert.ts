@@ -1,13 +1,13 @@
-import {SequenceBuilder} from "./SequenceBuilder";
-import {SequenceOperation} from "./operations/SequenceOperation";
-import {Operation} from "./enums/Operation";
 import {IntoLocation} from "./locations/IntoLocation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
+import {Operation} from "./enums/Operation";
+import {SequenceOperation} from "./operations/SequenceOperation";
 import {ISequenceSupplement} from "./interfaces/ISequenceSupplement";
-import {SequenceSupplement} from "./supplements/SequenceSupplement";
+import {IInsert} from "./interfaces/IInsert";
+import {SequenceBuilder} from "./SequenceBuilder";
+import {SequenceSupplement} from "./SequenceSupplement";
 import {Supplement} from "./enums/Supplement";
 import {Wrapping} from "./enums/Wrapping";
-import {IInsert} from "./interfaces/IInsert";
 
 export class Insert extends SequenceBuilder implements IInsert {
 
@@ -32,9 +32,10 @@ export class Insert extends SequenceBuilder implements IInsert {
     }
 
     public stringify (): string {
-        const location = !!this.location ? `${this.location} ` : "";
-        return `${this.operation} ${location}${this.supplement}${super.stringify()}`.trim();
+        const operation: string = !!this.operation ? `${this.operation.stringify()} ` : "";
+        const location: string = !!this.location ? `${this.location.stringify()} ` : "";
+        const supplement: string = !!this.supplement ? `${this.supplement.stringify()} ` : "";
+        return `${operation}${location}${supplement}${super.stringify()}`.trim();
     }
-
 
 }

@@ -1,8 +1,8 @@
-import {LogicalOperator} from "../../enums/LogicalOperator";
-import {Conditional} from "../../enums/Conditional";
-import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
-import {ILogicalConditional} from "../../interfaces/ILogicalConditional";
 import {SequenceConditional} from "./SequenceConditional";
+import {ILogicalConditional} from "../../interfaces/conditions/conditionals/ILogicalConditional";
+import {LogicalOperator} from "../../enums/LogicalOperator";
+import {ISequenceColumn} from "../../interfaces/ISequenceColumn";
+import {Conditional} from "../../enums/Conditional";
 
 export class LogicalConditional extends SequenceConditional implements ILogicalConditional {
 
@@ -18,7 +18,7 @@ export class LogicalConditional extends SequenceConditional implements ILogicalC
 
     public stringify (): string {
         const logicalOperator = LogicalConditional.stringifyLogicalOperator(this.logicalOperator);
-        return `${this.column} ${logicalOperator} ${this.value}`;
+        return `${this.column.stringify()} ${logicalOperator} ${this.value}`;
     }
 
 }
