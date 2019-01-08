@@ -28,7 +28,7 @@ export class Update extends SequenceBuilder implements IUpdate {
 
     public column (column: ISequenceColumn, value: any): this {
         const cleansed: any = Update.cleanseAnonymousValue(value);
-        this.assignment.assignations.push(new SequenceAssignation(column, value));
+        this.assignment.assignations.push(new SequenceAssignation(column, cleansed));
         return this;
     }
 
