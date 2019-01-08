@@ -8,72 +8,75 @@ import {SequenceColumn} from "../src/SequenceColumn";
 import {LogicalConditional} from "../src/conditionals/LogicalConditional";
 
 // Testing data
-let column: SequenceColumn;
+const comparisonValue: number = 25;
+const columnAPredicate: Predicate = Predicate.Count;
+const columnAName: string = "columnA";
+let columnA: SequenceColumn;
 
 beforeEach(() => {
-    column = new SequenceColumn(Predicate.Count, "age");
+    columnA = new SequenceColumn(columnAPredicate, columnAName);
 });
 
 describe("LogicalConditional",  () => {
     describe("Instance Methods",  () => {
         describe("stringify", () => {
             it("Stringifies a greater than clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.GreaterThan, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) > 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.GreaterThan, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) > 25");
             });
             it("Stringifies a division clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.Division, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) / 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.Division, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) / 25");
             });
             it("Stringifies a equality clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.Equality, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) = 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.Equality, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) = 25");
             });
             it("Stringifies a greater than/equality clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.GreaterThanOrEquality, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) >= 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.GreaterThanOrEquality, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) >= 25");
             });
             it("Stringifies a less than clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.LessThan, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) < 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.LessThan, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) < 25");
             });
             it("Stringifies a less than/equality clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.LessThanOrEquality, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) <= 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.LessThanOrEquality, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) <= 25");
             });
             it("Stringifies a modulo clause", () => {
-                const conditional = new LogicalConditional(column, LogicalOperator.Modulo, 25);
-                expect(conditional.stringify()).to.equal("COUNT(age) % 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.Modulo, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal("COUNT(columnA) % 25");
             });
         });
         describe("toString", () => {
             it("Interpolates into a greater than clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.GreaterThan, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) > 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.GreaterThan, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) > 25");
             });
             it("Interpolates into a division clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.Division, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) / 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.Division, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) / 25");
             });
             it("Interpolates into a equality clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.Equality, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) = 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.Equality, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) = 25");
             });
             it("Stringifies a greater than/equality clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.GreaterThanOrEquality, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) >= 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.GreaterThanOrEquality, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) >= 25");
             });
             it("Stringifies a less than clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.LessThan, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) < 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.LessThan, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) < 25");
             });
             it("Stringifies a less than/equality clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.LessThanOrEquality, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) <= 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.LessThanOrEquality, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) <= 25");
             });
             it("Stringifies a modulo clause", () => {
-                const conditional: LogicalConditional = new LogicalConditional(column, LogicalOperator.Modulo, 25);
-                expect(`${conditional}`).to.equal("COUNT(age) % 25");
+                const classUnderTest: LogicalConditional = new LogicalConditional(columnA, LogicalOperator.Modulo, comparisonValue);
+                expect(`${classUnderTest}`).to.equal("COUNT(columnA) % 25");
             });
         });
     });

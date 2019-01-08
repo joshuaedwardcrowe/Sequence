@@ -24,9 +24,9 @@ export class Insert extends SequenceBuilder implements IInsert {
         return this;
     }
 
-    public values<TSupplementValue> (...values: TSupplementValue[]): this {
-        if (!this.supplement) this.supplement = new SequenceSupplement<TSupplementValue>(Supplement.Values, Wrapping.Parentheses);
-        const cleansed: TSupplementValue[] = values.map(Insert.cleanseAnonymousValue);
+    public values (...values: any[]): this {
+        if (!this.supplement) this.supplement = new SequenceSupplement(Supplement.Values, Wrapping.Parentheses);
+        const cleansed: any[] = values.map(Insert.cleanseAnonymousValue);
         this.supplement.values.push(...cleansed);
         return this;
     }

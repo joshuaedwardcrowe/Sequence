@@ -17,12 +17,16 @@ import {SequenceCondition} from "../src/SequenceCondition";
 // Tested import
 import {Select} from "../src/Select";
 
+// Testing instance
+let select: Select;
+
 // Test data
 const tableName: string = "table";
 let columnA: SequenceColumn;
 let columnB: SequenceColumn;
 
 beforeEach(() => {
+    select = new Select();
     columnA = new SequenceColumn(Predicate.None, "columnA");
     columnB = new SequenceColumn(Predicate.None, "columnB");
 });
@@ -30,23 +34,20 @@ beforeEach(() => {
 describe("Select", () => {
     describe("Instance Methods", () => {
         describe("all", () => {
-            it("Sets the operation to a {SelectionOperation}", () => {
-                const select: Select = new Select();
+            it("Sets the .operation of the {Select} to a {SelectionOperation}", () => {
                 expect(select.operation).to.be.undefined;
                 select.all();
                 expect(select.operation).instanceOf(SelectionOperation);
             });
         });
         describe("column", () => {
-            it("Sets the operation to a SelectionOperation", () => {
-                const select = new Select();
+            it("Sets the .operation of the {Select} to a {SelectionOperation}", () => {
                 expect(select.operation).to.be.undefined;
                 select.column(columnA);
                 expect(select.operation).instanceOf(SelectionOperation);
                 expect(select.operation.operation).to.equal(Operation.Select);
             });
-            it("Adds a column to the operation column collection", () => {
-                const select = new Select();
+            it("Adds a {SequenceColumn} to the {Select}'s {SelectionOperation}'s .columns collection", () => {
                 select.operation = new SelectionOperation();
                 expect(select.operation.columns).to.be.empty;
                 select.column(columnA);
@@ -59,24 +60,20 @@ describe("Select", () => {
         });
         describe("stringify", () => {
             it("Stringifies a wildcarded SELECT statement", () => {
-                const select: Select = new Select();
                 select.operation = new SelectionOperation();
                 expect(select.stringify()).to.equal("SELECT *");
             });
             it("Stringifies a columned SELECT statement", () => {
-                const select = new Select();
                 select.operation = new SelectionOperation();
                 select.operation.columns.push(columnA);
                 expect(select.stringify()).to.equal("SELECT columnA");
             });
             it("Stringifies a columned SELECT FROM statement", () => {
-                const select: Select = new Select();
                 select.operation = new SelectionOperation(columnA);
                 select.location = new SequenceLocation(Location.From, tableName);
                 expect(select.stringify()).to.equal("SELECT columnA FROM table");
             });
             it("Stringifies a columned SELECT FROM WHERE statement", () => {
-                const select: Select = new Select();
                 select.operation = new SelectionOperation(columnA);
                 select.location = new SequenceLocation(Location.From, tableName);
                 select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
@@ -86,24 +83,20 @@ describe("Select", () => {
         });
         describe("toString", () => {
             it("Interpolates a wildcarded SELECT statement", () => {
-                const select: Select = new Select();
                 select.operation = new SelectionOperation();
                 expect(`${select}`).to.equal("SELECT *");
             });
             it("Stringifies a columned SELECT statement", () => {
-                const select = new Select();
                 select.operation = new SelectionOperation();
                 select.operation.columns.push(columnA);
                 expect(`${select}`).to.equal("SELECT columnA");
             });
             it("Stringifies a columned SELECT FROM statement", () => {
-                const select: Select = new Select();
                 select.operation = new SelectionOperation(columnA);
                 select.location = new SequenceLocation(Location.From, tableName);
                 expect(`${select}`).to.equal("SELECT columnA FROM table");
             });
             it("Stringifies a columned SELECT FROM WHERE statement", () => {
-                const select: Select = new Select();
                 select.operation = new SelectionOperation(columnA);
                 select.location = new SequenceLocation(Location.From, tableName);
                 select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);

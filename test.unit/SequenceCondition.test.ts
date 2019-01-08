@@ -1,5 +1,7 @@
+// Testing imports
 import {expect} from "chai";
-import {SequenceCondition} from "../src/SequenceCondition";
+
+// Dependencies
 import {Condition} from "../src/enums/Condition";
 import {SequenceColumn} from "../src/SequenceColumn";
 import {Predicate} from "../src/enums/Predicate";
@@ -7,30 +9,38 @@ import {LogicalOperator} from "../src/enums/LogicalOperator";
 import {LogicalConditional} from "../src/conditionals/LogicalConditional";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
 
+// Tested import
+import {SequenceCondition} from "../src/SequenceCondition";
+
+// Testing instance
+let condition: SequenceCondition;
+
+// Test data
+let columnA: SequenceColumn;
+let columnB: SequenceColumn;
+let logicalConditionalA: LogicalConditional;
+let logicalConditionalB: LogicalConditional;
+
+beforeEach(() => {
+    columnA = new SequenceColumn(Predicate.Count, "age");
+    columnB = new SequenceColumn(Predicate.None, "name");
+    logicalConditionalA = new LogicalConditional(columnA, LogicalOperator.GreaterThanOrEquality, 25);
+    logicalConditionalB = new LogicalConditional(columnB, LogicalOperator.Equality, `'Test'`);
+    condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
+});
+
 describe("SequenceCondition",  () => {
     describe("Instance Methods",  () => {
         describe("stringify", () => {
-            it("Stringifies a set of conditionals", () => {
-               const condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-               const columnA = new SequenceColumn(Predicate.Count, "age");
-               const columnB = new SequenceColumn(Predicate.None, "name");
-               const conditionalA = new LogicalConditional(columnA, LogicalOperator.GreaterThanOrEquality, 25);
-               const conditionalB = new LogicalConditional(columnB, LogicalOperator.Equality, `'Test'`);
-               condition.conditionals.push(conditionalA);
-               condition.conditionals.push(conditionalB);
+            it("Stringifies a set of {SequenceConditional}", () => {
+               condition.conditionals.push(logicalConditionalA, logicalConditionalB);
                expect(condition.stringify()).to.equal("WHERE COUNT(age) >= 25 AND name = 'Test'");
             });
         });
-    });
-    describe("Static Methods", () => {
-        describe("stringifyCondition", () => {
-            it("Stringifies a Where condition", () => {
-                const condition = SequenceCondition.stringifyCondition(Condition.Where);
-                expect(condition).to.equal("WHERE");
-            });
-            it("Stringifies an ON condition", () => {
-                const condition = SequenceCondition.stringifyCondition(Condition.On);
-                expect(condition).to.equal("ON");
+        describe("toString", () => {
+            it("Interpolates a set of {SequenceConditional}", () => {
+                condition.conditionals.push(logicalConditionalA, logicalConditionalB);
+                expect(`${condition}`).to.equal("WHERE COUNT(age) >= 25 AND name = 'Test'");
             });
         });
     });

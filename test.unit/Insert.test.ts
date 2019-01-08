@@ -11,6 +11,10 @@ import {Predicate} from "../src/enums/Predicate";
 import {Wrapping} from "../src/enums/Wrapping";
 import {SequenceSupplement} from "../src/SequenceSupplement";
 
+// Testing instance
+let classUnderTest: Insert;
+
+// Testing data
 const tableName: string = "table";
 let columnA: SequenceColumn;
 let columnB: SequenceColumn;
@@ -18,6 +22,7 @@ let numberValues: number[];
 let stringValues: string[];
 
 beforeEach(() => {
+    classUnderTest = new Insert();
     columnA = new SequenceColumn(Predicate.None, "columnA");
     columnB = new SequenceColumn(Predicate.None, "columnB");
     numberValues = [1, 2, 3];
@@ -27,53 +32,44 @@ beforeEach(() => {
 describe("Insert", () => {
     describe("Instance Methods", () => {
         describe("into", () => {
-            it("Sets the location to an IntoLocation", () => {
-                const insert: Insert = new Insert();
-                expect(insert.location).to.be.undefined;
-                insert.into(tableName, columnA);
-                expect(insert.location).instanceOf(IntoLocation);
-                const casted: IntoLocation = insert.location as IntoLocation;
-                expect(casted.name).to.equal(tableName);
-                expect(casted.wrapping).to.equal(Wrapping.Parentheses);
-                expect(casted.columns).to.include(columnA);
+            it("Sets the .location of the {Insert} to an {IntoLocation}", () => {
+                expect(classUnderTest.location).to.be.undefined;
+                classUnderTest.into(tableName, columnA);
+                expect(classUnderTest.location).instanceOf(IntoLocation);
+                const castedClassUnderTest: IntoLocation = classUnderTest.location as IntoLocation;
+                expect(castedClassUnderTest.name).to.equal(tableName);
+                expect(castedClassUnderTest.wrapping).to.equal(Wrapping.Parentheses);
+                expect(castedClassUnderTest.columns).to.include(columnA);
             });
         });
         describe("values", () => {
-            it("Sets the supplement with the values given", () => {
-                const insert: Insert = new Insert();
-                expect(insert.supplement).to.be.undefined;
-                insert.values<number>(...numberValues);
-                expect(insert.supplement).instanceOf(SequenceSupplement);
-                expect(insert.supplement.values).to.include(1);
-                expect(insert.supplement.values).to.include(2);
-                expect(insert.supplement.values).to.include(3);
+            it("Sets the .supplement of the {Insert} with the {Number} values given", () => {
+                expect(classUnderTest.supplement).to.be.undefined;
+                classUnderTest.values(...numberValues);
+                expect(classUnderTest.supplement).instanceOf(SequenceSupplement);
+                expect(classUnderTest.supplement.values).to.include(1);
+                expect(classUnderTest.supplement.values).to.include(2);
+                expect(classUnderTest.supplement.values).to.include(3);
             });
-            it("Handles supplements with strings", () => {
-                const insert: Insert = new Insert();
-                expect(insert.supplement).to.be.undefined;
-                insert.values<string>(...stringValues);
-                expect(insert.supplement).instanceOf(SequenceSupplement);
-                expect(insert.supplement.values).to.include("'A'");
-                expect(insert.supplement.values).to.include("'B'");
-            })
+            it("Supports passing {String} values, correcting them", () => {
+                expect(classUnderTest.supplement).to.be.undefined;
+                classUnderTest.values(...stringValues);
+                expect(classUnderTest.supplement).instanceOf(SequenceSupplement);
+                expect(classUnderTest.supplement.values).to.include("'A'");
+                expect(classUnderTest.supplement.values).to.include("'B'");
+            });
         });
         describe("stringify", () => {
             it("Stringifies an INSERT statement", () => {
-                const insert: Insert = new Insert()
-                    .into(tableName, columnA, columnB)
-                    .values(...stringValues);
-
-                expect(insert.stringify()).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
-            })
+                classUnderTest.into(tableName, columnA, columnB).values(...stringValues);
+                expect(classUnderTest.stringify()).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
+            });
         });
         describe("toString", () => {
             it("Interpolates as an INSERT statement", () => {
-                const insert: Insert = new Insert()
-                    .into(tableName, columnA, columnB)
-                    .values(...stringValues);
-
-                expect(`${insert}`).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')")
-            })
-        })
+                classUnderTest.into(tableName, columnA, columnB).values(...stringValues);
+                expect(`${classUnderTest}`).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
+            });
+        });
     });
 });

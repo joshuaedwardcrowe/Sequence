@@ -3,13 +3,13 @@ import {Supplement} from "./enums/Supplement";
 import {Wrapping} from "./enums/Wrapping";
 import {SequencePart} from "./SequencePart";
 
-export class SequenceSupplement<TValue> extends SequencePart implements ISequenceSupplement {
+export class SequenceSupplement extends SequencePart implements ISequenceSupplement {
 
     public readonly supplement: Supplement;
     public readonly wrapping: Wrapping;
-    public readonly values: TValue[];
+    public readonly values: any[];
 
-    constructor (supplement: Supplement, wrapping: Wrapping, ...values: TValue[]) {
+    constructor (supplement: Supplement, wrapping: Wrapping, ...values: any[]) {
         super();
 
         this.supplement = supplement;
