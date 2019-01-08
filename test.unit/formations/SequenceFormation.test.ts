@@ -1,14 +1,14 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {Formation} from "../src/enums/Formation";
-import {SequenceFilter} from "../src/SequenceFilter";
-import {Predicate} from "../src/enums/Predicate";
-import {Arrangement} from "../src/enums/Arrangement";
-import {SequenceColumn} from "../src/SequenceColumn";
-import {CoalescingOperator} from "../src/enums/CoalescingOperator";
+import {Formation} from "../../src/enums/Formation";
+import {SequenceFilter} from "../../src/SequenceFilter";
+import {Predicate} from "../../src/enums/Predicate";
+import {Arrangement} from "../../src/enums/Arrangement";
+import {SequenceColumn} from "../../src/SequenceColumn";
+import {CoalescingOperator} from "../../src/enums/CoalescingOperator";
 // Tested imports.
-import {SequenceFormation} from "../src/SequenceFormation";
+import {SequenceFormation} from "../../src/SequenceFormation";
 
 // Testing instance
 let classUnderTest: SequenceFormation;

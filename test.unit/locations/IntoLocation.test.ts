@@ -2,11 +2,11 @@
 import {expect} from "chai";
 
 // Dependencies
-import {SequenceColumn} from "../src/SequenceColumn";
-import {Predicate} from "../src/enums/Predicate";
+import {SequenceColumn} from "../../src/SequenceColumn";
+import {Predicate} from "../../src/enums/Predicate";
 
 // Tested import
-import {IntoLocation} from "../src/locations/IntoLocation";
+import {IntoLocation} from "../../src/locations/IntoLocation";
 
 // Testing instance
 let classUnderTest: IntoLocation;

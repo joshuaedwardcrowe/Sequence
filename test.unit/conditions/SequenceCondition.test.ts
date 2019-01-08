@@ -2,15 +2,15 @@
 import {expect} from "chai";
 
 // Dependencies
-import {Condition} from "../src/enums/Condition";
-import {SequenceColumn} from "../src/SequenceColumn";
-import {Predicate} from "../src/enums/Predicate";
-import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {LogicalConditional} from "../src/conditionals/LogicalConditional";
-import {CoalescingOperator} from "../src/enums/CoalescingOperator";
+import {Condition} from "../../src/enums/Condition";
+import {SequenceColumn} from "../../src/SequenceColumn";
+import {Predicate} from "../../src/enums/Predicate";
+import {LogicalOperator} from "../../src/enums/LogicalOperator";
+import {LogicalConditional} from "../../src/conditionals/LogicalConditional";
+import {CoalescingOperator} from "../../src/enums/CoalescingOperator";
 
 // Tested import
-import {SequenceCondition} from "../src/SequenceCondition";
+import {SequenceCondition} from "../../src/SequenceCondition";
 
 // Testing instance
 let condition: SequenceCondition;

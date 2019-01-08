@@ -51,7 +51,7 @@ describe("Insert", () => {
                 expect(classUnderTest.supplement.values).to.include(2);
                 expect(classUnderTest.supplement.values).to.include(3);
             });
-            it("Supports passing {String} values, correcting them", () => {
+            it("Supports passing {String} values by correcting them", () => {
                 expect(classUnderTest.supplement).to.be.undefined;
                 classUnderTest.values(...stringValues);
                 expect(classUnderTest.supplement).instanceOf(SequenceSupplement);

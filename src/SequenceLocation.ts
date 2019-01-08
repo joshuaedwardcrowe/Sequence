@@ -19,7 +19,7 @@ export class SequenceLocation extends SequencePart implements ISequenceLocation 
         return `${location} ${this.name}`;
     }
 
-    public static stringifyLocation (location: Location) {
+    protected static stringifyLocation (location: Location) {
         switch (location) {
             default: return Location[location].toUpperCase();
         }

@@ -1,11 +1,11 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {Conditional} from "../src/enums/Conditional";
-import {Predicate} from "../src/enums/Predicate";
-import {SequenceColumn} from "../src/SequenceColumn";
+import {Conditional} from "../../src/enums/Conditional";
+import {Predicate} from "../../src/enums/Predicate";
+import {SequenceColumn} from "../../src/SequenceColumn";
 // Testing import:
-import {SequenceConditional} from "../src/SequenceConditional";
+import {SequenceConditional} from "../../src/SequenceConditional";
 
 // Testing data
 const columnAName: string = "name";

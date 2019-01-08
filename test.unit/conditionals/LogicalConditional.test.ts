@@ -1,11 +1,11 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {Predicate} from "../src/enums/Predicate";
-import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {SequenceColumn} from "../src/SequenceColumn";
+import {Predicate} from "../../src/enums/Predicate";
+import {LogicalOperator} from "../../src/enums/LogicalOperator";
+import {SequenceColumn} from "../../src/SequenceColumn";
 // Tested import
-import {LogicalConditional} from "../src/conditionals/LogicalConditional";
+import {LogicalConditional} from "../../src/conditionals/LogicalConditional";
 
 // Testing data
 const comparisonValue: number = 25;

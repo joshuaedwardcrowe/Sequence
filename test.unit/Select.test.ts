@@ -58,6 +58,15 @@ describe("Select", () => {
                 expect(select.operation.columns).to.include(columnB);
             });
         });
+        describe("from", () => {
+            it("Sets the .location to a {SequenceLocation} with a {Location} of From", () => {
+                expect(select.location).to.be.undefined;
+                select.from(tableName);
+                expect(select.location).instanceOf(SequenceLocation);
+                expect(select.location.location).to.equal(Location.From);
+                expect(select.location.name).to.equal(tableName);
+            });
+        });
         describe("stringify", () => {
             it("Stringifies a wildcarded SELECT statement", () => {
                 select.operation = new SelectionOperation();

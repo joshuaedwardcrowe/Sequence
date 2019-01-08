@@ -2,7 +2,7 @@
 import {expect} from "chai";
 
 // Tested imports
-import {LimitFormation} from "../src/formations/LimitFormation";
+import {LimitFormation} from "../../src/formations/LimitFormation";
 
 // Testing instance
 let classUnderTest: LimitFormation;

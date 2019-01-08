@@ -1,7 +1,7 @@
 import {expect} from "chai";
-import {SequenceSupplement} from "../src/SequenceSupplement";
-import {Supplement} from "../src/enums/Supplement";
-import {Wrapping} from "../src/enums/Wrapping";
+import {SequenceSupplement} from "../../src/SequenceSupplement";
+import {Supplement} from "../../src/enums/Supplement";
+import {Wrapping} from "../../src/enums/Wrapping";
 
 describe("SequenceSupplement", () => {
     describe("Instance Methods", () => {

@@ -104,7 +104,7 @@ export abstract class SequenceBuilder implements ISequenceBuilder {
 
     protected static cleanseAnonymousValue (value: any) {
         if (String(value) !== value) return value;
-        return `'${value}'`
+        return `'${value}'`;
     }
 
     protected static cleanseAnonymousValues (values: any[]) {
