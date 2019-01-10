@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "lib": ["es2018"],
+    "sourceMap": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "test.unit",
+    "gulpfile.ts",
+    "dist"
+  ]
+}
