@@ -1,7 +1,7 @@
 // Testing imports
 import {expect} from "chai";
 // Dependencies
-import {SelectionOperation} from "../src/operations/SelectionOperation";
+import {ColumnOperation} from "../src/operations/ColumnOperation";
 import {Predicate} from "../src/enums/Predicate";
 import {Operation} from "../src/enums/Operation";
 import {SequenceColumn} from "../src/SequenceColumn";
@@ -35,22 +35,9 @@ beforeEach(() => {
 
 describe("Select", () => {
     describe("Instance Methods", () => {
-        describe("all", () => {
-            it("Sets the .operation of the {Select} to a {SelectionOperation}", () => {
-                expect(select.operation).to.be.undefined;
-                select.all();
-                expect(select.operation).instanceOf(SelectionOperation);
-            });
-        });
         describe("column", () => {
-            it("Sets the .operation of the {Select} to a {SelectionOperation}", () => {
-                expect(select.operation).to.be.undefined;
-                select.column(columnA);
-                expect(select.operation).instanceOf(SelectionOperation);
-                expect(select.operation.operation).to.equal(Operation.Select);
-            });
-            it("Adds a {SequenceColumn} to the {Select}'s {SelectionOperation}'s .columns collection", () => {
-                select.operation = new SelectionOperation();
+            it("Adds a {SequenceColumn} to the {Select}'s {ColumnOperation}'s .columns collection", () => {
+                select.operation = new ColumnOperation(Operation.Select);
                 expect(select.operation.columns).to.be.empty;
                 select.column(columnA);
                 select.column(columnB);
@@ -71,51 +58,44 @@ describe("Select", () => {
         });
         describe("stringify", () => {
             it("Stringifies a SELECT * statement", () => {
-                select.all();
                 expect(select.stringify()).to.equal("SELECT *");
             });
             it("Stringifies a SELECT * FROM statement", () => {
-               select.all().from(tableName);
+               select.from(tableName);
                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName}`);
             });
             it("Stringifies a SELECT * FROM WHERE statement", () => {
                 select
-                    .all()
                     .from(tableName)
                     .where(columnA, LogicalOperator.Equality, numberComparisonValue);
                 expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} WHERE ${columnAName} = ${numberComparisonValue}`);
             });
             it("Stringifies a SELECT * FROM WHERE IN statement", () => {
                 select
-                    .all()
                     .from(tableName)
                     .whereIn(columnA, ...stringComparisonValues);
                 expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} WHERE ${columnAName} IN ('${stringComparisonValues.join("', '")}')`);
             });
             it("Stringifies a SELECT * FROM WHERE NOT IN statement", () => {
                 select
-                    .all()
                     .from(tableName)
                     .whereNotIn(columnA, ...stringComparisonValues);
                 expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} WHERE ${columnAName} NOT IN ('${stringComparisonValues.join("', '")}')`);
             });
             it("Stringifies a SELECT * FROM ORDER BY statement", () => {
                 select
-                    .all()
                     .from(tableName)
                     .orderBy(columnA, Arrangement.Ascending);
                 expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} ORDER BY ${columnAName} ASCENDING`);
             });
             it("Stringifies a SELECT * FROM GROUP BY statement", () => {
                 select
-                    .all()
                     .from(tableName)
                     .groupBy(columnA, Arrangement.Ascending);
                 expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} GROUP BY ${columnAName} ASCENDING`);
             });
             it("Stringifies a SELECT * FROM LIMIT statement", () => {
                 select
-                    .all()
                     .from(tableName)
                     .limit(numberComparisonValue);
                 expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} LIMIT ${numberComparisonValue}`);
