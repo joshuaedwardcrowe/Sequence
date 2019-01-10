@@ -7,13 +7,12 @@ To use this in your project, follow the simple examples below
 ### SELECT Statements
 ```typescript
 // Create your column.
-const column: ISequenceColumn = new SequenceColumn(Predicate.None, "userName");
+const column: ISequenceColumn = new SequenceColumn(Predicate.None, "username");
 
 // Build your statement.
 const select: ISequenceBuilder = new Select()
-    .all()
     .from("user")
-    .where(column, LogicalOperator.Equality, `'Crowes'`);
+    .where(column, LogicalOperator.Equality, "Crowes");
 
 // Stringify your statement.
 const sql: string = select.stringify();
@@ -22,15 +21,30 @@ const sql: string = select.stringify();
 ### INSERT Statements
 ```typescript
 // Create your columns.
-const columnA: ISequenceColumn = new SequenceColumn(Predicate.None, "userName")
-const columnB: ISequenceColumn = new SequenceColumn(Predicate.None, "userPassword")
+const columnA: ISequenceColumn = new SequenceColumn(Predicate.None, "username")
+const columnB: ISequenceColumn = new SequenceColumn(Predicate.None, "password")
 
 // Build your statement
 const insert: ISequenceBuilder = new Insert()
     .into("user", columnA, columnB)
-    .values(`'crowes'`, 1234);
+    .values("Crowes", 1234);
 
 // Stringify your statement.
 const sql: string = insert.stringify();
 // INSERT INTO user (userName, userPassword) VALUES ('crowes', 1234)
+```
+
+### DELETE Statements
+```typescript
+// Create your column.
+const column: ISequenceColumn = new SequenceColumn(Predicate.None, "username");
+
+// Build your statement.
+const delete: ISequenceBuilder = new Delete()
+    .from("user")
+    .where(column, LogicalOperator.Equality, "Crowes");
+
+// Stringify your statement.
+const sql: string = select.stringify();
+// SELECT * FROM user WHERE userName = 'Crowes'
 ```
