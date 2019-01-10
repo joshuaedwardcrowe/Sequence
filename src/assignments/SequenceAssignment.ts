@@ -3,8 +3,10 @@ import {ISequenceAssigment} from "../interfaces/assignments/ISequenceAssignment"
 import {CoalescingOperator} from "../enums/CoalescingOperator";
 import {Assignment} from "../enums/Assignment";
 import {ISequenceAssignation} from "../interfaces/assignments/assignations/ISequenceAssignation";
+import {ISequencePart} from "../interfaces/ISequencePart";
+import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
 
-export class SequenceAssignment extends SequenceCoalescent implements ISequenceAssigment {
+export class SequenceAssignment extends SequenceCoalescent implements ISequenceAssigment, ISequenceCoalescent {
 
     public assignment: Assignment;
     public readonly coalescingOperator: CoalescingOperator = CoalescingOperator.Comma;

@@ -4,6 +4,7 @@ import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {ISelect} from "./interfaces/ISelect";
 import {SequenceBuilder} from "./SequenceBuilder";
 import {Location} from "./enums/Location";
+import {Sanitise} from "./utilities/Sanitise";
 
 export class Select extends SequenceBuilder implements ISelect {
 
@@ -24,9 +25,9 @@ export class Select extends SequenceBuilder implements ISelect {
     }
 
     public stringify (): string {
-        const operation = !!this.operation ? `${this.operation.stringify()} ` : "";
-        const location = !!this.location ? `${this.location.stringify()} ` : "";
-        return `${operation}${location}${super.stringify()}`.trim();
+        const operation: string = Sanitise.part(this.operation);
+        const location: string = Sanitise.part(this.location);
+        return (`${operation}${location}${this.stringifyBase()}`).trim();
     }
 
 }

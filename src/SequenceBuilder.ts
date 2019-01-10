@@ -6,7 +6,6 @@ import {ISequenceJoin} from "./interfaces/ISequenceJoin";
 import {ISequenceOperation} from "./interfaces/operations/ISequenceOperation";
 import {ISequenceLocation} from "./interfaces/locations/ISequenceLocation";
 import {ISequenceCondition} from "./interfaces/conditions/ISequenceCondition";
-import {ISequenceBuilder} from "./interfaces/ISequenceBuilder";
 import {SequenceCondition} from "./conditions/SequenceCondition";
 import {Condition} from "./enums/Condition";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
@@ -17,8 +16,9 @@ import {Arrangement} from "./enums/Arrangement";
 import {SequenceFormation} from "./formations/SequenceFormation";
 import {Formation} from "./enums/Formation";
 import {SequenceFilter} from "./formations/filters/SequenceFilter";
+import {Sanitise} from "./utilities/Sanitise";
 
-export abstract class SequenceBuilder implements ISequenceBuilder {
+export abstract class SequenceBuilder {
 
     public condition: ISequenceCondition;
     public location: ISequenceLocation;
@@ -30,24 +30,21 @@ export abstract class SequenceBuilder implements ISequenceBuilder {
 
     public where (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where,  CoalescingOperator.And);
-        const cleansedValue: any = SequenceBuilder.cleanseAnonymousValue(comparisonValue);
-        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, cleansedValue));
+        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, Sanitise.input(comparisonValue)));
         return this;
     }
 
     public whereIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        const cleansedValues: any[] = SequenceBuilder.cleanseAnonymousValues(values);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...cleansedValues));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...Sanitise.inputs(values)));
     }
 
     public whereNotIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        const cleansedValues: any = SequenceBuilder.cleanseAnonymousValues(values);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...cleansedValues));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...Sanitise.inputs(values)));
     }
 
-    public orderBy (column: ISequenceColumn, arrangement: Arrangement) {
+    public orderBy (column: ISequenceColumn, arrangement: Arrangement): this {
         if (!this.ordering) this.ordering = new SequenceFormation(Formation.OrderBy, CoalescingOperator.And);
         this.ordering.filters.push(new SequenceFilter(column, arrangement));
         return this;
@@ -64,51 +61,17 @@ export abstract class SequenceBuilder implements ISequenceBuilder {
         return this;
     }
 
-    public stringify (): string {
-        const condition: string = this.stringifyCondition();
-        const ordering: string = this.stringifyOrdering();
-        const limitation: string = this.stringifyLimitation();
-        const grouping: string = this.stringifyGrouping();
-        const joins: string = this.stringifyJoins();
-
-        return (`${condition}${ordering}${limitation}${grouping}${joins}`).trim();
-    }
-
-    public toString (): string {
-        return this.stringify();
-    }
-
-    private stringifyCondition (): string {
-        return !!this.condition ? `${this.condition.stringify()} ` : "";
-    }
-
-    private stringifyOrdering (): string {
-        return !!this.ordering ? `${this.ordering.stringify()} ` : "";
-    }
-
-    private stringifyGrouping (): string {
-        return !!this.grouping ? `${this.grouping.stringify()} ` : "";
-    }
-
-    private stringifyLimitation (): string {
-        return !!this.limitation ? `${this.limitation.stringify()} ` : "";
+    protected stringifyBase (): string {
+        const condition: string = Sanitise.part(this.condition);
+        const ordering: string = Sanitise.part(this.ordering);
+        const limitation: string = Sanitise.part(this.limitation);
+        const grouping: string = Sanitise.part(this.grouping);
+        return (`${condition}${ordering}${limitation}${grouping}${this.stringifyJoins()}`);
     }
 
     private stringifyJoins (): string {
-        return this.joins.length ? `${this.joins.reduce<string>(this.reduceJoins, "")} ` : "";
-    }
-
-    private reduceJoins (reduction: string, join: ISequenceJoin): string {
-        return `${reduction} ${join.stringify()}`;
-    }
-
-    protected static cleanseAnonymousValue (value: any) {
-        if (String(value) !== value) return value;
-        return `'${value}'`;
-    }
-
-    protected static cleanseAnonymousValues (values: any[]) {
-        return values.map(SequenceBuilder.cleanseAnonymousValue);
+        const reducer = (reduction: string, join: ISequenceJoin) => ` ${reduction} ${join.stringify()}`;
+        return this.joins.length ? this.joins.reduce<string>(reducer, "") : "";
     }
 
 }

@@ -9,6 +9,7 @@ import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {LogicalConditional} from "./conditions/conditionals/LogicalConditional";
 import {CriteriaConditional} from "./conditions/conditionals/CriteriaConditional";
 import {Conditional} from "./enums/Conditional";
+import {Sanitise} from "./utilities/Sanitise";
 
 export class SequenceJoin extends SequencePart implements ISequenceJoin {
 
@@ -25,44 +26,29 @@ export class SequenceJoin extends SequencePart implements ISequenceJoin {
 
     public on (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        const cleansed: any = SequenceJoin.cleanseAnonymousValue(comparisonValue);
-        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, cleansed));
+        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, Sanitise.input(comparisonValue)));
         return this;
     }
 
     public onIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        const cleansed: any[] = SequenceJoin.cleanseAnonymousValues(values);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...cleansed));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...Sanitise.inputs(values)));
     }
 
     public onNotIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        const cleansed: any[] = SequenceJoin.cleanseAnonymousValues(values);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...cleansed));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...Sanitise.inputs(values)));
     }
 
     public stringify (): string {
-        const location: string = !!this.location ? `${this.location} ` : "";
-        const condition: string = !!this.condition ? `${this.condition.stringify()} ` : "";
-        const join: string = `${SequenceJoin.stringifyJoin(this.join)} `;
-
-        return `${join}${location}${condition}`.trim();
+        const condition: string = Sanitise.part(this.condition);
+        return `${SequenceJoin.stringifyJoin(this.join)} ${this.location} ${condition}`.trim();
     }
 
     protected static stringifyJoin(joinType: Join): string {
         switch (joinType) {
             default: return `${Join[joinType].toUpperCase()} JOIN`;
         }
-    }
-
-    protected static cleanseAnonymousValue (value: any) {
-        if (String(value) !== value) return value;
-        return `'${value}'`;
-    }
-
-    protected static cleanseAnonymousValues (values: any[]) {
-        return values.map(SequenceJoin.cleanseAnonymousValue);
     }
 
 }

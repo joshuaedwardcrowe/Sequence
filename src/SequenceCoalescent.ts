@@ -2,7 +2,7 @@ import {SequencePart} from "./SequencePart";
 import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {ISequenceCoalescable} from "./interfaces/ISequenceCoalescable";
 
-export class SequenceCoalescent extends SequencePart {
+export abstract class SequenceCoalescent extends SequencePart {
 
     private static stringifyCoalescingOperator (coalescingOperator: CoalescingOperator): string {
         switch (coalescingOperator) {

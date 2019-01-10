@@ -1,7 +1,8 @@
 import {ISequenceColumn} from "../../ISequenceColumn";
 import {Conditional} from "../../../enums/Conditional";
+import {ISequenceCoalescable} from "../../ISequenceCoalescable";
 
-export interface ISequenceConditional {
+export interface ISequenceConditional extends ISequenceCoalescable {
 
     readonly conditional: Conditional;
 

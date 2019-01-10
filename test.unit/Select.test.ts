@@ -1,6 +1,5 @@
 // Testing imports
 import {expect} from "chai";
-
 // Dependencies
 import {SelectionOperation} from "../src/operations/SelectionOperation";
 import {Predicate} from "../src/enums/Predicate";
@@ -8,27 +7,30 @@ import {Operation} from "../src/enums/Operation";
 import {SequenceColumn} from "../src/SequenceColumn";
 import {SequenceLocation} from "../src/locations/SequenceLocation";
 import {Location} from "../src/enums/Location";
-import {Condition} from "../src/enums/Condition";
-import {CoalescingOperator} from "../src/enums/CoalescingOperator";
-import {LogicalConditional} from "../src/conditions/conditionals/LogicalConditional";
 import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {SequenceCondition} from "../src/conditions/SequenceCondition";
-
 // Tested import
 import {Select} from "../src/Select";
+import {Arrangement} from "../src/enums/Arrangement";
 
 // Testing instance
 let select: Select;
 
 // Test data
 const tableName: string = "table";
+const columnAName: string = "columnA";
 let columnA: SequenceColumn;
 let columnB: SequenceColumn;
+let numberComparisonValue: number;
+let stringComparisonValue: string;
+let stringComparisonValues: string[];
 
 beforeEach(() => {
     select = new Select();
-    columnA = new SequenceColumn(Predicate.None, "columnA");
+    columnA = new SequenceColumn(Predicate.None, columnAName);
     columnB = new SequenceColumn(Predicate.None, "columnB");
+    numberComparisonValue = 1;
+    stringComparisonValue = "A";
+    stringComparisonValues = ["A", "B", "C"];
 });
 
 describe("Select", () => {
@@ -68,49 +70,55 @@ describe("Select", () => {
             });
         });
         describe("stringify", () => {
-            it("Stringifies a wildcarded SELECT statement", () => {
-                select.operation = new SelectionOperation();
+            it("Stringifies a SELECT * statement", () => {
+                select.all();
                 expect(select.stringify()).to.equal("SELECT *");
             });
-            it("Stringifies a columned SELECT statement", () => {
-                select.operation = new SelectionOperation();
-                select.operation.columns.push(columnA);
-                expect(select.stringify()).to.equal("SELECT columnA");
+            it("Stringifies a SELECT * FROM statement", () => {
+               select.all().from(tableName);
+               expect(select.stringify()).to.equal(`SELECT * FROM ${tableName}`);
             });
-            it("Stringifies a columned SELECT FROM statement", () => {
-                select.operation = new SelectionOperation(columnA);
-                select.location = new SequenceLocation(Location.From, tableName);
-                expect(select.stringify()).to.equal("SELECT columnA FROM table");
+            it("Stringifies a SELECT * FROM WHERE statement", () => {
+                select
+                    .all()
+                    .from(tableName)
+                    .where(columnA, LogicalOperator.Equality, numberComparisonValue);
+                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} WHERE ${columnAName} = ${numberComparisonValue}`);
             });
-            it("Stringifies a columned SELECT FROM WHERE statement", () => {
-                select.operation = new SelectionOperation(columnA);
-                select.location = new SequenceLocation(Location.From, tableName);
-                select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-                select.condition.conditionals.push(new LogicalConditional(columnB, LogicalOperator.Equality, 25));
-                expect(select.stringify()).to.equal("SELECT columnA FROM table WHERE columnB = 25");
+            it("Stringifies a SELECT * FROM WHERE IN statement", () => {
+                select
+                    .all()
+                    .from(tableName)
+                    .whereIn(columnA, ...stringComparisonValues);
+                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} WHERE ${columnAName} IN ('${stringComparisonValues.join("', '")}')`);
             });
-        });
-        describe("toString", () => {
-            it("Interpolates a wildcarded SELECT statement", () => {
-                select.operation = new SelectionOperation();
-                expect(`${select}`).to.equal("SELECT *");
+            it("Stringifies a SELECT * FROM WHERE NOT IN statement", () => {
+                select
+                    .all()
+                    .from(tableName)
+                    .whereNotIn(columnA, ...stringComparisonValues);
+                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} WHERE ${columnAName} NOT IN ('${stringComparisonValues.join("', '")}')`);
             });
-            it("Stringifies a columned SELECT statement", () => {
-                select.operation = new SelectionOperation();
-                select.operation.columns.push(columnA);
-                expect(`${select}`).to.equal("SELECT columnA");
+            it("Stringifies a SELECT * FROM ORDER BY statement", () => {
+                select
+                    .all()
+                    .from(tableName)
+                    .orderBy(columnA, Arrangement.Ascending);
+                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} ORDER BY ${columnAName} ASCENDING`);
             });
-            it("Stringifies a columned SELECT FROM statement", () => {
-                select.operation = new SelectionOperation(columnA);
-                select.location = new SequenceLocation(Location.From, tableName);
-                expect(`${select}`).to.equal("SELECT columnA FROM table");
+            it("Stringifies a SELECT * FROM GROUP BY statement", () => {
+                select
+                    .all()
+                    .from(tableName)
+                    .groupBy(columnA, Arrangement.Ascending);
+                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} GROUP BY ${columnAName} ASCENDING`);
             });
-            it("Stringifies a columned SELECT FROM WHERE statement", () => {
-                select.operation = new SelectionOperation(columnA);
-                select.location = new SequenceLocation(Location.From, tableName);
-                select.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-                select.condition.conditionals.push(new LogicalConditional(columnB, LogicalOperator.Equality, 25));
-                expect(`${select}`).to.equal("SELECT columnA FROM table WHERE columnB = 25");
+            it("Stringifies a SELECT * FROM LIMIT statement", () => {
+                select
+                    .all()
+                    .from(tableName)
+                    .limit(numberComparisonValue);
+                expect(select.stringify()).to.equal(`SELECT * FROM ${tableName} LIMIT ${numberComparisonValue}`);
             });
         });
     });

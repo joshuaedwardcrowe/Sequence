@@ -41,7 +41,56 @@ describe("Update", () => {
                 expect(classUnderTest.assignment.assignations[0].column).to.equal(columnA);
                 expect(classUnderTest.assignment.assignations[0].logicalOperator).to.equal(LogicalOperator.Equality);
                 expect(classUnderTest.assignment.assignations[0].value).to.equal(`'${comparisonValue}'`);
-            })
-        })
+            });
+        });
+        describe("orderBy", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.orderBy).throws(Error, `UPDATE statements cannot have an ORDER BY clause`);
+            });
+        });
+        describe("groupBy", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.groupBy).throws(Error, `UPDATE statements cannot have a GROUP BY clause`);
+            });
+        });
+        describe("limit", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.limit).throws(Error, `UPDATE statements cannot have a LIMIT clause`);
+            });
+        });
+        describe("stringify", () => {
+            it("Stringifies an UPDATE statement", () => {
+                classUnderTest
+                    .table(tableName);
+                expect(classUnderTest.stringify()).to.equal(`UPDATE ${tableName} SET`);
+            });
+            it("Stringifies an UPDATE SET statement", () => {
+                classUnderTest
+                    .table(tableName)
+                    .column(columnA, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal(`UPDATE ${tableName} SET ${columnAName} = '${comparisonValue}'`);
+            });
+            it("Stringifies an UPDATE SET WHERE", () => {
+                classUnderTest
+                    .table(tableName)
+                    .column(columnA, comparisonValue)
+                    .where(columnA, LogicalOperator.Equality, comparisonValue);
+                expect(classUnderTest.stringify()).to.equal(`UPDATE ${tableName} SET ${columnAName} = '${comparisonValue}' WHERE ${columnAName} = '${comparisonValue}'`);
+            });
+            it("Stringifies an UPDATE SET WHERE IN", () => {
+                classUnderTest
+                    .table(tableName)
+                    .column(columnA, comparisonValue)
+                    .whereIn(columnA, ...[comparisonValue]);
+                expect(classUnderTest.stringify()).to.equal(`UPDATE ${tableName} SET ${columnAName} = '${comparisonValue}' WHERE ${columnAName} IN ('${comparisonValue}')`);
+            });
+            it("Stringifies an UPDATE SET WHERE NOT IN", () => {
+                classUnderTest
+                    .table(tableName)
+                    .column(columnA, comparisonValue)
+                    .whereIn(columnA, ...[comparisonValue]);
+                expect(classUnderTest.stringify()).to.equal(`UPDATE ${tableName} SET ${columnAName} = '${comparisonValue}' WHERE ${columnAName} IN ('${comparisonValue}')`);
+            });
+        });
     });
 });

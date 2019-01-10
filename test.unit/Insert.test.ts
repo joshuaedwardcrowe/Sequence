@@ -16,15 +16,17 @@ let classUnderTest: Insert;
 
 // Testing data
 const tableName: string = "table";
+const columnAName: string = "columnA";
 let columnA: SequenceColumn;
+const columnBName: string = "columnB";
 let columnB: SequenceColumn;
 let numberValues: number[];
 let stringValues: string[];
 
 beforeEach(() => {
     classUnderTest = new Insert();
-    columnA = new SequenceColumn(Predicate.None, "columnA");
-    columnB = new SequenceColumn(Predicate.None, "columnB");
+    columnA = new SequenceColumn(Predicate.None, columnAName);
+    columnB = new SequenceColumn(Predicate.None, columnBName);
     numberValues = [1, 2, 3];
     stringValues = ["A", "B"];
 });
@@ -59,10 +61,50 @@ describe("Insert", () => {
                 expect(classUnderTest.supplement.values).to.include("'B'");
             });
         });
+        describe("where", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.where).throws(Error, `INSERT statements cannot have a WHERE clause`);
+            });
+        });
+        describe("whereIn", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.whereIn).throws(Error, `INSERT statements cannot have a WHERE IN clause`);
+            });
+        });
+        describe("whereNotIn", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.whereNotIn).throws(Error, `INSERT statements cannot have a WHERE NOT IN clause`);
+            });
+        });
+        describe("orderBy", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.orderBy).throws(Error, `INSERT statements cannot have an ORDER BY clause`);
+            });
+        });
+        describe("groupBy", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.groupBy).throws(Error, `INSERT statements cannot have a GROUP BY clause`);
+            });
+        });
+        describe("limit", () => {
+            it("Does not allow calling", () => {
+                expect(classUnderTest.limit).throws(Error, `INSERT statements cannot have a LIMIT clause`);
+            });
+        });
         describe("stringify", () => {
             it("Stringifies an INSERT statement", () => {
-                classUnderTest.into(tableName, columnA, columnB).values(...stringValues);
-                expect(classUnderTest.stringify()).to.equal("INSERT INTO table (columnA, columnB) VALUES ('A', 'B')");
+                expect(classUnderTest.stringify()).to.equal("INSERT");
+            });
+            it("Stringifies an INSERT INTO statement", () => {
+               classUnderTest
+                   .into(tableName, columnA, columnB);
+               expect(classUnderTest.stringify()).to.equal(`INSERT INTO ${tableName} (${columnAName}, ${columnBName})`);
+            });
+            it("Stringifies an INSERT INTO VALUES statement", () => {
+                classUnderTest
+                    .into(tableName, columnA, columnB)
+                    .values(...stringValues);
+                expect(classUnderTest.stringify()).to.equal(`INSERT INTO ${tableName} (${columnAName}, ${columnBName}) VALUES ('${stringValues.join("', '")}')`);
             });
         });
     });
