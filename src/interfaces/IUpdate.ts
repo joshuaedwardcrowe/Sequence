@@ -1,9 +1,9 @@
 import {ISequenceColumn} from "./ISequenceColumn";
-import {ISequenceAssigment} from "./assignments/ISequenceAssignment";
+import {ISequenceAssignment} from "./assignments/ISequenceAssignment";
 
 export interface IUpdate {
 
-    assignment: ISequenceAssigment;
+    assignment: ISequenceAssignment;
 
     table (tableName: string): this;
 

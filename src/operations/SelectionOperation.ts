@@ -4,7 +4,7 @@ import {ISequenceColumn} from "../interfaces/ISequenceColumn";
 import {CoalescingOperator} from "../enums/CoalescingOperator";
 import {ISequenceCoalescent} from "../interfaces/ISequenceCoalescent";
 
-export class SelectionOperation extends SequenceOperation {
+export class SelectionOperation extends SequenceOperation implements ISequenceCoalescent {
 
     public readonly coalescingOperator: CoalescingOperator = CoalescingOperator.Comma;
 
