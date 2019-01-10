@@ -70,30 +70,41 @@
 				<p>To use this in your project, follow the simple examples below</p>
 				<h3 id="select-statements">SELECT Statements</h3>
 				<pre><code class="language-typescript"><span class="hljs-comment">// Create your column.</span>
-<span class="hljs-keyword">const</span> column: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"userName"</span>);
+<span class="hljs-keyword">const</span> column: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"username"</span>);
 
 <span class="hljs-comment">// Build your statement.</span>
 <span class="hljs-keyword">const</span> select: ISequenceBuilder = <span class="hljs-keyword">new</span> Select()
-    .all()
     .from(<span class="hljs-string">"user"</span>)
-    .where(column, LogicalOperator.Equality, <span class="hljs-string">`'Crowes'`</span>);
+    .where(column, LogicalOperator.Equality, <span class="hljs-string">"Crowes"</span>);
 
 <span class="hljs-comment">// Stringify your statement.</span>
 <span class="hljs-keyword">const</span> sql: <span class="hljs-built_in">string</span> = select.stringify();
 <span class="hljs-comment">// SELECT * FROM user WHERE userName = 'Crowes'</span></code></pre>
 				<h3 id="insert-statements">INSERT Statements</h3>
 				<pre><code class="language-typescript"><span class="hljs-comment">// Create your columns.</span>
-<span class="hljs-keyword">const</span> columnA: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"userName"</span>)
-<span class="hljs-keyword">const</span> columnB: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"userPassword"</span>)
+<span class="hljs-keyword">const</span> columnA: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"username"</span>)
+<span class="hljs-keyword">const</span> columnB: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"password"</span>)
 
 <span class="hljs-comment">// Build your statement</span>
 <span class="hljs-keyword">const</span> insert: ISequenceBuilder = <span class="hljs-keyword">new</span> Insert()
     .into(<span class="hljs-string">"user"</span>, columnA, columnB)
-    .values(<span class="hljs-string">`'crowes'`</span>, <span class="hljs-number">1234</span>);
+    .values(<span class="hljs-string">"Crowes"</span>, <span class="hljs-number">1234</span>);
 
 <span class="hljs-comment">// Stringify your statement.</span>
 <span class="hljs-keyword">const</span> sql: <span class="hljs-built_in">string</span> = insert.stringify();
 <span class="hljs-comment">// INSERT INTO user (userName, userPassword) VALUES ('crowes', 1234)</span></code></pre>
+				<h3 id="delete-statements">DELETE Statements</h3>
+				<pre><code class="language-typescript"><span class="hljs-comment">// Create your column.</span>
+<span class="hljs-keyword">const</span> column: ISequenceColumn = <span class="hljs-keyword">new</span> SequenceColumn(Predicate.None, <span class="hljs-string">"username"</span>);
+
+<span class="hljs-comment">// Build your statement.</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">delete</span>: ISequenceBuilder = <span class="hljs-keyword">new</span> Delete()
+    .from(<span class="hljs-string">"user"</span>)
+    .where(column, LogicalOperator.Equality, <span class="hljs-string">"Crowes"</span>);
+
+<span class="hljs-comment">// Stringify your statement.</span>
+<span class="hljs-keyword">const</span> sql: <span class="hljs-built_in">string</span> = select.stringify();
+<span class="hljs-comment">// SELECT * FROM user WHERE userName = 'Crowes'</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -149,7 +160,13 @@
 						<a href="enums/wrapping.html" class="tsd-kind-icon">Wrapping</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/columnoperation.html" class="tsd-kind-icon">Column<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/criteriaconditional.html" class="tsd-kind-icon">Criteria<wbr>Conditional</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/delete.html" class="tsd-kind-icon">Delete</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/insert.html" class="tsd-kind-icon">Insert</a>
@@ -165,9 +182,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/select.html" class="tsd-kind-icon">Select</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/selectionoperation.html" class="tsd-kind-icon">Selection<wbr>Operation</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/sequenceassignation.html" class="tsd-kind-icon">Sequence<wbr>Assignation</a>
@@ -216,6 +230,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/icriteriaconditional.html" class="tsd-kind-icon">ICriteria<wbr>Conditional</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/idelete.html" class="tsd-kind-icon">IDelete</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iinsert.html" class="tsd-kind-icon">IInsert</a>

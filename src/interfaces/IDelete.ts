@@ -1,6 +1,6 @@
 import {ISequenceColumn} from "./ISequenceColumn";
 
-export interface ISelect {
+export interface IDelete {
 
     column (column: ISequenceColumn): this;
 

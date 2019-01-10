@@ -1,3 +1,14 @@
+export declare class Delete extends SequenceBuilder implements IDelete, ISequenceBuilder {
+    constructor();
+    column(column: ISequenceColumn): this;
+    from(tableName: string): this;
+    orderBy(column: ISequenceColumn, arrangement: Arrangement): this;
+    groupBy(column: ISequenceColumn, arrangement: Arrangement): this;
+    limit(amount: number): this;
+    stringify(): string;
+    private stringifyOperation;
+}
+
 export declare class Insert extends SequenceBuilder implements IInsert {
     supplement: ISequenceSupplement;
     constructor();
@@ -13,7 +24,7 @@ export declare class Insert extends SequenceBuilder implements IInsert {
 }
 
 export declare class Select extends SequenceBuilder implements ISelect {
-    all(): this;
+    constructor();
     column(column: ISequenceColumn): this;
     from(tableName: string): this;
     stringify(): string;
@@ -191,7 +202,8 @@ export declare enum LogicalOperator {
 export declare enum Operation {
     Select = 0,
     Insert = 1,
-    Update = 2
+    Update = 2,
+    Delete = 3
 }
 
 export declare enum Predicate {
@@ -231,6 +243,12 @@ export declare class SequenceFilter extends SequencePart implements ISequenceFil
     protected static stringifyArrangement(arrangement: Arrangement): string;
 }
 
+export interface IDelete {
+    column(column: ISequenceColumn): this;
+    from(tableName: string): this;
+    stringify(): string;
+}
+
 export interface IInsert {
     supplement: ISequenceSupplement;
     into(tableName: string, ...columns: ISequenceColumn[]): this;
@@ -239,7 +257,6 @@ export interface IInsert {
 }
 
 export interface ISelect {
-    all(): this;
     column(column: ISequenceColumn): this;
     from(tableName: string): this;
     stringify(): string;
@@ -372,9 +389,9 @@ export declare class SequenceLocation extends SequencePart implements ISequenceL
     protected static padLocation(location: Location, stringified: string): string;
 }
 
-export declare class SelectionOperation extends SequenceOperation implements ISequenceCoalescent {
+export declare class ColumnOperation extends SequenceOperation implements ISequenceCoalescent {
     readonly coalescingOperator: CoalescingOperator;
-    constructor(...columns: ISequenceColumn[]);
+    constructor(operation: Operation, ...columns: ISequenceColumn[]);
     stringify(): string;
 }
 

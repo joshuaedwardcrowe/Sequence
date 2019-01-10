@@ -1,10 +1,11 @@
 import { SequenceOperation } from "./SequenceOperation";
+import { Operation } from "../enums/Operation";
 import { ISequenceColumn } from "../interfaces/ISequenceColumn";
 import { CoalescingOperator } from "../enums/CoalescingOperator";
 import { ISequenceCoalescent } from "../interfaces/ISequenceCoalescent";
-export declare class SelectionOperation extends SequenceOperation implements ISequenceCoalescent {
+export declare class ColumnOperation extends SequenceOperation implements ISequenceCoalescent {
     readonly coalescingOperator: CoalescingOperator;
-    constructor(...columns: ISequenceColumn[]);
+    constructor(operation: Operation, ...columns: ISequenceColumn[]);
     stringify(): string;
 }
-//# sourceMappingURL=SelectionOperation.d.ts.map
+//# sourceMappingURL=ColumnOperation.d.ts.map
