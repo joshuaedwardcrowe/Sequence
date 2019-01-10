@@ -1,4 +1,5 @@
 export enum CoalescingOperator {
     None,
-    And
+    And,
+    Comma
 }

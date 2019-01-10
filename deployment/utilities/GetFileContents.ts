@@ -4,7 +4,7 @@ export default function GetFileContents (pathToReadFrom: string, fileSystemEncod
 
     return new Promise((resolve: (readFile: string) => void, reject: (error: Error) => void) => {
 
-        const fileContentsRead = (error: Error, readFile: string) => error ? reject(error) : resolve(readFile);
+        const fileContentsRead = (error: Error, fileRead: string) => error ? reject(error) : resolve(fileRead);
 
         readFile(pathToReadFrom, fileSystemEncoding, fileContentsRead);
 

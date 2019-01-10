@@ -1,8 +1,8 @@
-import { SequenceLocation } from "../SequenceLocation";
-import { ISequenceLocation } from "../interfaces/ISequenceLocation";
 import { ISequenceColumn } from "../interfaces/ISequenceColumn";
 import { Wrapping } from "../enums/Wrapping";
-export declare class IntoLocation extends SequenceLocation implements ISequenceLocation {
+import { IIntoLocation } from "../interfaces/locations/IIntoLocation";
+import { SequenceLocation } from "./SequenceLocation";
+export declare class IntoLocation extends SequenceLocation implements IIntoLocation {
     readonly wrapping: Wrapping;
     readonly columns: ISequenceColumn[];
     constructor(tableName: string, ...columns: ISequenceColumn[]);

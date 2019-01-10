@@ -1,4 +1,4 @@
-import {task} from 'gulp';
+import {task} from "gulp";
 import GetMergedDirectoryListing from "../utilities/GetMergedDirectoryListing";
 import GetMergedFileContents from "../utilities/GetMergedFileContents";
 import CleanseDeclaration from "../utilities/CleanseDeclaration";

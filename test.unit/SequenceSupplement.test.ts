@@ -17,7 +17,7 @@ describe("SequenceSupplement", () => {
             it("Stringifies a Values supplement", () => {
                 const supplement: string = SequenceSupplement.stringifySupplement(Supplement.Values);
                 expect(supplement).to.equal("VALUES");
-            })
-        })
-    })
+            });
+        });
+    });
 });

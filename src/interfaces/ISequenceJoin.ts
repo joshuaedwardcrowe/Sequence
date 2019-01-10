@@ -1,5 +1,5 @@
+import {ISequenceCondition} from "./conditions/ISequenceCondition";
 import {Join} from "../enums/Join";
-import {ISequenceCondition} from "./ISequenceCondition";
 import {ISequencePart} from "./ISequencePart";
 
 export interface ISequenceJoin extends ISequencePart {
@@ -8,6 +8,6 @@ export interface ISequenceJoin extends ISequencePart {
 
     readonly location: string;
 
-    condition: ISequenceCondition;
+    readonly condition: ISequenceCondition;
 
 }

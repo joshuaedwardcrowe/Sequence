@@ -1,27 +1,23 @@
-import {ISequencePart} from "./interfaces/ISequencePart";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {Wrapping} from "./enums/Wrapping";
+import {LogicalOperator} from "./enums/LogicalOperator";
 
-export abstract class SequencePart implements ISequencePart {
+export abstract class SequencePart {
 
-    public stringify (): string {
-        throw new TypeError("Stringify was not overridden");
-    }
-
-    public toString (): string {
-        return this.stringify();
-    }
-
-    public static stringifyCoalescingOperator (coalescingOperator: CoalescingOperator): string {
-        switch (coalescingOperator) {
-            case CoalescingOperator.None: return "";
-            default: return CoalescingOperator[coalescingOperator].toUpperCase();
+    protected static stringifyWrapping (wrapping: Wrapping, values: any[]) {
+        switch (wrapping) {
+            case Wrapping.Parentheses: return `(${values.join(", ")})`;
         }
     }
 
-    public static stringifyWrapping (wrapping: Wrapping, values: any[]) {
-        switch (wrapping) {
-            case Wrapping.Parentheses: return `(${values.join(", ")})`;
+    protected static stringifyLogicalOperator (logicalOperator: LogicalOperator) {
+        switch (logicalOperator) {
+            case LogicalOperator.GreaterThan: return ">";
+            case LogicalOperator.GreaterThanOrEquality: return ">=";
+            case LogicalOperator.Equality: return "=";
+            case LogicalOperator.LessThan: return "<";
+            case LogicalOperator.LessThanOrEquality: return "<=";
+            case LogicalOperator.Division: return "/";
+            case LogicalOperator.Modulo: return "%";
         }
     }
 

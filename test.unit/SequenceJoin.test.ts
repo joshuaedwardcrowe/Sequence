@@ -1,86 +1,83 @@
+// Testing imports
 import {expect} from "chai";
-import {SequenceJoin} from "../src/SequenceJoin";
+// Dependencies
 import {Join} from "../src/enums/Join";
-import {SequenceColumn} from "../src/SequenceColumn";
+// Tested import
+import {SequenceJoin} from "../src/SequenceJoin";
 import {Predicate} from "../src/enums/Predicate";
+import {SequenceColumn} from "../src/SequenceColumn";
 import {LogicalOperator} from "../src/enums/LogicalOperator";
-import {SequenceCondition} from "../src/SequenceCondition";
+import {SequenceCondition} from "../src/conditions/SequenceCondition";
+import {LogicalConditional} from "../src/conditions/conditionals/LogicalConditional";
 import {Condition} from "../src/enums/Condition";
-import {SequenceConditional} from "../src/SequenceConditional";
 import {CoalescingOperator} from "../src/enums/CoalescingOperator";
+import {CriteriaConditional} from "../src/conditions/conditionals/CriteriaConditional";
 
-describe("SequenceJoin",  () => {
-    describe("Instance Methods",  () => {
-        describe("on", () => {
-            it("Sets the condition to a condition with a type of On", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                expect(join.condition).to.be.undefined;
-                join.on(new SequenceColumn(Predicate.None, "name"), LogicalOperator.Division, "name");
-                expect(join.condition).instanceOf(SequenceCondition);
-                expect(join.condition.condition).to.equal(Condition.On)
-            });
-            it("Adds a conditional to the condition's conditionals collection", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                join.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-                expect(join.condition.conditionals).to.be.empty;
-                join.on(new SequenceColumn(Predicate.None, "name"), LogicalOperator.Equality, `'name'`);
-                join.on(new SequenceColumn(Predicate.Count, "age"), LogicalOperator.Division, 5);
-                expect(join.condition.conditionals).to.not.be.empty;
-                expect(join.condition.conditionals.length).to.equal(2);
-                for (let i = 0; i < join.condition.conditionals.length; i++) {
-                    expect(join.condition.conditionals[i]).instanceOf(SequenceConditional)
-                }
-            })
-        });
-        describe("onIn", () => {
-            it("Sets the condition to a condition with a type of On", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                expect(join.condition).to.be.undefined;
-                join.onIn(new SequenceColumn(Predicate.None, "name"), "name");
-                expect(join.condition).instanceOf(SequenceCondition);
-                expect(join.condition.condition).to.equal(Condition.On)
-            });
-            it("Adds a conditional to the condition's conditionals collection", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                join.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-                expect(join.condition.conditionals).to.be.empty;
-                join.onIn(new SequenceColumn(Predicate.None, "name"), "name");
-                join.onIn(new SequenceColumn(Predicate.Count, "age"), 5);
-                expect(join.condition.conditionals).to.not.be.empty;
-                expect(join.condition.conditionals.length).to.equal(2);
-                for (let i = 0; i < join.condition.conditionals.length; i++) {
-                    expect(join.condition.conditionals[i]).instanceOf(SequenceConditional)
-                }
-            })
-        });
-        describe("onIn", () => {
-            it("Sets the condition to a condition with a type of On", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                expect(join.condition).to.be.undefined;
-                join.onNotIn(new SequenceColumn(Predicate.None, "name"), "name");
-                expect(join.condition).instanceOf(SequenceCondition);
-                expect(join.condition.condition).to.equal(Condition.On)
-            });
-            it("Adds a conditional to the condition's conditionals collection", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                join.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-                expect(join.condition.conditionals).to.be.empty;
-                join.onNotIn(new SequenceColumn(Predicate.None, "name"), "name");
-                join.onNotIn(new SequenceColumn(Predicate.Count, "age"), 5);
-                expect(join.condition.conditionals).to.not.be.empty;
-                expect(join.condition.conditionals.length).to.equal(2);
-                for (let i = 0; i < join.condition.conditionals.length; i++) {
-                    expect(join.condition.conditionals[i]).instanceOf(SequenceConditional)
-                }
-            })
-        });
-        describe("stringify", () => {
-            it("Stringifies a join clause", () => {
-                const join = new SequenceJoin(Join.Inner, "table");
-                join.on(new SequenceColumn(Predicate.None, "name"), LogicalOperator.Equality, `'john'`);
-                join.onNotIn(new SequenceColumn(Predicate.Count, "age"), 5, 6, 7);
-                expect(join.stringify()).to.equal("INNER JOIN table ON name = 'john' AND COUNT(age) NOT IN (5, 6, 7)")
-            })
-        })
-    });
+// Testing data
+const join: Join = Join.Inner;
+const tableName: string = "table";
+let classUnderTest: SequenceJoin;
+const columnAName: string = "columnA";
+const columnAPredicate: Predicate = Predicate.None;
+let columnA: SequenceColumn;
+const comparisonValue: string = "comparisonValue";
+const numberComparsonValues: number[] = [1, 2, 3];
+const conditionACondition: Condition = Condition.On;
+const conditionACoalescingOperator: CoalescingOperator = CoalescingOperator.And;
+let conditionA: SequenceCondition;
+
+beforeEach(() => {
+    classUnderTest = new SequenceJoin(join, tableName);
+    columnA = new SequenceColumn(columnAPredicate, columnAName);
+    conditionA = new SequenceCondition(conditionACondition, conditionACoalescingOperator);
+});
+
+describe("SequenceJoin", () => {
+   describe("Instance Methods", () => {
+       describe("on", () => {
+           it("Sets the .condition to a {SequenceCondition} with a {Condition} of On, adding a {LogicalConditional}", () => {
+              expect(classUnderTest.condition).to.be.undefined;
+              classUnderTest.on(columnA, LogicalOperator.Equality, comparisonValue);
+              expect(classUnderTest.condition).instanceOf(SequenceCondition);
+              expect(classUnderTest.condition.conditionals).to.have.length(1);
+              expect(classUnderTest.condition.conditionals[0]).instanceOf(LogicalConditional);
+              const castedConditionalUnderTest: LogicalConditional = classUnderTest.condition.conditionals[0] as LogicalConditional;
+              expect(castedConditionalUnderTest.column).to.equal(columnA);
+              expect(castedConditionalUnderTest.logicalOperator).to.equal(LogicalOperator.Equality);
+              expect(castedConditionalUnderTest.value).to.equal(`'${comparisonValue}'`);
+           });
+       });
+       describe("onIn", () => {
+           it("Sets the .condition to a {SequenceCondition} with a {Condition} of On, adding a {CriteriaConditional}", () => {
+               expect(classUnderTest.condition).to.be.undefined;
+               classUnderTest.onIn(columnA, ...numberComparsonValues);
+               expect(classUnderTest.condition).instanceOf(SequenceCondition);
+               expect(classUnderTest.condition.conditionals).to.have.length(1);
+               expect(classUnderTest.condition.conditionals[0]).instanceOf(CriteriaConditional);
+               const castedConditionalUnderTest: CriteriaConditional = classUnderTest.condition.conditionals[0] as CriteriaConditional;
+               expect(castedConditionalUnderTest.column).to.equal(columnA);
+               expect(castedConditionalUnderTest.values).to.deep.equal(numberComparsonValues);
+           });
+       });
+       describe("onNotIn", () => {
+           it("Sets the .condition to a {SequenceCondition} with a {Condition} of On, adding a {Criteria Conditional}", () => {
+               expect(classUnderTest.condition).to.be.undefined;
+               classUnderTest.onIn(columnA, ...numberComparsonValues);
+               expect(classUnderTest.condition).instanceOf(SequenceCondition);
+               expect(classUnderTest.condition.conditionals).to.have.length(1);
+               expect(classUnderTest.condition.conditionals[0]).instanceOf(CriteriaConditional);
+               const castedConditionalUnderTest: CriteriaConditional = classUnderTest.condition.conditionals[0] as CriteriaConditional;
+               expect(castedConditionalUnderTest.column).to.equal(columnA);
+               expect(castedConditionalUnderTest.values).to.deep.equal(numberComparsonValues);
+           });
+       });
+       describe("stringify", () => {
+           it("Stringifies a JOIN", () => {
+               classUnderTest.on(columnA, LogicalOperator.Equality, comparisonValue);
+               classUnderTest.onIn(columnA, ...numberComparsonValues);
+               classUnderTest.onNotIn(columnA, ...numberComparsonValues);
+               expect(classUnderTest.stringify()).to.equal("INNER JOIN table ON columnA = 'comparisonValue' AND columnA IN (1, 2, 3) AND columnA NOT IN (1, 2, 3)");
+           });
+       });
+   });
 });

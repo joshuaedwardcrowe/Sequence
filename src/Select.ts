@@ -1,58 +1,33 @@
-import {LogicalOperator} from "./enums/LogicalOperator";
-import {Predicate} from "./enums/Predicate";
-import {Location} from "./enums/Location";
-import {Condition} from "./enums/Condition";
-import {Conditional} from "./enums/Conditional";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
-import {ISequenceBuilder} from "./interfaces/ISequenceBuilder";
-import {ISequenceColumn} from "./interfaces/ISequenceColumn";
-import {SequenceBuilder} from "./SequenceBuilder";
+import {SequenceLocation} from "./locations/SequenceLocation";
 import {SelectionOperation} from "./operations/SelectionOperation";
-import {SequenceCondition} from "./SequenceCondition";
-import {SequenceColumn} from "./SequenceColumn";
-import {SequenceLocation} from "./SequenceLocation";
-import {LogicalConditional} from "./conditionals/LogicalConditional";
-import {CriteriaConditional} from "./conditionals/CriteriaConditional";
+import {ISequenceColumn} from "./interfaces/ISequenceColumn";
+import {ISelect} from "./interfaces/ISelect";
+import {SequenceBuilder} from "./SequenceBuilder";
+import {Location} from "./enums/Location";
+import {Sanitise} from "./utilities/Sanitise";
 
-export class Select extends SequenceBuilder implements ISequenceBuilder {
+export class Select extends SequenceBuilder implements ISelect {
 
     public all (): this {
         if (!this.operation) this.operation = new SelectionOperation();
         return this;
     }
 
-    public column (predicate: Predicate, columnName: string) {
+    public column (column: ISequenceColumn): this {
         if (!this.operation) this.operation = new SelectionOperation();
-        this.operation.columns.push(new SequenceColumn(predicate, columnName));
+        this.operation.columns.push(column);
         return this;
     }
 
-    public from (tableName: string) {
+    public from (tableName: string): this {
         if (!this.location) this.location = new SequenceLocation(Location.From, tableName);
         return this;
     }
 
-    public where (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: string|number) {
-        if (!this.condition) this.condition = new SequenceCondition(Condition.Where,  CoalescingOperator.And);
-        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, comparisonValue));
-        return this;
-    }
-
-    public whereIn (column: ISequenceColumn, ...values: any[]) {
-        if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...values));
-    }
-
-    public whereNotIn (column: ISequenceColumn, ...values: any[]) {
-        if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...values));
-    }
-
-    public stringify () {
-        const operation = !!this.operation ? `${this.operation} ` : "";
-        const location = !!this.location ? `${this.location} ` : "";
-        const condition = !!this.condition ? `${this.condition} ` : "";
-        return `${operation}${location}${condition}${super.stringify()}`.trim();
+    public stringify (): string {
+        const operation: string = Sanitise.part(this.operation);
+        const location: string = Sanitise.part(this.location);
+        return (`${operation}${location}${this.stringifyBase()}`).trim();
     }
 
 }

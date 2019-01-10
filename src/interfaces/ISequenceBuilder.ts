@@ -1,11 +1,11 @@
-import {Arrangement} from "../enums/Arrangement";
-import {ISequenceOperation} from "./ISequenceOperation";
-import {ISequenceCondition} from "./ISequenceCondition";
-import {ISequenceLocation} from "./ISequenceLocation";
+import {ISequenceOperation} from "./operations/ISequenceOperation";
+import {ISequenceFormation} from "./formations/ISequenceFormation";
 import {ISequenceJoin} from "./ISequenceJoin";
-import {ISequenceDefault} from "./ISequenceDefault";
+import {ISequenceCondition} from "./conditions/ISequenceCondition";
+import {LimitFormation} from "../formations/LimitFormation";
+import {Arrangement} from "../enums/Arrangement";
 import {ISequenceColumn} from "./ISequenceColumn";
-import {LimitDefault} from "../defaults/LimitDefault";
+import {ISequenceLocation} from "./locations/ISequenceLocation";
 
 export interface ISequenceBuilder {
 
@@ -17,11 +17,11 @@ export interface ISequenceBuilder {
 
     joins: ISequenceJoin[];
 
-    ordering: ISequenceDefault;
+    ordering: ISequenceFormation;
 
-    grouping: ISequenceDefault;
+    grouping: ISequenceFormation;
 
-    limitation: LimitDefault;
+    limitation: LimitFormation;
 
     orderBy (column: ISequenceColumn, arrangement: Arrangement);
 
@@ -30,5 +30,7 @@ export interface ISequenceBuilder {
     limit (amount: number);
 
     stringify (): string;
+
+    toString (): string;
 
 }

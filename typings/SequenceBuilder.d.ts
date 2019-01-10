@@ -1,25 +1,27 @@
-import { ISequenceBuilder } from "./interfaces/ISequenceBuilder";
-import { ISequenceOperation } from "./interfaces/ISequenceOperation";
-import { ISequenceLocation } from "./interfaces/ISequenceLocation";
-import { ISequenceCondition } from "./interfaces/ISequenceCondition";
-import { LimitDefault } from "./defaults/LimitDefault";
-import { Arrangement } from "./enums/Arrangement";
-import { ISequenceJoin } from "./interfaces/ISequenceJoin";
-import { ISequenceDefault } from "./interfaces/ISequenceDefault";
+import { LimitFormation } from "./formations/LimitFormation";
+import { LogicalOperator } from "./enums/LogicalOperator";
 import { ISequenceColumn } from "./interfaces/ISequenceColumn";
-export declare abstract class SequenceBuilder implements ISequenceBuilder {
+import { ISequenceFormation } from "./interfaces/formations/ISequenceFormation";
+import { ISequenceJoin } from "./interfaces/ISequenceJoin";
+import { ISequenceOperation } from "./interfaces/operations/ISequenceOperation";
+import { ISequenceLocation } from "./interfaces/locations/ISequenceLocation";
+import { ISequenceCondition } from "./interfaces/conditions/ISequenceCondition";
+import { Arrangement } from "./enums/Arrangement";
+export declare abstract class SequenceBuilder {
     condition: ISequenceCondition;
     location: ISequenceLocation;
     operation: ISequenceOperation;
     joins: ISequenceJoin[];
-    ordering: ISequenceDefault;
-    grouping: ISequenceDefault;
-    limitation: LimitDefault;
+    ordering: ISequenceFormation;
+    grouping: ISequenceFormation;
+    limitation: LimitFormation;
+    where(column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this;
+    whereIn(column: ISequenceColumn, ...values: any[]): void;
+    whereNotIn(column: ISequenceColumn, ...values: any[]): void;
     orderBy(column: ISequenceColumn, arrangement: Arrangement): this;
     groupBy(column: ISequenceColumn, arrangement: Arrangement): this;
     limit(amount: number): this;
-    stringifyJoins(): string;
-    stringify(): string;
-    toString(): string;
+    protected stringifyBase(): string;
+    private stringifyJoins;
 }
 //# sourceMappingURL=SequenceBuilder.d.ts.map

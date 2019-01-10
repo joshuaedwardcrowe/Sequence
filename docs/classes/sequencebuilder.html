@@ -78,14 +78,11 @@
 							<li>
 								<a href="select.html" class="tsd-signature-type">Select</a>
 							</li>
+							<li>
+								<a href="update.html" class="tsd-signature-type">Update</a>
+							</li>
 						</ul>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/isequencebuilder.html" class="tsd-signature-type">ISequenceBuilder</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -110,9 +107,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#groupby" class="tsd-kind-icon">group<wbr>By</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#limit" class="tsd-kind-icon">limit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#orderby" class="tsd-kind-icon">order<wbr>By</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#stringify" class="tsd-kind-icon">stringify</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#stringifyjoins" class="tsd-kind-icon">stringify<wbr>Joins</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="sequencebuilder.html#stringifybase" class="tsd-kind-icon">stringify<wbr>Base</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="sequencebuilder.html#stringifyjoins" class="tsd-kind-icon">stringify<wbr>Joins</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#where" class="tsd-kind-icon">where</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#wherein" class="tsd-kind-icon">where<wbr>In</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencebuilder.html#wherenotin" class="tsd-kind-icon">where<wbr>Not<wbr>In</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,20 +124,18 @@
 					<h3>condition</h3>
 					<div class="tsd-signature tsd-kind-icon">condition<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequencecondition.html" class="tsd-signature-type">ISequenceCondition</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#condition">condition</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L17">SequenceBuilder.ts:17</a></li>
+							<li>Defined in SequenceBuilder.ts:23</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="grouping" class="tsd-anchor"></a>
 					<h3>grouping</h3>
-					<div class="tsd-signature tsd-kind-icon">grouping<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequencedefault.html" class="tsd-signature-type">ISequenceDefault</a></div>
+					<div class="tsd-signature tsd-kind-icon">grouping<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequenceformation.html" class="tsd-signature-type">ISequenceFormation</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#grouping">grouping</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L22">SequenceBuilder.ts:22</a></li>
+							<li>Defined in SequenceBuilder.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -147,20 +144,18 @@
 					<h3>joins</h3>
 					<div class="tsd-signature tsd-kind-icon">joins<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequencejoin.html" class="tsd-signature-type">ISequenceJoin</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#joins">joins</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L20">SequenceBuilder.ts:20</a></li>
+							<li>Defined in SequenceBuilder.ts:26</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="limitation" class="tsd-anchor"></a>
 					<h3>limitation</h3>
-					<div class="tsd-signature tsd-kind-icon">limitation<span class="tsd-signature-symbol">:</span> <a href="limitdefault.html" class="tsd-signature-type">LimitDefault</a></div>
+					<div class="tsd-signature tsd-kind-icon">limitation<span class="tsd-signature-symbol">:</span> <a href="limitformation.html" class="tsd-signature-type">LimitFormation</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#limitation">limitation</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L23">SequenceBuilder.ts:23</a></li>
+							<li>Defined in SequenceBuilder.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -169,9 +164,8 @@
 					<h3>location</h3>
 					<div class="tsd-signature tsd-kind-icon">location<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequencelocation.html" class="tsd-signature-type">ISequenceLocation</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#location">location</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L18">SequenceBuilder.ts:18</a></li>
+							<li>Defined in SequenceBuilder.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,20 +174,18 @@
 					<h3>operation</h3>
 					<div class="tsd-signature tsd-kind-icon">operation<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequenceoperation.html" class="tsd-signature-type">ISequenceOperation</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#operation">operation</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L19">SequenceBuilder.ts:19</a></li>
+							<li>Defined in SequenceBuilder.ts:25</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="ordering" class="tsd-anchor"></a>
 					<h3>ordering</h3>
-					<div class="tsd-signature tsd-kind-icon">ordering<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequencedefault.html" class="tsd-signature-type">ISequenceDefault</a></div>
+					<div class="tsd-signature tsd-kind-icon">ordering<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isequenceformation.html" class="tsd-signature-type">ISequenceFormation</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#ordering">ordering</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L21">SequenceBuilder.ts:21</a></li>
+							<li>Defined in SequenceBuilder.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -209,9 +201,8 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#groupby">groupBy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L31">SequenceBuilder.ts:31</a></li>
+									<li>Defined in SequenceBuilder.ts:53</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -236,9 +227,8 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#limit">limit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L37">SequenceBuilder.ts:37</a></li>
+									<li>Defined in SequenceBuilder.ts:59</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -260,9 +250,8 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#orderby">orderBy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L25">SequenceBuilder.ts:25</a></li>
+									<li>Defined in SequenceBuilder.ts:47</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -278,35 +267,34 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="stringify" class="tsd-anchor"></a>
-					<h3>stringify</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">stringify<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="stringifybase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> stringify<wbr>Base</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">stringify<wbr>Base<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#stringify">stringify</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L47">SequenceBuilder.ts:47</a></li>
+									<li>Defined in SequenceBuilder.ts:64</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="stringifyjoins" class="tsd-anchor"></a>
-					<h3>stringify<wbr>Joins</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> stringify<wbr>Joins</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">stringify<wbr>Joins<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L42">SequenceBuilder.ts:42</a></li>
+									<li>Defined in SequenceBuilder.ts:72</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -314,19 +302,83 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="tostring" class="tsd-anchor"></a>
-					<h3>to<wbr>String</h3>
+					<a name="where" class="tsd-anchor"></a>
+					<h3>where</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">where<span class="tsd-signature-symbol">(</span>column<span class="tsd-signature-symbol">: </span><a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a>, logicalOperator<span class="tsd-signature-symbol">: </span><a href="../enums/logicaloperator.html" class="tsd-signature-type">LogicalOperator</a>, comparisonValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceBuilder.ts#L54">SequenceBuilder.ts:54</a></li>
+									<li>Defined in SequenceBuilder.ts:31</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>column: <a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a></h5>
+								</li>
+								<li>
+									<h5>logicalOperator: <a href="../enums/logicaloperator.html" class="tsd-signature-type">LogicalOperator</a></h5>
+								</li>
+								<li>
+									<h5>comparisonValue: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="wherein" class="tsd-anchor"></a>
+					<h3>where<wbr>In</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">where<wbr>In<span class="tsd-signature-symbol">(</span>column<span class="tsd-signature-symbol">: </span><a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a>, <span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in SequenceBuilder.ts:37</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>column: <a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="wherenotin" class="tsd-anchor"></a>
+					<h3>where<wbr>Not<wbr>In</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">where<wbr>Not<wbr>In<span class="tsd-signature-symbol">(</span>column<span class="tsd-signature-symbol">: </span><a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a>, <span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in SequenceBuilder.ts:42</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>column: <a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -377,14 +429,20 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="sequencebuilder.html#orderby" class="tsd-kind-icon">order<wbr>By</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="sequencebuilder.html#stringify" class="tsd-kind-icon">stringify</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="sequencebuilder.html#stringifybase" class="tsd-kind-icon">stringify<wbr>Base</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="sequencebuilder.html#stringifyjoins" class="tsd-kind-icon">stringify<wbr>Joins</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="sequencebuilder.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+								<a href="sequencebuilder.html#where" class="tsd-kind-icon">where</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="sequencebuilder.html#wherein" class="tsd-kind-icon">where<wbr>In</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="sequencebuilder.html#wherenotin" class="tsd-kind-icon">where<wbr>Not<wbr>In</a>
 							</li>
 						</ul>
 					</li>

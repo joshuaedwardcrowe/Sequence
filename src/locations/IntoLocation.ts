@@ -1,11 +1,11 @@
-import {SequenceLocation} from "../SequenceLocation";
-import {ISequenceLocation} from "../interfaces/ISequenceLocation";
 import {ISequenceColumn} from "../interfaces/ISequenceColumn";
-import {Location} from "../enums/Location";
-import {Wrapping} from "../enums/Wrapping";
 import {Predicate} from "../enums/Predicate";
+import {Wrapping} from "../enums/Wrapping";
+import {IIntoLocation} from "../interfaces/locations/IIntoLocation";
+import {SequenceLocation} from "./SequenceLocation";
+import {Location} from "../enums/Location";
 
-export class IntoLocation extends SequenceLocation implements ISequenceLocation {
+export class IntoLocation extends SequenceLocation implements IIntoLocation {
 
     public readonly wrapping: Wrapping = Wrapping.Parentheses;
     public readonly columns: ISequenceColumn[];
@@ -21,11 +21,10 @@ export class IntoLocation extends SequenceLocation implements ISequenceLocation 
         return `${super.stringify()} ${wrapped}`;
     }
 
-    private getColumnsWithoutPredicate (): ISequenceColumn[] {
-        const removePredicate = (column: ISequenceColumn) => { column.predicate = Predicate.None; return column; };
-        return this.columns.map<ISequenceColumn>(removePredicate);
+    // TODO: There needs to be a better solution than this.
+    private getColumnsWithoutPredicate (): string[] {
+        const removePredicate = (column: ISequenceColumn) => { column.predicate = Predicate.None; return column.stringify(); };
+        return this.columns.map<string>(removePredicate);
     }
-
-
 
 }

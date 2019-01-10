@@ -5,6 +5,8 @@ export interface ISequenceColumn extends ISequencePart {
 
     predicate: Predicate;
 
-    name: string;
+    readonly name: string;
+
+    stringify (): string;
 
 }

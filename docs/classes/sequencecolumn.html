@@ -82,8 +82,8 @@
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/isequencepart.html" class="tsd-signature-type">ISequencePart</a></li>
 					<li><a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a></li>
+					<li><a href="../interfaces/isequencecoalescable.html" class="tsd-signature-type">ISequenceCoalescable</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -106,11 +106,10 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="sequencecolumn.html#stringify" class="tsd-kind-icon">stringify</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="sequencecolumn.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="sequencecolumn.html#stringifycoalescingoperator" class="tsd-kind-icon">stringify<wbr>Coalescing<wbr>Operator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sequencecolumn.html#stringify" class="tsd-kind-icon">stringify</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="sequencecolumn.html#stringifylogicaloperator" class="tsd-kind-icon">stringify<wbr>Logical<wbr>Operator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="sequencecolumn.html#stringifypredicate" class="tsd-kind-icon">stringify<wbr>Predicate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="sequencecolumn.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="sequencecolumn.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a></li>
 							</ul>
 						</section>
 					</div>
@@ -128,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceColumn.ts#L8">SequenceColumn.ts:8</a></li>
+									<li>Defined in SequenceColumn.ts:9</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +153,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/isequencecolumn.html">ISequenceColumn</a>.<a href="../interfaces/isequencecolumn.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceColumn.ts#L8">SequenceColumn.ts:8</a></li>
+							<li>Defined in SequenceColumn.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -165,71 +164,65 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/isequencecolumn.html">ISequenceColumn</a>.<a href="../interfaces/isequencecolumn.html#predicate">predicate</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceColumn.ts#L7">SequenceColumn.ts:7</a></li>
+							<li>Defined in SequenceColumn.ts:8</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="stringify" class="tsd-anchor"></a>
 					<h3>stringify</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">stringify<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/isequencecolumn.html">ISequenceColumn</a>.<a href="../interfaces/isequencecolumn.html#stringify">stringify</a></p>
-								<p>Overrides <a href="sequencepart.html">SequencePart</a>.<a href="sequencepart.html#stringify">stringify</a></p>
+								<p>Implementation of <a href="../interfaces/isequencecoalescable.html">ISequenceCoalescable</a>.<a href="../interfaces/isequencecoalescable.html#stringify">stringify</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceColumn.ts#L17">SequenceColumn.ts:17</a></li>
+									<li>Defined in SequenceColumn.ts:18</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="tostring" class="tsd-anchor"></a>
-					<h3>to<wbr>String</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
+					<a name="stringifylogicaloperator" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagProtected">Protected</span> stringify<wbr>Logical<wbr>Operator</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">stringify<wbr>Logical<wbr>Operator<span class="tsd-signature-symbol">(</span>logicalOperator<span class="tsd-signature-symbol">: </span><a href="../enums/logicaloperator.html" class="tsd-signature-type">LogicalOperator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"&gt;"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"&gt;&#x3D;"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"&#x3D;"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"&lt;"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"&lt;&#x3D;"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"/"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"%"</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="sequencepart.html">SequencePart</a>.<a href="sequencepart.html#tostring">toString</a></p>
+								<p>Inherited from <a href="sequencepart.html">SequencePart</a>.<a href="sequencepart.html#stringifylogicaloperator">stringifyLogicalOperator</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequencePart.ts#L11">SequencePart.ts:11</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-					<a name="stringifycoalescingoperator" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> stringify<wbr>Coalescing<wbr>Operator</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">stringify<wbr>Coalescing<wbr>Operator<span class="tsd-signature-symbol">(</span>coalescingOperator<span class="tsd-signature-symbol">: </span><a href="../enums/coalescingoperator.html" class="tsd-signature-type">CoalescingOperator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="sequencepart.html">SequencePart</a>.<a href="sequencepart.html#stringifycoalescingoperator">stringifyCoalescingOperator</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequencePart.ts#L15">SequencePart.ts:15</a></li>
+									<li>Defined in SequencePart.ts:12</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>coalescingOperator: <a href="../enums/coalescingoperator.html" class="tsd-signature-type">CoalescingOperator</a></h5>
+									<h5>logicalOperator: <a href="../enums/logicaloperator.html" class="tsd-signature-type">LogicalOperator</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"&gt;"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"&gt;&#x3D;"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"&#x3D;"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"&lt;"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"&lt;&#x3D;"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"/"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"%"</span>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -243,7 +236,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequenceColumn.ts#L27">SequenceColumn.ts:27</a></li>
+									<li>Defined in SequenceColumn.ts:28</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -256,10 +249,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
 					<a name="stringifywrapping" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> stringify<wbr>Wrapping</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagProtected">Protected</span> stringify<wbr>Wrapping</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">stringify<wbr>Wrapping<span class="tsd-signature-symbol">(</span>wrapping<span class="tsd-signature-symbol">: </span><a href="../enums/wrapping.html" class="tsd-signature-type">Wrapping</a>, values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -267,7 +260,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="sequencepart.html">SequencePart</a>.<a href="sequencepart.html#stringifywrapping">stringifyWrapping</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Gallink/Sequence/blob/301d86b/src/SequencePart.ts#L22">SequencePart.ts:22</a></li>
+									<li>Defined in SequencePart.ts:6</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -309,19 +302,16 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="sequencecolumn.html#predicate" class="tsd-kind-icon">predicate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="sequencecolumn.html#stringify" class="tsd-kind-icon">stringify</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="sequencecolumn.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="sequencecolumn.html#stringifycoalescingoperator" class="tsd-kind-icon">stringify<wbr>Coalescing<wbr>Operator</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
+								<a href="sequencecolumn.html#stringifylogicaloperator" class="tsd-kind-icon">stringify<wbr>Logical<wbr>Operator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="sequencecolumn.html#stringifypredicate" class="tsd-kind-icon">stringify<wbr>Predicate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
 								<a href="sequencecolumn.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a>
 							</li>
 						</ul>

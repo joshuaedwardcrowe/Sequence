@@ -1,9 +1,9 @@
-import { ISequenceOperation } from "../interfaces/ISequenceOperation";
-import { ISequencePart } from "../interfaces/ISequencePart";
+import { SequenceOperation } from "./SequenceOperation";
 import { ISequenceColumn } from "../interfaces/ISequenceColumn";
-import { SequenceOperation } from "../SequenceOperation";
-export declare class SelectionOperation extends SequenceOperation implements ISequencePart, ISequenceOperation {
-    readonly columns: ISequenceColumn[];
+import { CoalescingOperator } from "../enums/CoalescingOperator";
+import { ISequenceCoalescent } from "../interfaces/ISequenceCoalescent";
+export declare class SelectionOperation extends SequenceOperation implements ISequenceCoalescent {
+    readonly coalescingOperator: CoalescingOperator;
     constructor(...columns: ISequenceColumn[]);
     stringify(): string;
 }

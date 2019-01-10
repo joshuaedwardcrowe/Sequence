@@ -1,8 +1,9 @@
 import { ISequenceSupplement } from "./interfaces/ISequenceSupplement";
 import { Supplement } from "./enums/Supplement";
-import { Wrapping } from "./enums/Wrapping";
 import { SequencePart } from "./SequencePart";
-export declare class SequenceSupplement extends SequencePart implements ISequenceSupplement {
+import { Wrapping } from "./enums/Wrapping";
+import { ISequencePart } from "./interfaces/ISequencePart";
+export declare class SequenceSupplement extends SequencePart implements ISequenceSupplement, ISequencePart {
     readonly supplement: Supplement;
     readonly wrapping: Wrapping;
     readonly values: any[];
