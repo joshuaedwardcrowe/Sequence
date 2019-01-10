@@ -1,20 +1,21 @@
 import {SequenceLocation} from "./locations/SequenceLocation";
-import {SelectionOperation} from "./operations/SelectionOperation";
+import {ColumnOperation} from "./operations/ColumnOperation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {ISelect} from "./interfaces/ISelect";
 import {SequenceBuilder} from "./SequenceBuilder";
 import {Location} from "./enums/Location";
 import {Sanitise} from "./utilities/Sanitise";
+import {Operation} from "./enums/Operation";
 
 export class Select extends SequenceBuilder implements ISelect {
 
-    public all (): this {
-        if (!this.operation) this.operation = new SelectionOperation();
-        return this;
+    constructor () {
+        super ();
+
+        this.operation = new ColumnOperation(Operation.Select);
     }
 
     public column (column: ISequenceColumn): this {
-        if (!this.operation) this.operation = new SelectionOperation();
         this.operation.columns.push(column);
         return this;
     }

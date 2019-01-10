@@ -58,7 +58,7 @@ export {IntoLocation} from "./src/locations/IntoLocation";
 // Operations
 export {ISequenceOperation} from "./src/interfaces/operations/ISequenceOperation";
 export {SequenceOperation} from "./src/operations/SequenceOperation";
-export {SelectionOperation} from "./src/operations/SelectionOperation";
+export {ColumnOperation} from "./src/operations/ColumnOperation";
 
 // Joins
 export {Join} from "./src/enums/Join";
@@ -74,3 +74,5 @@ export {IInsert} from "./src/interfaces/IInsert";
 export {Insert} from "./src/Insert";
 export {IUpdate} from "./src/interfaces/IUpdate";
 export {Update} from "./src/Update";
+export {IDelete} from "./src/interfaces/IDelete";
+export {Delete} from "./src/Delete";

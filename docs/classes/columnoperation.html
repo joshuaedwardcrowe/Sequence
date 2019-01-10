@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SelectionOperation | Gallink Sequence</title>
+	<title>ColumnOperation | Gallink Sequence</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="selectionoperation.html">SelectionOperation</a>
+					<a href="columnoperation.html">ColumnOperation</a>
 				</li>
 			</ul>
-			<h1>Class SelectionOperation</h1>
+			<h1>Class ColumnOperation</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<a href="sequenceoperation.html" class="tsd-signature-type">SequenceOperation</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">SelectionOperation</span>
+								<span class="target">ColumnOperation</span>
 							</li>
 						</ul>
 					</li>
@@ -93,25 +93,25 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="selectionoperation.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="columnoperation.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectionoperation.html#coalescingoperator" class="tsd-kind-icon">coalescing<wbr>Operator</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="selectionoperation.html#columns" class="tsd-kind-icon">columns</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="selectionoperation.html#operation" class="tsd-kind-icon">operation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="columnoperation.html#coalescingoperator" class="tsd-kind-icon">coalescing<wbr>Operator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="columnoperation.html#columns" class="tsd-kind-icon">columns</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="columnoperation.html#operation" class="tsd-kind-icon">operation</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="selectionoperation.html#stringify" class="tsd-kind-icon">stringify</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="selectionoperation.html#coalesce" class="tsd-kind-icon">coalesce</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="selectionoperation.html#stringifylogicaloperator" class="tsd-kind-icon">stringify<wbr>Logical<wbr>Operator</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="selectionoperation.html#stringifyoperation" class="tsd-kind-icon">stringify<wbr>Operation</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="selectionoperation.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="columnoperation.html#stringify" class="tsd-kind-icon">stringify</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="columnoperation.html#coalesce" class="tsd-kind-icon">coalesce</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="columnoperation.html#stringifylogicaloperator" class="tsd-kind-icon">stringify<wbr>Logical<wbr>Operator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="columnoperation.html#stringifyoperation" class="tsd-kind-icon">stringify<wbr>Operation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static"><a href="columnoperation.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a></li>
 							</ul>
 						</section>
 					</div>
@@ -123,23 +123,26 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Selection<wbr>Operation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>columns<span class="tsd-signature-symbol">: </span><a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="selectionoperation.html" class="tsd-signature-type">SelectionOperation</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Column<wbr>Operation<span class="tsd-signature-symbol">(</span>operation<span class="tsd-signature-symbol">: </span><a href="../enums/operation.html" class="tsd-signature-type">Operation</a>, <span class="tsd-signature-symbol">...</span>columns<span class="tsd-signature-symbol">: </span><a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="columnoperation.html" class="tsd-signature-type">ColumnOperation</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="sequenceoperation.html">SequenceOperation</a>.<a href="sequenceoperation.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in operations/SelectionOperation.ts:9</li>
+									<li>Defined in operations/ColumnOperation.ts:9</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>operation: <a href="../enums/operation.html" class="tsd-signature-type">Operation</a></h5>
+								</li>
+								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>columns: <a href="../interfaces/isequencecolumn.html" class="tsd-signature-type">ISequenceColumn</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="selectionoperation.html" class="tsd-signature-type">SelectionOperation</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="columnoperation.html" class="tsd-signature-type">ColumnOperation</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -153,7 +156,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/isequencecoalescent.html">ISequenceCoalescent</a>.<a href="../interfaces/isequencecoalescent.html#coalescingoperator">coalescingOperator</a></p>
 						<ul>
-							<li>Defined in operations/SelectionOperation.ts:9</li>
+							<li>Defined in operations/ColumnOperation.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +199,7 @@
 								<p>Implementation of <a href="../interfaces/isequencecoalescent.html">ISequenceCoalescent</a>.<a href="../interfaces/isequencecoalescent.html#stringify">stringify</a></p>
 								<p>Overrides <a href="sequenceoperation.html">SequenceOperation</a>.<a href="sequenceoperation.html#stringify">stringify</a></p>
 								<ul>
-									<li>Defined in operations/SelectionOperation.ts:15</li>
+									<li>Defined in operations/ColumnOperation.ts:15</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -336,34 +339,34 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="selectionoperation.html" class="tsd-kind-icon">Selection<wbr>Operation</a>
+						<a href="columnoperation.html" class="tsd-kind-icon">Column<wbr>Operation</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="selectionoperation.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="columnoperation.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="selectionoperation.html#coalescingoperator" class="tsd-kind-icon">coalescing<wbr>Operator</a>
+								<a href="columnoperation.html#coalescingoperator" class="tsd-kind-icon">coalescing<wbr>Operator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="selectionoperation.html#columns" class="tsd-kind-icon">columns</a>
+								<a href="columnoperation.html#columns" class="tsd-kind-icon">columns</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="selectionoperation.html#operation" class="tsd-kind-icon">operation</a>
+								<a href="columnoperation.html#operation" class="tsd-kind-icon">operation</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="selectionoperation.html#stringify" class="tsd-kind-icon">stringify</a>
+								<a href="columnoperation.html#stringify" class="tsd-kind-icon">stringify</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
-								<a href="selectionoperation.html#coalesce" class="tsd-kind-icon">coalesce</a>
+								<a href="columnoperation.html#coalesce" class="tsd-kind-icon">coalesce</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
-								<a href="selectionoperation.html#stringifylogicaloperator" class="tsd-kind-icon">stringify<wbr>Logical<wbr>Operator</a>
+								<a href="columnoperation.html#stringifylogicaloperator" class="tsd-kind-icon">stringify<wbr>Logical<wbr>Operator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
-								<a href="selectionoperation.html#stringifyoperation" class="tsd-kind-icon">stringify<wbr>Operation</a>
+								<a href="columnoperation.html#stringifyoperation" class="tsd-kind-icon">stringify<wbr>Operation</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-static">
-								<a href="selectionoperation.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a>
+								<a href="columnoperation.html#stringifywrapping" class="tsd-kind-icon">stringify<wbr>Wrapping</a>
 							</li>
 						</ul>
 					</li>
