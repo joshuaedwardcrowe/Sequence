@@ -1,0 +1,8 @@
+deployment/
+gulpfile.ts
+gulpfile.js
+typings/
+test.unit/
+node_modules
+./src/
+.idea/
