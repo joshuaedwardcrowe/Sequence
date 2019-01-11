@@ -19,7 +19,6 @@ import {SequenceFilter} from "./formations/filters/SequenceFilter";
 import {Sanitize} from "./utilities/Sanitise";
 import {ISequencePart} from "./interfaces/ISequencePart";
 import {StringBuilder} from "@gallink/oxygen";
-import {SqlStringBuilder} from "./utilities/SqlStringBuilder";
 
 export abstract class SequenceBuilder {
 
@@ -30,7 +29,7 @@ export abstract class SequenceBuilder {
     public ordering: ISequenceFormation;
     public grouping: ISequenceFormation;
     public limitation: LimitFormation;
-    protected builder: StringBuilder = new SqlStringBuilder();
+    protected builder: StringBuilder = new StringBuilder();
 
     public where (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where,  CoalescingOperator.And);
