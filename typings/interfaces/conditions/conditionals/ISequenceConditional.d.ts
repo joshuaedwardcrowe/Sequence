@@ -5,4 +5,3 @@ export interface ISequenceConditional extends ISequenceCoalescable {
     readonly conditional: Conditional;
     readonly column: ISequenceColumn;
 }
-//# sourceMappingURL=ISequenceConditional.d.ts.map

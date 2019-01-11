@@ -3,4 +3,3 @@ export declare enum CoalescingOperator {
     And = 1,
     Comma = 2
 }
-//# sourceMappingURL=CoalescingOperator.d.ts.map

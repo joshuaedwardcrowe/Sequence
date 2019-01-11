@@ -20,4 +20,3 @@ export interface ISequenceBuilder {
     stringify(): string;
     toString(): string;
 }
-//# sourceMappingURL=ISequenceBuilder.d.ts.map

@@ -8,4 +8,3 @@ export declare class LogicalConditional extends SequenceConditional implements I
     constructor(column: ISequenceColumn, logicalOperator: LogicalOperator, value: any);
     stringify(): string;
 }
-//# sourceMappingURL=LogicalConditional.d.ts.map

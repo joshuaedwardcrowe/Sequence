@@ -4,4 +4,3 @@ export declare enum Operation {
     Update = 2,
     Delete = 3
 }
-//# sourceMappingURL=Operation.d.ts.map

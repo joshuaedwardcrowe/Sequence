@@ -6,4 +6,3 @@ export interface ISequenceAssignation extends ISequencePart {
     readonly logicalOperator: LogicalOperator;
     readonly value: any;
 }
-//# sourceMappingURL=ISequenceAssignation.d.ts.map

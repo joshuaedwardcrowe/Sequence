@@ -4,4 +4,3 @@ export interface ISelect {
     from(tableName: string): this;
     stringify(): string;
 }
-//# sourceMappingURL=ISelect.d.ts.map

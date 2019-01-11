@@ -12,4 +12,3 @@ export declare class SequenceFormation extends SequenceCoalescent implements ISe
     stringify(): string;
     protected static stringifyFormation(defaultType: Formation): "GROUP BY" | "ORDER BY" | "LIMIT";
 }
-//# sourceMappingURL=SequenceFormation.d.ts.map

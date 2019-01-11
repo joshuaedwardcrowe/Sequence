@@ -5,4 +5,3 @@ export interface IUpdate {
     table(tableName: string): this;
     column(column: ISequenceColumn, value: any): this;
 }
-//# sourceMappingURL=IUpdate.d.ts.map

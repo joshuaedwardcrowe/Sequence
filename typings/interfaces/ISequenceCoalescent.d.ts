@@ -3,4 +3,3 @@ import { CoalescingOperator } from "../enums/CoalescingOperator";
 export interface ISequenceCoalescent extends ISequencePart {
     readonly coalescingOperator: CoalescingOperator;
 }
-//# sourceMappingURL=ISequenceCoalescent.d.ts.map

@@ -3,4 +3,3 @@ export declare enum Formation {
     GroupBy = 1,
     Limit = 2
 }
-//# sourceMappingURL=Formation.d.ts.map

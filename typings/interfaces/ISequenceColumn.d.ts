@@ -5,4 +5,3 @@ export interface ISequenceColumn extends ISequencePart {
     readonly name: string;
     stringify(): string;
 }
-//# sourceMappingURL=ISequenceColumn.d.ts.map

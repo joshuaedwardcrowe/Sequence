@@ -9,4 +9,3 @@ export declare class SequenceColumn extends SequencePart implements ISequenceCol
     stringify(): string;
     static stringifyPredicate(predicate: Predicate): string;
 }
-//# sourceMappingURL=SequenceColumn.d.ts.map

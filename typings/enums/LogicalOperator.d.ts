@@ -7,4 +7,3 @@ export declare enum LogicalOperator {
     Division = 5,
     Modulo = 6
 }
-//# sourceMappingURL=LogicalOperator.d.ts.map

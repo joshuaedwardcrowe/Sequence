@@ -6,4 +6,3 @@ export interface ISequenceJoin extends ISequencePart {
     readonly location: string;
     readonly condition: ISequenceCondition;
 }
-//# sourceMappingURL=ISequenceJoin.d.ts.map

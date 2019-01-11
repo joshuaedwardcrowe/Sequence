@@ -100,6 +100,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="update.html#assignment" class="tsd-kind-icon">assignment</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="update.html#builder" class="tsd-kind-icon">builder</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="update.html#condition" class="tsd-kind-icon">condition</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="update.html#grouping" class="tsd-kind-icon">grouping</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="update.html#joins" class="tsd-kind-icon">joins</a></li>
@@ -112,12 +113,13 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="update.html#addbasetobuilder" class="tsd-kind-icon">add<wbr>Base<wbr>ToBuilder</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="update.html#addparttobuilder" class="tsd-kind-icon">add<wbr>Part<wbr>ToBuilder</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="update.html#column" class="tsd-kind-icon">column</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="update.html#groupby" class="tsd-kind-icon">group<wbr>By</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="update.html#limit" class="tsd-kind-icon">limit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="update.html#orderby" class="tsd-kind-icon">order<wbr>By</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="update.html#stringify" class="tsd-kind-icon">stringify</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="update.html#stringifybase" class="tsd-kind-icon">stringify<wbr>Base</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="update.html#table" class="tsd-kind-icon">table</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="update.html#where" class="tsd-kind-icon">where</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="update.html#wherein" class="tsd-kind-icon">where<wbr>In</a></li>
@@ -160,6 +162,17 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="builder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> builder</h3>
+					<div class="tsd-signature tsd-kind-icon">builder<span class="tsd-signature-symbol">:</span> <a href="sqlstringbuilder.html" class="tsd-signature-type">SqlStringBuilder</a><span class="tsd-signature-symbol"> =&nbsp;new SqlStringBuilder()</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#builder">builder</a></p>
+						<ul>
+							<li>Defined in SequenceBuilder.ts:32</li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="condition" class="tsd-anchor"></a>
 					<h3>condition</h3>
@@ -168,7 +181,7 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#condition">condition</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#condition">condition</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:23</li>
+							<li>Defined in SequenceBuilder.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +193,7 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#grouping">grouping</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#grouping">grouping</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:28</li>
+							<li>Defined in SequenceBuilder.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +205,7 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#joins">joins</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#joins">joins</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:26</li>
+							<li>Defined in SequenceBuilder.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +217,7 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#limitation">limitation</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#limitation">limitation</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:29</li>
+							<li>Defined in SequenceBuilder.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +229,7 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#location">location</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#location">location</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:24</li>
+							<li>Defined in SequenceBuilder.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -228,7 +241,7 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#operation">operation</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#operation">operation</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:25</li>
+							<li>Defined in SequenceBuilder.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -240,13 +253,76 @@
 						<p>Implementation of <a href="../interfaces/isequencebuilder.html">ISequenceBuilder</a>.<a href="../interfaces/isequencebuilder.html#ordering">ordering</a></p>
 						<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#ordering">ordering</a></p>
 						<ul>
-							<li>Defined in SequenceBuilder.ts:27</li>
+							<li>Defined in SequenceBuilder.ts:29</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="addbasetobuilder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> add<wbr>Base<wbr>ToBuilder</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Base<wbr>ToBuilder<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#addbasetobuilder">addBaseToBuilder</a></p>
+								<ul>
+									<li>Defined in SequenceBuilder.ts:67</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="addparttobuilder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> add<wbr>Part<wbr>ToBuilder</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Part<wbr>ToBuilder<span class="tsd-signature-symbol">(</span>part<span class="tsd-signature-symbol">: </span><a href="../interfaces/isequencepart.html" class="tsd-signature-type">ISequencePart</a>, alterations<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#addparttobuilder">addPartToBuilder</a></p>
+								<ul>
+									<li>Defined in SequenceBuilder.ts:75</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>part: <a href="../interfaces/isequencepart.html" class="tsd-signature-type">ISequencePart</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alterations: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>stringified<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>stringified: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="column" class="tsd-anchor"></a>
 					<h3>column</h3>
@@ -373,24 +449,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="stringifybase" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> stringify<wbr>Base</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">stringify<wbr>Base<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#stringifybase">stringifyBase</a></p>
-								<ul>
-									<li>Defined in SequenceBuilder.ts:64</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="table" class="tsd-anchor"></a>
 					<h3>table</h3>
@@ -426,7 +484,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#where">where</a></p>
 								<ul>
-									<li>Defined in SequenceBuilder.ts:31</li>
+									<li>Defined in SequenceBuilder.ts:34</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -456,7 +514,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#wherein">whereIn</a></p>
 								<ul>
-									<li>Defined in SequenceBuilder.ts:37</li>
+									<li>Defined in SequenceBuilder.ts:40</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -483,7 +541,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="sequencebuilder.html">SequenceBuilder</a>.<a href="sequencebuilder.html#wherenotin">whereNotIn</a></p>
 								<ul>
-									<li>Defined in SequenceBuilder.ts:42</li>
+									<li>Defined in SequenceBuilder.ts:45</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -522,6 +580,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="update.html#assignment" class="tsd-kind-icon">assignment</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="update.html#builder" class="tsd-kind-icon">builder</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="update.html#condition" class="tsd-kind-icon">condition</a>
 							</li>
@@ -543,6 +604,12 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="update.html#ordering" class="tsd-kind-icon">ordering</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="update.html#addbasetobuilder" class="tsd-kind-icon">add<wbr>Base<wbr>ToBuilder</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="update.html#addparttobuilder" class="tsd-kind-icon">add<wbr>Part<wbr>ToBuilder</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="update.html#column" class="tsd-kind-icon">column</a>
 							</li>
@@ -557,9 +624,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="update.html#stringify" class="tsd-kind-icon">stringify</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="update.html#stringifybase" class="tsd-kind-icon">stringify<wbr>Base</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="update.html#table" class="tsd-kind-icon">table</a>

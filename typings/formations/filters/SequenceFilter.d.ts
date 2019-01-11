@@ -9,4 +9,3 @@ export declare class SequenceFilter extends SequencePart implements ISequenceFil
     stringify(): string;
     protected static stringifyArrangement(arrangement: Arrangement): string;
 }
-//# sourceMappingURL=SequenceFilter.d.ts.map

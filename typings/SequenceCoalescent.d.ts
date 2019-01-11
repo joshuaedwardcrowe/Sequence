@@ -6,4 +6,3 @@ export declare abstract class SequenceCoalescent extends SequencePart {
     private static padCoalescingOperator;
     protected static coalesce(startingKeyword: string, coalescingOperator: CoalescingOperator, coalescables: ISequenceCoalescable[]): string;
 }
-//# sourceMappingURL=SequenceCoalescent.d.ts.map

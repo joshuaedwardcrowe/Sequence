@@ -11,4 +11,3 @@ export declare class SequenceSupplement extends SequencePart implements ISequenc
     stringify(): string;
     static stringifySupplement(supplement: Supplement): string;
 }
-//# sourceMappingURL=SequenceSupplement.d.ts.map
