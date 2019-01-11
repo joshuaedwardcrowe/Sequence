@@ -8,18 +8,9 @@ import {SequenceBuilder} from "./SequenceBuilder";
 import {SequenceSupplement} from "./SequenceSupplement";
 import {Supplement} from "./enums/Supplement";
 import {Wrapping} from "./enums/Wrapping";
-import {Sanitise} from "./utilities/Sanitise";
+import {Sanitize} from "./utilities/Sanitise";
 import {LogicalOperator} from "./enums/LogicalOperator";
-import {SequenceCondition} from "./conditions/SequenceCondition";
-import {Condition} from "./enums/Condition";
-import {CoalescingOperator} from "./enums/CoalescingOperator";
-import {CriteriaConditional} from "./conditions/conditionals/CriteriaConditional";
-import {Conditional} from "./enums/Conditional";
 import {Arrangement} from "./enums/Arrangement";
-import {SequenceFormation} from "./formations/SequenceFormation";
-import {Formation} from "./enums/Formation";
-import {SequenceFilter} from "./formations/filters/SequenceFilter";
-import {LimitFormation} from "./formations/LimitFormation";
 
 export class Insert extends SequenceBuilder implements IInsert {
 
@@ -38,7 +29,7 @@ export class Insert extends SequenceBuilder implements IInsert {
 
     public values (...values: any[]): this {
         if (!this.supplement) this.supplement = new SequenceSupplement(Supplement.Values, Wrapping.Parentheses);
-        const cleansed: any[] = values.map(Sanitise.input);
+        const cleansed: any[] = values.map(Sanitize.input);
         this.supplement.values.push(...cleansed);
         return this;
     }
@@ -68,10 +59,11 @@ export class Insert extends SequenceBuilder implements IInsert {
     }
 
     public stringify (): string {
-        const operation: string = Sanitise.part(this.operation);
-        const location: string = Sanitise.part(this.location);
-        const supplement: string = Sanitise.part(this.supplement);
-        return `${operation}${location}${supplement}${this.stringifyBase()}`.trim();
+        this.addPartToBuilder(this.operation);
+        this.addPartToBuilder(this.location);
+        this.addPartToBuilder(this.supplement);
+
+        return this.builder.toString().trim();
     }
 
 }

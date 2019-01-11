@@ -1,9 +1,10 @@
 import {ISequencePart} from "../interfaces/ISequencePart";
 
-export namespace Sanitise {
+export namespace Sanitize {
 
-    export function part(part: ISequencePart) {
-        return !!part ? `${part.stringify()} ` : "";
+    export function part(partToStringify: ISequencePart, alterationCallback?: (stringified: string) => string): string {
+        const initial: string = !!partToStringify ? `${partToStringify.stringify()} ` : "";
+        return alterationCallback ? alterationCallback(initial) : initial;
     }
 
     export function input(value: any): any {

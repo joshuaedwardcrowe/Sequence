@@ -6,7 +6,6 @@ import {ColumnOperation} from "./operations/ColumnOperation";
 import {ISequenceColumn} from "./interfaces/ISequenceColumn";
 import {SequenceLocation} from "./locations/SequenceLocation";
 import {Location} from "./enums/Location";
-import {Sanitise} from "./utilities/Sanitise";
 import {Arrangement} from "./enums/Arrangement";
 
 export class Delete extends SequenceBuilder implements IDelete, ISequenceBuilder {
@@ -40,12 +39,12 @@ export class Delete extends SequenceBuilder implements IDelete, ISequenceBuilder
     }
 
     public stringify (): string {
-        const location: string = Sanitise.part(this.location);
-        return (`${this.stringifyOperation()}${location}${this.stringifyBase()}`).trim();
-    }
+        const removeAsterisk = (stringified: string) => stringified.replace(" *", "");
+        this.addPartToBuilder(this.operation, removeAsterisk);
+        this.addPartToBuilder(this.location);
+        this.addBaseToBuilder();
 
-    private stringifyOperation (): string {
-        return Sanitise.part(this.operation).replace(" *", "");
+        return this.builder.toString().trim();
     }
 
 }

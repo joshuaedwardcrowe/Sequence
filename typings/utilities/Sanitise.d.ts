@@ -4,4 +4,4 @@ export declare namespace Sanitise {
     function input(value: any): any;
     function inputs(values: any[]): any[];
 }
-//# sourceMappingURL=Sanitise.d.ts.map
+//# sourceMappingURL=Sanitize.d.ts.map

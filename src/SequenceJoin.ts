@@ -9,13 +9,15 @@ import {CoalescingOperator} from "./enums/CoalescingOperator";
 import {LogicalConditional} from "./conditions/conditionals/LogicalConditional";
 import {CriteriaConditional} from "./conditions/conditionals/CriteriaConditional";
 import {Conditional} from "./enums/Conditional";
-import {Sanitise} from "./utilities/Sanitise";
+import {Sanitize} from "./utilities/Sanitise";
+import {StringBuilder} from "@gallink/oxygen";
 
 export class SequenceJoin extends SequencePart implements ISequenceJoin {
 
     public readonly join: Join;
     public readonly location: string;
     public condition: SequenceCondition;
+    protected builder: StringBuilder = new StringBuilder();
 
     constructor (join: Join, location: string) {
         super();
@@ -26,23 +28,25 @@ export class SequenceJoin extends SequencePart implements ISequenceJoin {
 
     public on (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, Sanitise.input(comparisonValue)));
+        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, Sanitize.input(comparisonValue)));
         return this;
     }
 
     public onIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...Sanitise.inputs(values)));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...Sanitize.inputs(values)));
     }
 
     public onNotIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.On, CoalescingOperator.And);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...Sanitise.inputs(values)));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...Sanitize.inputs(values)));
     }
 
     public stringify (): string {
-        const condition: string = Sanitise.part(this.condition);
-        return `${SequenceJoin.stringifyJoin(this.join)} ${this.location} ${condition}`.trim();
+        this.builder.append(SequenceJoin.stringifyJoin(this.join));
+        this.builder.append(this.location);
+        this.builder.append(Sanitize.part(this.condition));
+        return this.builder.toString().trim();
     }
 
     protected static stringifyJoin(joinType: Join): string {

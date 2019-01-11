@@ -1,6 +1,6 @@
 // Misc
 export {Wrapping} from "./src/enums/Wrapping";
-export {Sanitise} from "./src/utilities/Sanitise";
+export {Sanitize} from "./src/utilities/Sanitise";
 
 // Columns
 export {Predicate} from "./src/enums/Predicate";

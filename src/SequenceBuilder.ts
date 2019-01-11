@@ -16,7 +16,10 @@ import {Arrangement} from "./enums/Arrangement";
 import {SequenceFormation} from "./formations/SequenceFormation";
 import {Formation} from "./enums/Formation";
 import {SequenceFilter} from "./formations/filters/SequenceFilter";
-import {Sanitise} from "./utilities/Sanitise";
+import {Sanitize} from "./utilities/Sanitise";
+import {ISequencePart} from "./interfaces/ISequencePart";
+import {StringBuilder} from "@gallink/oxygen";
+import {SqlStringBuilder} from "./utilities/SqlStringBuilder";
 
 export abstract class SequenceBuilder {
 
@@ -27,21 +30,22 @@ export abstract class SequenceBuilder {
     public ordering: ISequenceFormation;
     public grouping: ISequenceFormation;
     public limitation: LimitFormation;
+    protected builder: StringBuilder = new SqlStringBuilder();
 
     public where (column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where,  CoalescingOperator.And);
-        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, Sanitise.input(comparisonValue)));
+        this.condition.conditionals.push(new LogicalConditional(column, logicalOperator, Sanitize.input(comparisonValue)));
         return this;
     }
 
     public whereIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...Sanitise.inputs(values)));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.In, column, ...Sanitize.inputs(values)));
     }
 
     public whereNotIn (column: ISequenceColumn, ...values: any[]) {
         if (!this.condition) this.condition = new SequenceCondition(Condition.Where, CoalescingOperator.And);
-        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...Sanitise.inputs(values)));
+        this.condition.conditionals.push(new CriteriaConditional(Conditional.NotIn, column, ...Sanitize.inputs(values)));
     }
 
     public orderBy (column: ISequenceColumn, arrangement: Arrangement): this {
@@ -61,17 +65,21 @@ export abstract class SequenceBuilder {
         return this;
     }
 
-    protected stringifyBase (): string {
-        const condition: string = Sanitise.part(this.condition);
-        const ordering: string = Sanitise.part(this.ordering);
-        const limitation: string = Sanitise.part(this.limitation);
-        const grouping: string = Sanitise.part(this.grouping);
-        return (`${condition}${ordering}${limitation}${grouping}${this.stringifyJoins()}`);
+    protected addBaseToBuilder () {
+        this.addPartToBuilder(this.condition);
+        this.addPartToBuilder(this.ordering);
+        this.addPartToBuilder(this.limitation);
+        this.addPartToBuilder(this.grouping);
+        this.addJoinsToBuilder();
     }
 
-    private stringifyJoins (): string {
+    protected addPartToBuilder (part: ISequencePart, alterations?: (stringified: string) => string): void {
+        this.builder.append(Sanitize.part(part, alterations));
+    }
+
+    private addJoinsToBuilder (): void {
         const reducer = (reduction: string, join: ISequenceJoin) => ` ${reduction} ${join.stringify()}`;
-        return this.joins.length ? this.joins.reduce<string>(reducer, "") : "";
+        if (this.joins.length) this.builder.append(this.joins.reduce<string>(reducer, ""));
     }
 
 }
