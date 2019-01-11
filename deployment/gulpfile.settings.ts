@@ -20,3 +20,6 @@ export const DEPLOYMENT_FOLDERS = [
     "typings",
     "dist"
 ];
+
+export const MAIN_FILE_NAME = "sequence.js";
+export const MAIN_FILE_NAME_DISTRIBUTED = "index.js";
