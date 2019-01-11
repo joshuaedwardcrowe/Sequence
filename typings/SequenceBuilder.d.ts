@@ -1,0 +1,30 @@
+import { LimitFormation } from "./formations/LimitFormation";
+import { LogicalOperator } from "./enums/LogicalOperator";
+import { ISequenceColumn } from "./interfaces/ISequenceColumn";
+import { ISequenceFormation } from "./interfaces/formations/ISequenceFormation";
+import { ISequenceJoin } from "./interfaces/ISequenceJoin";
+import { ISequenceOperation } from "./interfaces/operations/ISequenceOperation";
+import { ISequenceLocation } from "./interfaces/locations/ISequenceLocation";
+import { ISequenceCondition } from "./interfaces/conditions/ISequenceCondition";
+import { Arrangement } from "./enums/Arrangement";
+import { ISequencePart } from "./interfaces/ISequencePart";
+import { StringBuilder } from "@gallink/oxygen";
+export declare abstract class SequenceBuilder {
+    condition: ISequenceCondition;
+    location: ISequenceLocation;
+    operation: ISequenceOperation;
+    joins: ISequenceJoin[];
+    ordering: ISequenceFormation;
+    grouping: ISequenceFormation;
+    limitation: LimitFormation;
+    protected builder: StringBuilder;
+    where(column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this;
+    whereIn(column: ISequenceColumn, ...values: any[]): void;
+    whereNotIn(column: ISequenceColumn, ...values: any[]): void;
+    orderBy(column: ISequenceColumn, arrangement: Arrangement): this;
+    groupBy(column: ISequenceColumn, arrangement: Arrangement): this;
+    limit(amount: number): this;
+    protected addBaseToBuilder(): void;
+    protected addPartToBuilder(part: ISequencePart, alterations?: (stringified: string) => string): void;
+    private addJoinsToBuilder;
+}
