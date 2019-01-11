@@ -1,6 +1,6 @@
 import {ISequencePart} from "../interfaces/ISequencePart";
 
-export namespace Sanitize {
+export namespace SqlSanitize {
 
     export function part(partToStringify: ISequencePart, alterationCallback?: (stringified: string) => string): string {
         const initial: string = !!partToStringify ? `${partToStringify.stringify()} ` : "";

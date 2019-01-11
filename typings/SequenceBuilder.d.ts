@@ -8,7 +8,7 @@ import { ISequenceLocation } from "./interfaces/locations/ISequenceLocation";
 import { ISequenceCondition } from "./interfaces/conditions/ISequenceCondition";
 import { Arrangement } from "./enums/Arrangement";
 import { ISequencePart } from "./interfaces/ISequencePart";
-import { StringBuilder } from "@gallink/oxygen";
+import { SqlStringBuilder } from "./utilities/SqlStringBuilder";
 export declare abstract class SequenceBuilder {
     condition: ISequenceCondition;
     location: ISequenceLocation;
@@ -17,7 +17,7 @@ export declare abstract class SequenceBuilder {
     ordering: ISequenceFormation;
     grouping: ISequenceFormation;
     limitation: LimitFormation;
-    protected builder: StringBuilder;
+    protected builder: SqlStringBuilder;
     where(column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this;
     whereIn(column: ISequenceColumn, ...values: any[]): void;
     whereNotIn(column: ISequenceColumn, ...values: any[]): void;

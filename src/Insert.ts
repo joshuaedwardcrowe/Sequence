@@ -8,7 +8,7 @@ import {SequenceBuilder} from "./SequenceBuilder";
 import {SequenceSupplement} from "./SequenceSupplement";
 import {Supplement} from "./enums/Supplement";
 import {Wrapping} from "./enums/Wrapping";
-import {Sanitize} from "./utilities/Sanitise";
+import {SqlSanitize} from "./utilities/SqlSanitise";
 import {LogicalOperator} from "./enums/LogicalOperator";
 import {Arrangement} from "./enums/Arrangement";
 
@@ -29,7 +29,7 @@ export class Insert extends SequenceBuilder implements IInsert {
 
     public values (...values: any[]): this {
         if (!this.supplement) this.supplement = new SequenceSupplement(Supplement.Values, Wrapping.Parentheses);
-        const cleansed: any[] = values.map(Sanitize.input);
+        const cleansed: any[] = values.map(SqlSanitize.input);
         this.supplement.values.push(...cleansed);
         return this;
     }

@@ -10,7 +10,7 @@ import {SequenceAssignment} from "./assignments/SequenceAssignment";
 import {SequenceAssignation} from "./assignments/assignations/SequenceAssignation";
 import {IUpdate} from "./interfaces/IUpdate";
 import {ISequenceBuilder} from "./interfaces/ISequenceBuilder";
-import {Sanitize} from "./utilities/Sanitise";
+import {SqlSanitize} from "./utilities/SqlSanitise";
 import {Arrangement} from "./enums/Arrangement";
 
 export class Update extends SequenceBuilder implements IUpdate, ISequenceBuilder {
@@ -30,7 +30,7 @@ export class Update extends SequenceBuilder implements IUpdate, ISequenceBuilder
     }
 
     public column (column: ISequenceColumn, value: any): this {
-        this.assignment.assignations.push(new SequenceAssignation(column, Sanitize.input(value)));
+        this.assignment.assignations.push(new SequenceAssignation(column, SqlSanitize.input(value)));
         return this;
     }
 
