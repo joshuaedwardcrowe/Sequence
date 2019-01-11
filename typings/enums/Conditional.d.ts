@@ -3,4 +3,3 @@ export declare enum Conditional {
     In = 1,
     NotIn = 2
 }
-//# sourceMappingURL=Conditional.d.ts.map

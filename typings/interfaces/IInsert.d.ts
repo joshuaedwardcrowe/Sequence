@@ -6,4 +6,3 @@ export interface IInsert {
     values(...values: any[]): this;
     stringify(): string;
 }
-//# sourceMappingURL=IInsert.d.ts.map

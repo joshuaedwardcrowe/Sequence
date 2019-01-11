@@ -9,4 +9,3 @@ export declare class IntoLocation extends SequenceLocation implements IIntoLocat
     stringify(): string;
     private getColumnsWithoutPredicate;
 }
-//# sourceMappingURL=IntoLocation.d.ts.map

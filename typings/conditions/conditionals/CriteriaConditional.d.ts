@@ -9,4 +9,3 @@ export declare class CriteriaConditional extends SequenceConditional implements 
     constructor(conditional: Conditional, column: ISequenceColumn, ...values: any[]);
     stringify(): string;
 }
-//# sourceMappingURL=CriteriaConditional.d.ts.map

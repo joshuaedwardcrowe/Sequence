@@ -10,7 +10,7 @@ import {SequenceAssignment} from "./assignments/SequenceAssignment";
 import {SequenceAssignation} from "./assignments/assignations/SequenceAssignation";
 import {IUpdate} from "./interfaces/IUpdate";
 import {ISequenceBuilder} from "./interfaces/ISequenceBuilder";
-import {Sanitise} from "./utilities/Sanitise";
+import {SqlSanitize} from "./utilities/SqlSanitise";
 import {Arrangement} from "./enums/Arrangement";
 
 export class Update extends SequenceBuilder implements IUpdate, ISequenceBuilder {
@@ -30,7 +30,7 @@ export class Update extends SequenceBuilder implements IUpdate, ISequenceBuilder
     }
 
     public column (column: ISequenceColumn, value: any): this {
-        this.assignment.assignations.push(new SequenceAssignation(column, Sanitise.input(value)));
+        this.assignment.assignations.push(new SequenceAssignation(column, SqlSanitize.input(value)));
         return this;
     }
 
@@ -47,10 +47,12 @@ export class Update extends SequenceBuilder implements IUpdate, ISequenceBuilder
     }
 
     public stringify (): string {
-        const operation: string = Sanitise.part(this.operation);
-        const location: string = Sanitise.part(this.location);
-        const assignment: string = Sanitise.part(this.assignment);
-        return (`${operation}${location}${assignment}${this.stringifyBase()}`).trim();
+        this.addPartToBuilder(this.operation);
+        this.addPartToBuilder(this.location);
+        this.addPartToBuilder(this.assignment);
+        this.addBaseToBuilder();
+
+        return this.builder.toString().trim();
     }
 
 }

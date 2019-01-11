@@ -7,6 +7,8 @@ import { ISequenceOperation } from "./interfaces/operations/ISequenceOperation";
 import { ISequenceLocation } from "./interfaces/locations/ISequenceLocation";
 import { ISequenceCondition } from "./interfaces/conditions/ISequenceCondition";
 import { Arrangement } from "./enums/Arrangement";
+import { ISequencePart } from "./interfaces/ISequencePart";
+import { SqlStringBuilder } from "./utilities/SqlStringBuilder";
 export declare abstract class SequenceBuilder {
     condition: ISequenceCondition;
     location: ISequenceLocation;
@@ -15,13 +17,14 @@ export declare abstract class SequenceBuilder {
     ordering: ISequenceFormation;
     grouping: ISequenceFormation;
     limitation: LimitFormation;
+    protected builder: SqlStringBuilder;
     where(column: ISequenceColumn, logicalOperator: LogicalOperator, comparisonValue: any): this;
     whereIn(column: ISequenceColumn, ...values: any[]): void;
     whereNotIn(column: ISequenceColumn, ...values: any[]): void;
     orderBy(column: ISequenceColumn, arrangement: Arrangement): this;
     groupBy(column: ISequenceColumn, arrangement: Arrangement): this;
     limit(amount: number): this;
-    protected stringifyBase(): string;
-    private stringifyJoins;
+    protected addBaseToBuilder(): void;
+    protected addPartToBuilder(part: ISequencePart, alterations?: (stringified: string) => string): void;
+    private addJoinsToBuilder;
 }
-//# sourceMappingURL=SequenceBuilder.d.ts.map

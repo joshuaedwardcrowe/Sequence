@@ -10,4 +10,3 @@ export declare class SequenceAssignation extends SequencePart implements ISequen
     constructor(column: ISequenceColumn, value: any);
     stringify(): string;
 }
-//# sourceMappingURL=SequenceAssignation.d.ts.map

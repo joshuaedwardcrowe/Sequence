@@ -1,11 +1,12 @@
 {
   "name": "@gallink/sequence",
-  "version": "1.1.3",
+  "version": "1.3.0",
   "description": "SQL string builder.",
   "main": "dist/sequence.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha *"
+    "deploy:patch": "gulp build && npm version patch && npm publish",
+    "deploy:minor": "gulp build && npm version minor && npm publish"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
   },
   "homepage": "https://github.com/Gallink/Sequence#readme",
   "devDependencies": {
-    "@gallink/oxygen": "^1.1.2",
+    "@gallink/oxygen": "^1.2.8",
     "@types/chai": "^4.1.7",
     "@types/gulp": "^4.0.5",
     "@types/mocha": "^5.2.5",
@@ -31,14 +32,14 @@
     "gulp-clean": "^0.4.0",
     "gulp-hub": "^4.2.0",
     "gulp-typedoc": "^2.2.1",
-    "gulp-typescript": "^5.0.0-alpha.3",
+    "gulp-typescript": "^5.0.0",
     "merge2": "^1.2.3",
     "mocha": "^5.2.0",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.6.3",
     "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
+    "tslint": "^5.12.1",
     "typedoc": "^0.13.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.2"
   },
   "dependencies": {}
 }

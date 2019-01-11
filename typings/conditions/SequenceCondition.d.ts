@@ -11,4 +11,3 @@ export declare class SequenceCondition extends SequenceCoalescent implements ISe
     stringify(): string;
     protected static stringifyCondition(condition: Condition): string;
 }
-//# sourceMappingURL=SequenceCondition.d.ts.map

@@ -5,4 +5,3 @@ export interface ISequenceFilter extends ISequenceCoalescable {
     column: ISequenceColumn;
     arrangement: Arrangement;
 }
-//# sourceMappingURL=ISequenceFilter.d.ts.map

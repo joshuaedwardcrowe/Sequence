@@ -3,4 +3,3 @@ export declare enum Location {
     Into = 1,
     None = 2
 }
-//# sourceMappingURL=Location.d.ts.map

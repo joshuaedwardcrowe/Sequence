@@ -9,4 +9,3 @@ export declare class SequenceOperation extends SequenceCoalescent implements ISe
     stringify(): string;
     protected static stringifyOperation(operationType: Operation): string;
 }
-//# sourceMappingURL=SequenceOperation.d.ts.map

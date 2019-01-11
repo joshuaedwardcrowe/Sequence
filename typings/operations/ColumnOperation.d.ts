@@ -8,4 +8,3 @@ export declare class ColumnOperation extends SequenceOperation implements ISeque
     constructor(operation: Operation, ...columns: ISequenceColumn[]);
     stringify(): string;
 }
-//# sourceMappingURL=ColumnOperation.d.ts.map

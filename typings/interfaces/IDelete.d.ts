@@ -4,4 +4,3 @@ export interface IDelete {
     from(tableName: string): this;
     stringify(): string;
 }
-//# sourceMappingURL=IDelete.d.ts.map

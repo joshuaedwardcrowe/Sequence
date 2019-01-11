@@ -6,4 +6,3 @@ export interface ISequenceSupplement extends ISequencePart {
     readonly wrapping: Wrapping;
     readonly values: any[];
 }
-//# sourceMappingURL=ISequenceSupplement.d.ts.map

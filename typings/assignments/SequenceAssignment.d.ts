@@ -12,4 +12,3 @@ export declare class SequenceAssignment extends SequenceCoalescent implements IS
     stringify(): string;
     protected static stringifyAssignment(assignment: Assignment): string;
 }
-//# sourceMappingURL=SequenceAssignment.d.ts.map

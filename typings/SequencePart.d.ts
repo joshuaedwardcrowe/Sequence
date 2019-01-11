@@ -4,4 +4,3 @@ export declare abstract class SequencePart {
     protected static stringifyWrapping(wrapping: Wrapping, values: any[]): string;
     protected static stringifyLogicalOperator(logicalOperator: LogicalOperator): ">" | ">=" | "=" | "<" | "<=" | "/" | "%";
 }
-//# sourceMappingURL=SequencePart.d.ts.map

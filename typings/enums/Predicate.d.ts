@@ -3,4 +3,3 @@ export declare enum Predicate {
     Distinct = 1,
     Count = 2
 }
-//# sourceMappingURL=Predicate.d.ts.map

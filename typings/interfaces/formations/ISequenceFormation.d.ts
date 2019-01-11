@@ -5,4 +5,3 @@ export interface ISequenceFormation extends ISequencePart {
     readonly formation: Formation;
     readonly filters: ISequenceFilter[];
 }
-//# sourceMappingURL=ISequenceFormation.d.ts.map

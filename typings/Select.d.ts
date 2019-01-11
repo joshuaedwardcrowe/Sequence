@@ -7,4 +7,3 @@ export declare class Select extends SequenceBuilder implements ISelect {
     from(tableName: string): this;
     stringify(): string;
 }
-//# sourceMappingURL=Select.d.ts.map

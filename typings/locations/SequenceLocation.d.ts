@@ -9,4 +9,3 @@ export declare class SequenceLocation extends SequencePart implements ISequenceL
     protected static stringifyLocation(location: Location): string;
     protected static padLocation(location: Location, stringified: string): string;
 }
-//# sourceMappingURL=SequenceLocation.d.ts.map

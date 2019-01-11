@@ -11,6 +11,4 @@ export declare class Delete extends SequenceBuilder implements IDelete, ISequenc
     groupBy(column: ISequenceColumn, arrangement: Arrangement): this;
     limit(amount: number): this;
     stringify(): string;
-    private stringifyOperation;
 }
-//# sourceMappingURL=Delete.d.ts.map

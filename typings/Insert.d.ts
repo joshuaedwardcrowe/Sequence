@@ -17,4 +17,3 @@ export declare class Insert extends SequenceBuilder implements IInsert {
     limit(amount: number): this;
     stringify(): string;
 }
-//# sourceMappingURL=Insert.d.ts.map

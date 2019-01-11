@@ -10,4 +10,3 @@ export declare class SequenceConditional extends SequencePart implements ISequen
     stringify(): string;
     static stringifyConditional(conditionalType: Conditional): string;
 }
-//# sourceMappingURL=SequenceConditional.d.ts.map

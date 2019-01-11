@@ -5,4 +5,3 @@ export interface ISequenceCondition extends ISequencePart {
     readonly condition: Condition;
     conditionals: ISequenceConditional[];
 }
-//# sourceMappingURL=ISequenceCondition.d.ts.map

@@ -5,4 +5,3 @@ export declare class LimitFormation extends SequenceFormation implements ILimitF
     constructor(amount?: number);
     stringify(): string;
 }
-//# sourceMappingURL=LimitFormation.d.ts.map

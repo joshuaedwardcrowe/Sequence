@@ -14,4 +14,3 @@ export declare class Update extends SequenceBuilder implements IUpdate, ISequenc
     limit(amount: number): this;
     stringify(): string;
 }
-//# sourceMappingURL=Update.d.ts.map
