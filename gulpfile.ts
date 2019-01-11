@@ -7,6 +7,7 @@ task("build", series([
     "CleanActiveDirectories",
     "CompileSource",
     "CompileSourceIndex",
+    "RenameSourceIndex",
     "CompileTypingIndex",
     "GenerateDocumentation",
     "DisableJekyll"
